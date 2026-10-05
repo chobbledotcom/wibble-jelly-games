@@ -38,7 +38,6 @@ const DELETED = [
   "src/guide-categories",
   "src/pages/about.md",
   "src/pages/blocks.md",
-  "src/pages/contact.md",
   "src/pages/guide.md",
   "src/pages/home.md",
   "src/pages/how-it-works.md",
