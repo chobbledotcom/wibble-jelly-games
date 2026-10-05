@@ -10,10 +10,10 @@ blocks:
   - type: hero
     content: |
       # Crack The Code
-  - type: markdown
+  - type: split-image
+    figure_src: /images/CrackTheCode.png
+    figure_alt: Crack The Code
     content: |
-      ![Crack The Code](/images/CrackTheCode.png)
-
       Crack The Code is a fun mental challenge game.
 
       When the start button is pressed a secret colour code is locked into each player’s buttons. Each player must now try and guess the code whilst racing against the clock.
@@ -21,7 +21,12 @@ blocks:
       First to Crack The Code wins – it’s harder than it looks! This game is particularly suited to Crystal Maze type challenge events.
 
       Suitable for teenagers and adults and great at any fun day, corporate event, wedding, youth club, birthday party or any other event you may be having. Crack The Code is build into a sturdy flight case with a removable lid and is mains powered.
-
+    button:
+      text: Contact Us About Crack The Code
+      href: /contact-form-games-sales/
+      variant: primary
+  - type: markdown
+    content: |
       Total duration of the game play is 60 seconds resulting in a new set of contestants approximately every minute. Total throughput is 120 players (60 games) per hour.
 
       #### ***Tournament Suggestions:***
@@ -32,7 +37,8 @@ blocks:
       - People randomly play the game, as each game is finished a new set of players take over.
       - Knockout Tournament – contestants pair up and the winner progresses to the next round with a grand final at the end.
       - Winner Stays On – the winner of each game stays on playing all comers until they in turn are beaten.
-
+  - type: split-full
+    left_content: |
       #### ***Game Dimensions:***
 
       |   | Cased For Transport | Ready For Play |
@@ -43,7 +49,7 @@ blocks:
       | Weight: | 15 kg | 13 kg |
 
       Note: All dimensions and weights are approximate
-
+    right_content: |
       #### ***Power Requirements:***
 
       | Input Voltage: | 90 – 264 VAC |
@@ -58,10 +64,10 @@ blocks:
         label: Product Info Sheet
       - file: /files/RA_CrackTheCode.pdf
         label: Risk Assessment
-  - type: markdown
+  - type: cta
     content: |
       *For more information or to purchase a Crack The Code game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
-  - type: link-button
-    text: Contact Us About Crack The Code
-    href: /contact-form-games-sales/
----
+    button:
+      text: Contact Us About Crack The Code
+      href: /contact-form-games-sales/
+      variant: primary

@@ -2,6 +2,9 @@
 // (capture/palette-typography.md and the Radiate theme stylesheet):
 // links/buttons/accents #632E9B, body text #444444, meta text #999999,
 // borders #EAEAEA, white background, 1218px container, Roboto everywhere.
+// On top of the capture mapping, a few deliberate pro-polish departures:
+// slightly larger radii, a brand-tinted hover background, a darker link
+// hover (the source kept link colour unchanged on hover), and a soft shadow.
 :root {
   --width-content: 1218px;
   --color-bg: #fff;
@@ -11,13 +14,14 @@
   --color-text: #444;
   --color-text-muted: #999;
   --color-link: #632e9b;
-  --color-link-hover: #632e9b; // the source keeps link color unchanged on hover
+  --color-link-hover: #52277e;
   --color-tint: #f3ecf9;
   --color-secondary: #632e9b;
   --color-accent: #632e9b;
-  --color-hover-bg: rgb(0 0 0 / 5%);
+  --color-hover-bg: rgb(99 46 155 / 6%);
   --border: 1px solid #eaeaea;
-  --border-radius: 4px;
+  --border-radius: 6px;
+  --box-shadow: 0 1px 2px rgb(0 0 0 / 6%), 0 4px 12px rgb(99 46 155 / 8%);
   --font-family-body: roboto, system-ui, -apple-system, "Segoe UI", arial, sans-serif;
   --font-family-heading: roboto, system-ui, -apple-system, "Segoe UI", arial, sans-serif;
   --link-decoration: none;

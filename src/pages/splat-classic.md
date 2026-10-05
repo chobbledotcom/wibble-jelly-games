@@ -10,10 +10,10 @@ blocks:
   - type: hero
     content: |
       # SPLAT! – Classic
-  - type: markdown
+  - type: split-image
+    figure_src: /images/SPLAT_Classic.png
+    figure_alt: SPLAT! Classic Game
     content: |
-      ![SPLAT! Classic Game](/images/SPLAT_Classic.png)
-
       SPLAT! is an amazing and fun “Chase The Lights Game” where two players race to press the light before their opponent.
 
       SPLAT! Mono is identical to [SPLAT! Mono](/splat-mono/) but has a colourfull colour scheme
@@ -21,7 +21,12 @@ blocks:
       Each player has a set of lights that light up one at a time, the aim of the game is to press the light that is turned on before your opponent. The faster you press the lights the faster they light up. Suitable for all ages as it plays slowly for young children and very fast for the nimble fingered video game Ninjas!
 
       This game is great at any fun day, corporate event, wedding, youth club, birthday party or any other event you may be having. SPLAT! is build into a sturdy flight case with a removable lid and is mains powered.
-
+    button:
+      text: Contact Us About SPLAT! Classic
+      href: /contact-form-games-sales/
+      variant: primary
+  - type: markdown
+    content: |
       Total duration of the game play is 50 seconds resulting in a new set of contestants approximately every minute. Total throughput is 120 players (60 games) per hour.
 
       #### ***Tournament Suggestions:***
@@ -37,8 +42,8 @@ blocks:
     name: "SPLAT! – Classic video"
     aspect_ratio: 16/9
     max_width: 768px
-  - type: markdown
-    content: |
+  - type: split-full
+    left_content: |
       #### ***Game Dimensions:***
 
       | Width: | 50 cm |
@@ -48,7 +53,7 @@ blocks:
       | Weight: | 15 kg |
 
       Note: All dimensions and weights are approximate
-
+    right_content: |
       #### ***Power Requirements:***
 
       | Input Voltage: | 90 – 264 VAC |
@@ -65,10 +70,10 @@ blocks:
         label: Manual
       - file: /files/RA_SPLAT.pdf
         label: Risk Assessment
-  - type: markdown
+  - type: cta
     content: |
       *For more information or to purchase a SPLAT! Classis game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
-  - type: link-button
-    text: Contact Us About SPLAT! Classic
-    href: /contact-form-games-sales/
----
+    button:
+      text: Contact Us About SPLAT! Classic
+      href: /contact-form-games-sales/
+      variant: primary

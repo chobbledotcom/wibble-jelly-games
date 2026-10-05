@@ -10,10 +10,10 @@ blocks:
   - type: hero
     content: |
       # Hole In One
-  - type: markdown
+  - type: split-image
+    figure_src: /images/HoleInOne.png
+    figure_alt: Hole In One Golf Game
     content: |
-      ![Hole In One Golf Game](/images/HoleInOne.png)
-
       Hole In One is a fun and challenging golf game.
 
       Play starts when a successful putt is make. The player must then successfully sink a putt in all of the holes to stop the clock. The diamonds on the display start out white and turn yellow as each putt is sunk.
@@ -21,13 +21,19 @@ blocks:
       The game remembers the high score and displays “Today’s High Score” if the current high score is exceeded or matched. Otherwise it displays “Game Over – Winner” if the player is successful in sinking all of the putts within the time limit. The high score is reset when the game is power cycled.
 
       Suitable for teenagers and adults and great at any fun day, corporate event, wedding, youth club, birthday party or any other event you may be having. Hole In One is build into a sturdy flight case with a removable lid and is mains powered.
-
+    button:
+      text: Contact Us About Hole In One
+      href: /contact-form-games-sales/
+      variant: primary
+  - type: markdown
+    content: |
       Total duration of the game play is 90 seconds resulting in a new set of contestants approximately every minute and a half. Total throughput is approximately 40 players per hour.
 
       #### ***Tournament Suggestions:***
 
       Hole In One can best be used in conjunction with a leader board, moving the players down the board as their scores are bettered.
-
+  - type: split-full
+    left_content: |
       #### ***Game Dimensions:***
 
       |   | Backdrop | Base | Ready For Play |
@@ -38,7 +44,7 @@ blocks:
       | Weight: | 15 kg | 18 kg | 33 kg |
 
       Note: All dimensions and weights are approximate
-
+    right_content: |
       #### ***Power Requirements:***
 
       | Input Voltage: | 90 – 264 VAC |
@@ -53,10 +59,10 @@ blocks:
         label: Product Info Sheet
       - file: /files/OOPs_UnderConstruction.pdf
         label: Risk Assessment
-  - type: markdown
+  - type: cta
     content: |
       *For more information or to purchase a Hole In One game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
-  - type: link-button
-    text: Contact Us About Hole In One
-    href: /contact-form-games-sales/
----
+    button:
+      text: Contact Us About Hole In One
+      href: /contact-form-games-sales/
+      variant: primary

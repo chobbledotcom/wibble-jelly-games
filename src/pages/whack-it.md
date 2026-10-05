@@ -12,7 +12,6 @@ blocks:
       # Whack It!
 
       ## Coming July 2026!
-  - type: markdown
-    content: |
-      ![](/images/WhackIt.png)
----
+  - type: split-image
+    figure_src: /images/WhackIt.png
+    figure_alt: Whack It!

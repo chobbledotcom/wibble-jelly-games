@@ -32,7 +32,10 @@ Forked from CfA Static. Template updates arrive only through a reviewed
 - **Theme**: `src/css/theme.scss` sets tokens mapped from the captured
   Radiate theme — `#632e9b` links/buttons/accent, `#444444` body text,
   `#999999` muted, `#eaeaea` 1px borders, white background, 1218px content
-  width, 4px radii, Roboto everywhere. `src/css/_fonts.scss` self-hosts
+  width, Roboto everywhere — plus a deliberate pro polish on top of the
+  capture: 6px radii, brand-tinted hover background, a darker link hover
+  (the source kept link colour unchanged on hover), and a soft shadow.
+  `src/css/_fonts.scss` self-hosts
   Roboto 400 (latin + latin-ext) from `src/assets/fonts/`. The source also
   loads Merriweather from Google Fonts but uses it only for textarea styles,
   which a static site without forms has no equivalent of, so it is omitted.
@@ -67,6 +70,11 @@ Forked from CfA Static. Template updates arrive only through a reviewed
   WordPress") and the Cookie Notice banner are dropped: the first is old
   platform attribution, the second exists only because WordPress set
   cookies.
+- **Product page layout**: the captured copy is re-presented with the
+  template's block layout — a split-image lead carrying the contact button,
+  the dimension and power tables as a split-full two-panel section, and a
+  closing call-to-action banner — instead of the source's single text block.
+  All wording is preserved verbatim.
 - Source typos and stale claims are preserved verbatim (e.g. "colourfull",
   "SPLAT! Classis", "I have know this to fail"); do not fix them silently.
 
