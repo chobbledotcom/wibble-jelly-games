@@ -171,7 +171,11 @@ src/assets/icons/iconify/test/
 # gitignore-aware scans, which breaks test/unit/scripts/cpd.test.js.
 /tmp/
 
-.claude
+# .claude/agents ships the template's agent definitions that the
+# documentation inventory and its gates require; the rest of .claude stays
+# local scratch state.
+.claude/*
+!.claude/agents
 .codex
 .opencode
 
