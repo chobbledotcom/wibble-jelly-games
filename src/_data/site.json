@@ -6,18 +6,16 @@
 	"cms_config": {
 		"collections": [
 			"pages",
-			"news",
-			"guide-categories",
-			"guide-pages",
-			"snippets"
+			"snippets",
+			"news"
 		],
 		"features": {
 			"permalinks": true,
 			"redirects": true,
-			"faqs": true,
-			"galleries": true,
-			"external_navigation_urls": true,
-			"no_index": true
+			"faqs": false,
+			"galleries": false,
+			"external_navigation_urls": false,
+			"no_index": false
 		},
 		"hasSrcFolder": true,
 		"customBlocksCollections": []

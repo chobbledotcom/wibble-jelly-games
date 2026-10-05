@@ -583,38 +583,8 @@ components:
       - { name: compact, type: boolean, label: Compact }
       - { name: title, type: string, label: Title }
       - { name: levels, type: string, label: Heading Levels }
-  faqs:
-    label: FAQs
-    type: object
-    list: true
-    fields:
-      - { name: question, type: string, label: Question, required: true }
-      - { name: answer, type: string, label: Answer, required: true }
-  gallery:
-    type: image
-    label: Gallery
-    options:
-      multiple: true
   block_news_meta:
     label: News Meta
-    type: object
-    fields:
-      - { name: dark, type: boolean, label: Dark }
-      - { name: compact, type: boolean, label: Compact }
-  block_guide_header:
-    label: Guide Header
-    type: object
-    fields:
-      - { name: dark, type: boolean, label: Dark }
-      - { name: compact, type: boolean, label: Compact }
-  block_guide_pages_list:
-    label: Guide Pages List
-    type: object
-    fields:
-      - { name: dark, type: boolean, label: Dark }
-      - { name: compact, type: boolean, label: Compact }
-  block_guide_navigation:
-    label: Guide Navigation
     type: object
     fields:
       - { name: dark, type: boolean, label: Dark }
@@ -644,9 +614,7 @@ content:
         fields:
           - { name: key, type: string }
           - { name: order, type: number }
-          - { name: url, type: string }
       - { name: layout, type: string }
-      - { name: no_index, type: boolean, label: Hide from listings }
       - name: blocks
         label: Content Blocks
         type: block
@@ -687,8 +655,17 @@ content:
           - { name: table-of-contents, component: block_table_of_contents }
       - { name: permalink, type: string, label: Permalink }
       - { name: redirect_from, type: string, label: Redirect From, list: true }
-      - { name: faqs, component: faqs }
-      - { name: gallery, component: gallery }
+  - name: snippets
+    label: Snippets
+    path: src/snippets
+    type: collection
+    subfolders: true
+    filename: "{name}.md"
+    exclude:
+      - README.md
+    fields:
+      - { name: name, type: string, label: Name, required: true }
+      - { name: body, type: rich-text, label: Body }
   - name: news
     label: News
     path: src/news
@@ -709,11 +686,8 @@ content:
       - { name: subtitle, type: string, label: Subtitle }
       - { name: meta_title, component: meta_title }
       - { name: meta_description, component: meta_description }
-      - { name: no_index, type: boolean, label: Hide from listings }
       - { name: permalink, type: string, label: Permalink }
       - { name: redirect_from, type: string, label: Redirect From, list: true }
-      - { name: faqs, component: faqs }
-      - { name: gallery, component: gallery }
       - name: blocks
         label: Content Blocks
         type: block
@@ -753,134 +727,6 @@ content:
           - { name: split-image, component: block_split_image }
           - { name: stats, component: block_stats }
           - { name: table-of-contents, component: block_table_of_contents }
-  - name: guide-categories
-    label: Guide Categories
-    path: src/guide-categories
-    type: collection
-    subfolders: true
-    filename: "{name}.md"
-    fields:
-      - { name: name, type: string, label: Name, required: true }
-      - { name: subtitle, type: string, label: Subtitle }
-      - { name: order, type: number, label: Order }
-      - { name: icon, type: image, label: Icon }
-      - { name: permalink, type: string, label: Permalink }
-      - { name: redirect_from, type: string, label: Redirect From, list: true }
-      - { name: faqs, component: faqs }
-      - { name: gallery, component: gallery }
-      - name: blocks
-        label: Content Blocks
-        type: block
-        list: true
-        blockKey: type
-        blocks:
-          - { name: callout, component: block_callout }
-          - { name: code-block, component: block_code_block }
-          - { name: cta, component: block_cta }
-          - { name: downloads, component: block_downloads }
-          - { name: faqs, component: block_faqs }
-          - { name: features, component: block_features }
-          - { name: gallery, component: block_gallery }
-          - { name: guide-categories, component: block_guide_categories }
-          - { name: guide-header, component: block_guide_header }
-          - { name: guide-pages-list, component: block_guide_pages_list }
-          - { name: hero, component: block_hero }
-          - { name: html, component: block_html }
-          - { name: icon-links, component: block_icon_links }
-          - { name: iframe-embed, component: block_iframe_embed }
-          - { name: image-background, component: block_image_background }
-          - { name: image-cards, component: block_image_cards }
-          - { name: include, component: block_include }
-          - { name: items, component: block_items }
-          - { name: items-array, component: block_items_array }
-          - { name: items-text-list, component: block_items_text_list }
-          - { name: link-button, component: block_link_button }
-          - { name: link-columns, component: block_link_columns }
-          - { name: markdown, component: block_markdown }
-          - { name: marquee-images, component: block_marquee_images }
-          - { name: section-header, component: block_section_header }
-          - { name: snippet, component: block_snippet }
-          - { name: split-callout, component: block_split_callout }
-          - { name: split-code, component: block_split_code }
-          - { name: split-full, component: block_split_full }
-          - { name: split-html, component: block_split_html }
-          - { name: split-icon-links, component: block_split_icon_links }
-          - { name: split-image, component: block_split_image }
-          - { name: stats, component: block_stats }
-          - { name: table-of-contents, component: block_table_of_contents }
-  - name: guide-pages
-    label: Guide Pages
-    path: src/guide-pages
-    type: collection
-    subfolders: true
-    filename: "{name}.md"
-    fields:
-      - { name: name, type: string, label: Name, required: true }
-      - { name: subtitle, type: string, label: Subtitle }
-      - name: guide-category
-        label: Guide Category
-        type: reference
-        options:
-          collection: guide-categories
-          search: fields.name
-          value: "{path}"
-          label: "{fields.name}"
-      - { name: order, type: number, label: Order }
-      - { name: permalink, type: string, label: Permalink }
-      - { name: redirect_from, type: string, label: Redirect From, list: true }
-      - { name: faqs, component: faqs }
-      - { name: gallery, component: gallery }
-      - name: blocks
-        label: Content Blocks
-        type: block
-        list: true
-        blockKey: type
-        blocks:
-          - { name: callout, component: block_callout }
-          - { name: code-block, component: block_code_block }
-          - { name: cta, component: block_cta }
-          - { name: downloads, component: block_downloads }
-          - { name: faqs, component: block_faqs }
-          - { name: features, component: block_features }
-          - { name: gallery, component: block_gallery }
-          - { name: guide-categories, component: block_guide_categories }
-          - { name: guide-header, component: block_guide_header }
-          - { name: guide-navigation, component: block_guide_navigation }
-          - { name: hero, component: block_hero }
-          - { name: html, component: block_html }
-          - { name: icon-links, component: block_icon_links }
-          - { name: iframe-embed, component: block_iframe_embed }
-          - { name: image-background, component: block_image_background }
-          - { name: image-cards, component: block_image_cards }
-          - { name: include, component: block_include }
-          - { name: items, component: block_items }
-          - { name: items-array, component: block_items_array }
-          - { name: items-text-list, component: block_items_text_list }
-          - { name: link-button, component: block_link_button }
-          - { name: link-columns, component: block_link_columns }
-          - { name: markdown, component: block_markdown }
-          - { name: marquee-images, component: block_marquee_images }
-          - { name: section-header, component: block_section_header }
-          - { name: snippet, component: block_snippet }
-          - { name: split-callout, component: block_split_callout }
-          - { name: split-code, component: block_split_code }
-          - { name: split-full, component: block_split_full }
-          - { name: split-html, component: block_split_html }
-          - { name: split-icon-links, component: block_split_icon_links }
-          - { name: split-image, component: block_split_image }
-          - { name: stats, component: block_stats }
-          - { name: table-of-contents, component: block_table_of_contents }
-  - name: snippets
-    label: Snippets
-    path: src/snippets
-    type: collection
-    subfolders: true
-    filename: "{name}.md"
-    exclude:
-      - README.md
-    fields:
-      - { name: name, type: string, label: Name, required: true }
-      - { name: body, type: rich-text, label: Body }
   - name: site
     label: Site Configuration
     type: file
