@@ -6,6 +6,7 @@
       "**/*.mjs",
       "!_site",
       "!coverage",
+      "!capture",
       "!result",
       "!test/temp-*",
       "!**/.*"

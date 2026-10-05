@@ -15,12 +15,11 @@
 	"project": [
 		"**/*.{js,mjs}"
 	],
-	"ignore": [],
+	"ignore": ["capture/**"],
 	"ignoreDependencies": [
 		"@biomejs/biome",
 		"jscpd",
 		"pagefind",
-		"postcss-scss",
 		"zod"
 	],
 	"ignoreBinaries": [],
