@@ -1,0 +1,29 @@
+{%- comment -%}
+Code block with terminal-style header and decorative dots.
+
+Parameters (via block object):
+  - block.intro_content: Optional markdown intro rendered above the code block
+  - block.filename: Displayed in the toolbar header
+  - block.code: Code content
+  - block.language: Sets data-language
+  - block.reveal: If true, adds data-reveal animation
+
+Embeddable (direct params with `block: false`, used by the split-code figure):
+  {% include "design-system/blocks/code-block.html",
+     block: false, filename: "example.js", code: "const x = 1;", language: "javascript"
+  %}
+{%- endcomment -%}
+
+{%- include "design-system/block-intro.html" -%}
+
+{%- assign _filename = filename | default: block.filename -%}
+{%- assign _code = code | default: block.code -%}
+{%- assign _language = language | default: block.language -%}
+
+<div class="code-block"{% if block.reveal %} data-reveal{% endif %}>
+  <div class="code-block-toolbar">
+    <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    <span>{{ _filename }}</span>
+  </div>
+  <pre><code{% if _language %} data-language="{{ _language }}"{% endif %}>{{ _code }}</code></pre>
+</div>

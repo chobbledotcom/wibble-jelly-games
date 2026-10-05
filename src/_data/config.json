@@ -1,0 +1,10 @@
+{
+  "show_breadcrumbs": false,
+  "placeholder_images": true,
+  "enable_theme_switcher": false,
+  "nav_thumbnails": false,
+  "search_collections": [
+    "pages",
+    "news"
+  ]
+}

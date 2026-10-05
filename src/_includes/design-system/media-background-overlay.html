@@ -1,0 +1,14 @@
+{%- comment -%}
+Overlay figure for the *-background blocks. Renders hero-style content
+(badge, markdown content in .prose, buttons) inside a <figcaption>, or
+nothing at all for media-only blocks. See hero-content.html for the
+block parameter documentation.
+{%- endcomment -%}
+
+{%- if block.badge or block.content or block.buttons.size > 0 -%}
+  <figure>
+    <figcaption>
+      {%- include "design-system/hero-content.html", block: block -%}
+    </figcaption>
+  </figure>
+{%- endif -%}

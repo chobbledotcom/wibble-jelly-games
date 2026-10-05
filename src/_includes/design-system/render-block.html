@@ -1,0 +1,9 @@
+{%- comment -%}
+Renders a single block by type. Used by blocks.html.
+
+Each block type `<X>` is rendered by `design-system/blocks/<X>.html`.
+The mapping is enforced by the `blockTemplate` filter (registered in
+`src/_lib/eleventy/blocks.js`), which throws on unknown types.
+{%- endcomment -%}
+{%- assign _block_template = block.type | blockTemplate -%}
+{%- include _block_template, block: block -%}

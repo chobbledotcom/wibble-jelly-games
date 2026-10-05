@@ -1,0 +1,31 @@
+{%- comment -%}
+Features grid with list semantics.
+
+Parameters (via block object):
+  - block.items: Array of feature objects with properties:
+    - icon: Icon content (see icon.html for the supported formats)
+    - icon_label: Accessible label for icon (optional, defaults to decorative)
+    - name: Feature title
+    - description: Feature description (supports markdown)
+    - style: Optional inline styles (e.g., for custom colors)
+  - block.reveal: If true, adds data-reveal animation
+  - block.center: If true, centers feature text
+  - block.intro_content: Optional markdown intro rendered above the grid
+{%- endcomment -%}
+
+{%- include "design-system/block-intro.html" -%}
+<ul class="features{% if block.center %} text-center{% endif %}" role="list">
+  {%- for item in block.items -%}
+  <li>
+    <article class="feature"{% if block.reveal %} data-reveal{% endif %}{% if item.style %} style="{{ item.style }}"{% endif %}>
+      {%- if item.icon -%}
+        {%- include "design-system/icon-badge.html", icon: item.icon, label: item.icon_label -%}
+      {%- endif -%}
+      <h3>{{ item.name }}</h3>
+      {%- if item.description -%}
+        <div class="prose">{{ item.description | renderContent: "md" }}</div>
+      {%- endif -%}
+    </article>
+  </li>
+  {%- endfor -%}
+</ul>

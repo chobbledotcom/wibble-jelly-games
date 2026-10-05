@@ -1,0 +1,153 @@
+// jscpd:ignore-start -- shared @use import block
+@use "sass:math";
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// ITEMS LIST (for list-item.html)
+// =============================================================================
+// Card-based item grid with optional horizontal slider.
+//
+// Layout strategy:
+//   - Cards use flex-col with gap for consistent spacing
+//   - No card-level padding; content elements handle their own inline padding
+//   - Media (images, video) as first child stretches edge-to-edge
+//   - Text content is inset via --item-padding-inline
+// =============================================================================
+
+.design-system {
+  ul.items {
+    --item-padding-inline: #{$space-md};
+    --item-gap: #{$space-sm};
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-lg;
+    list-style: none;
+
+    // Grid layout for non-slider
+    &:not(.slider, .masonry) {
+      > li {
+        flex: 1 1 $width-card;
+        max-width: 100%;
+
+        @include breakpoint.up("md") {
+          max-width: calc(50% - #{$space-lg} / 2);
+        }
+
+        @include breakpoint.up("lg") {
+          max-width: calc(33.333% - #{$space-lg} * 2 / 3);
+        }
+      }
+    }
+
+    // Slider variant inherits scroll/snap behavior from .slider (design-system/_slider.scss)
+    &.slider {
+      flex-wrap: nowrap;
+    }
+
+    // Masonry variant: positioned by JS using uWrap height prediction
+    &.masonry {
+      position: relative;
+      display: block;
+
+      > li {
+        will-change: transform;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        transition:
+          border-color $transition-normal,
+          outline-color $transition-normal;
+      }
+    }
+
+    // =========================================================================
+    // CARD (li)
+    // =========================================================================
+
+    > li {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: var(--item-gap);
+
+      @include box-border($radius-lg);
+      @include card-bg;
+      @include card-hover;
+
+      &.featured {
+        border-color: var(--color-accent);
+      }
+
+      // Shared inline padding for text content
+      h3,
+      .price,
+      p:not(.price) {
+        padding-inline: var(--item-padding-inline);
+      }
+
+      // Bottom padding on the card itself (images are always first,
+      // so this doesn't interfere with edge-to-edge media).
+      // Skip when the card only contains an image — bottom padding
+      // would look like dead space below an edge-to-edge thumbnail.
+      &:not(:has(> :not(.image-link))) {
+        padding-bottom: 0;
+      }
+
+      &:has(> :not(.image-link)) {
+        padding-bottom: var(--item-padding-inline);
+      }
+
+      // =======================================================================
+      // MEDIA: edge-to-edge images & video
+      // =======================================================================
+
+      .image-link {
+        @include edge-to-edge-media;
+      }
+
+      @include video-media;
+
+      // =======================================================================
+      // TEXT CONTENT
+      // =======================================================================
+
+      @include product-card-typography;
+
+      p:not(.price) {
+        @include muted-body-sm;
+      }
+
+      // =======================================================================
+      // CARD BUTTONS
+      // =======================================================================
+
+      // "Read more" style call-to-action button pinned to the card foot
+      > .button {
+        @include button-primary;
+
+        margin-block-start: auto;
+        margin-inline: var(--item-padding-inline);
+      }
+    }
+
+    // Video cards variant - disable hover transform since videos are interactive
+    &.video-cards > li {
+      &:hover {
+        transform: none;
+      }
+    }
+
+    // Expanded: 1 item = 100%, 2 = 50%, 3+ = 33.3%
+    &.expanded:not(.slider) > li {
+      flex: 1 1 100%;
+      min-width: calc(33.333% - #{$space-lg});
+      max-width: 100%;
+    }
+  }
+}

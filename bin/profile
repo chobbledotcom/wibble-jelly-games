@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# Profile the Eleventy build to find performance bottlenecks
+#
+# Usage:
+#   ./bin/profile          # Run profiling and generate reports
+#   ./bin/profile --open   # Open in speedscope after profiling
+#
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+PROFILE_DIR="$PROJECT_DIR/.profile"
+PROFILE_FILE="$PROFILE_DIR/build.cpuprofile"
+
+# Clean up and create profile directory
+rm -rf "$PROFILE_DIR"
+mkdir -p "$PROFILE_DIR"
+
+echo "=== Profiling Eleventy Build ==="
+echo ""
+
+cd "$PROJECT_DIR"
+rm -rf _site
+
+# Run the build with Node's CPU profiler writing straight to the target file
+node \
+  --cpu-prof \
+  --cpu-prof-dir "$PROFILE_DIR" \
+  --cpu-prof-name "build.cpuprofile" \
+  node_modules/@awesome.me/buildawesome/cmd.js
+
+echo ""
+echo "Generating report..."
+node "$SCRIPT_DIR/profile-report.js" "$PROFILE_FILE" "$PROFILE_DIR/report.txt" "$PROJECT_DIR"
+
+echo ""
+echo "Profile saved to: .profile/build.cpuprofile"
+echo "Report saved to:  .profile/report.txt"
+
+if [[ "$1" == "--open" ]]; then
+  echo ""
+  npx speedscope "$PROFILE_FILE"
+fi

@@ -1,0 +1,19 @@
+---
+layout: ""
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {%- for page in collections.all -%}
+    {%- if page.data.no_index != true and page.url -%}
+      {%- unless page.url contains "." -%}
+        {%- assign dates = page.inputPath | gitDates -%}
+        <url>
+          <loc>{{ page.url | canonicalUrl | escape }}</loc>
+          {%- if dates %}<lastmod>{{ dates.updated | isoDate }}</lastmod>{% endif -%}
+        </url>
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+</urlset>

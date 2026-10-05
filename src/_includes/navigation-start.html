@@ -1,0 +1,13 @@
+{%- comment -%}
+  Header slot before the menu. This site has no logo image: the source site
+  shows a text site title (its tagline is display:none in the source theme,
+  so none is rendered here). A `logo` set in site.json still renders as the
+  authored image.
+{%- endcomment -%}
+{%- if site.logo -%}
+  <a class="site-logo" href="{{ pageLanguage.home_url }}">
+    <img src="{{ site.logo }}" alt="{{ site.name }}" loading="eager" eleventy:ignore>
+  </a>
+{%- else -%}
+  <a class="site-title" href="{{ pageLanguage.home_url }}">{{ site.name }}</a>
+{%- endif -%}

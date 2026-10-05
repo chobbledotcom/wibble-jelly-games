@@ -1,0 +1,12 @@
+{%- comment -%}
+Section header with rich text intro.
+
+Parameters (via block object):
+  - block.intro: Rich text content rendered as markdown
+  - block.align: Text alignment; "center" adds .text-center
+  - block.class: Additional CSS classes
+{%- endcomment -%}
+
+<div class="section-header prose {%- if block.align == 'center' %} text-center{% endif %}{% if block.class %} {{ block.class }}{% endif %}">
+  {{ block.intro | renderContent: "md" }}
+</div>

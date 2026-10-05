@@ -1,0 +1,34 @@
+{%- comment -%}
+Split layout with text content and a styled callout box.
+
+Shares the text-side params with split.html (subtitle, content, reverse,
+reveal_content, reveal_figure, button). Additional callout-specific fields:
+    - block.figure_icon: Iconify ID, emoji, or image path
+    - block.figure_name: Bold heading text in the callout
+    - block.figure_subtitle: Supporting text
+    - block.figure_variant: Color scheme ("primary", "secondary", "gradient",
+      or a custom CSS gradient string)
+{%- endcomment -%}
+
+{%- case block.figure_variant -%}
+  {%- when "primary", "secondary", "gradient" -%}
+    {%- assign callout_class = "callout-box callout-box--" | append: block.figure_variant -%}
+  {%- else -%}
+    {%- assign callout_class = "callout-box" -%}
+    {%- assign callout_style = block.figure_variant -%}
+{%- endcase -%}
+
+<div class="split-callout{% if block.reverse %} split-callout--reverse{% endif %}">
+  {%- include "design-system/split-article.html" -%}
+  <figure class="{{ callout_class }}"{% if callout_style %} style="background: {{ callout_style }}"{% endif %} data-reveal="{{ block.reveal_figure }}">
+    {%- if block.figure_icon -%}
+      <div class="callout-box__icon">{%- include "design-system/icon.html", icon: block.figure_icon -%}</div>
+    {%- endif -%}
+    {%- if block.figure_name -%}
+      <strong class="callout-box__title">{{ block.figure_name }}</strong>
+    {%- endif -%}
+    {%- if block.figure_subtitle -%}
+      <p class="callout-box__subtitle">{{ block.figure_subtitle }}</p>
+    {%- endif -%}
+  </figure>
+</div>

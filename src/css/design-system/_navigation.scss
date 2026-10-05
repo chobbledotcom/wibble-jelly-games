@@ -1,0 +1,131 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+@use "../nav-mixins" as nav;
+// jscpd:ignore-end
+
+// =============================================================================
+// NAVIGATION
+// =============================================================================
+// Design-system version of navigation. Uses shared nav mixins but applies them
+// within .design-system scope, with design-system variables for spacing/sizing.
+
+.design-system {
+  // The nav that stays expanded: no JS, or a collapse_menu setting that does
+  // not apply at this width.
+  $expanded-nav: 'nav.site-nav:not([data-menu][data-collapse="always"])';
+
+  // ===========================================================================
+  // BASE NAV
+  // ===========================================================================
+
+  // Only the site's own header nav is positioned by these rules; other
+  // <nav> elements (guide breadcrumbs, table-of-contents) style themselves.
+  nav.site-nav {
+    @include nav.nav-base;
+
+    position: relative;
+
+    .nav-thumbnails {
+      @include nav.nav-thumbnails($space-xs);
+    }
+
+    // Shown only where the menu collapses (below)
+    .menu-toggle,
+    .menu-close {
+      display: none;
+    }
+
+    .site-logo img {
+      display: block;
+      width: auto;
+      height: 2.5rem;
+    }
+
+    .language-links {
+      display: flex;
+      gap: $space-sm;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+  }
+
+  // ===========================================================================
+  // COLLAPSED MENU - config.collapse_menu: "always" everywhere, "mobile" below
+  // md. Only once site-menu.js has marked the nav (data-menu); without
+  // JavaScript the menu stays expanded.
+  // ===========================================================================
+
+  @include nav.nav-collapsed-when("always", $space-sm, $transition-normal);
+
+  // ===========================================================================
+  // MOBILE NAV (md and below) - layout only
+  // ===========================================================================
+
+  @include breakpoint.down("md") {
+    @at-root html:has(body#{&}.sticky-mobile-nav) {
+      scroll-padding-top: 5rem;
+    }
+
+    @include nav.nav-collapsed-when("mobile", $space-sm, $transition-normal);
+
+    &.sticky-mobile-nav {
+      padding-top: 5rem;
+
+      nav.site-nav {
+        @include nav.nav-sticky-bar($z-sticky, $space-xs);
+      }
+    }
+  }
+
+  // ===========================================================================
+  // DESKTOP NAV (md and up) - layout only
+  // ===========================================================================
+
+  @include breakpoint.up("md") {
+    &.left-nav #{$expanded-nav} {
+      @include nav.nav-left($space-sm);
+    }
+  }
+
+  // ===========================================================================
+  // HORIZONTAL NAV (desktop layout plus hover-capable dropdown interaction)
+  // ===========================================================================
+
+  &.horizontal-nav {
+    @include breakpoint.up("md") {
+      #{$expanded-nav} {
+        @include nav.nav-horizontal-layout($space-lg, $space-xs);
+
+        position: sticky;
+        z-index: $z-sticky;
+        top: $space-sm;
+
+        margin-inline: $space-sm;
+        padding-block: $space-xs;
+        padding-inline: $space-lg;
+        border-radius: var(--border-radius);
+
+        background: var(--color-bg);
+      }
+    }
+
+    // Hover-mode (when device supports hover)
+    &.nav-can-hover #{$expanded-nav} {
+      @include nav.nav-hover-dropdowns;
+    }
+  }
+
+  // ===========================================================================
+  // MODE-BASED DROPDOWN INTERACTION
+  // ===========================================================================
+
+  // Click-mode (when device lacks hover)
+  &:not(.nav-can-hover) nav.site-nav {
+    @include nav.nav-submenu-toggle;
+  }
+}

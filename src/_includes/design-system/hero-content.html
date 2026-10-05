@@ -1,0 +1,32 @@
+{%- comment -%}
+Hero-style content: optional badge, markdown content wrapped in .prose, and
+action buttons below. Shared by the hero block and the *-background blocks.
+
+Parameters:
+  - block.badge: Optional badge text above the content
+  - block.content: Markdown content rendered in .prose
+  - block.buttons: Array of button objects with:
+    - text: Button label
+    - href: Link URL
+    - variant: "primary", "secondary", or "ghost"
+    - size: "sm", "lg", or omit for default
+
+Usage:
+  {% include "design-system/hero-content.html", block: block %}
+{%- endcomment -%}
+
+{%- if block.badge -%}
+  <span class="badge">{{ block.badge }}</span>
+{%- endif -%}
+{%- if block.content -%}
+  <div class="prose">
+    {{ block.content | renderContent: "md" }}
+  </div>
+{%- endif -%}
+{%- if block.buttons.size > 0 -%}
+  <div class="actions">
+    {%- for button in block.buttons -%}
+      {%- include "design-system/button.html", text: button.text, href: button.href, variant: button.variant, btn_size: button.size -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

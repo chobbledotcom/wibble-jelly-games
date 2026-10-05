@@ -1,0 +1,101 @@
+import { describe, expect, test } from "vitest";
+import eleventyComputed from "#data/eleventyComputed.js";
+
+const site = { name: "Test Site", url: "https://test.com" };
+
+describe("eleventyComputed.meta", () => {
+  test("returns post-shaped meta when the page is tagged 'news'", () => {
+    const result = eleventyComputed.meta({
+      tags: ["news"],
+      title: "Test Post",
+      site,
+      page: { url: "/news/test-post/", date: new Date("2024-01-15") },
+    });
+    expect(result.author.name).toBe("Test Site");
+    expect(result.published).toBe("2024-01-15");
+  });
+
+  test("a news tag after other tags takes precedence over organization schema", () => {
+    const result = eleventyComputed.meta({
+      tags: ["pages", "news"],
+      schema_type: "organization",
+      title: "Test Post",
+      site,
+      page: { url: "/news/test-post/", date: new Date("2024-01-15") },
+    });
+    expect(result.published).toBe("2024-01-15");
+  });
+
+  test("returns organization-shaped meta when schema_type is 'organization'", () => {
+    const result = eleventyComputed.meta({
+      schema_type: "organization",
+      name: "Contact Us",
+      site,
+      page: { url: "/contact/" },
+    });
+    expect(result.title).toBe("Contact Us");
+    expect(result.url).toBeDefined();
+  });
+
+  test("returns base meta for pages without a news/contact signal", () => {
+    const result = eleventyComputed.meta({
+      tags: ["pages"],
+      name: "About Us",
+      site,
+      page: { url: "/about/" },
+    });
+    expect(result.title).toBe("About Us");
+    expect(result.url).toBeDefined();
+  });
+
+  test("returns undefined when no_index is set, regardless of tags", () => {
+    expect(
+      eleventyComputed.meta({
+        tags: ["pages"],
+        title: "Secret Page",
+        no_index: true,
+        site,
+        page: { url: "/secret/" },
+      }),
+    ).toBeUndefined();
+  });
+});
+
+describe("eleventyComputed.metaComputed", () => {
+  test("returns the metaComputed object as-is when set", () => {
+    const metaComputed = { customField: "value" };
+    expect(eleventyComputed.metaComputed({ metaComputed })).toBe(metaComputed);
+  });
+
+  test("returns an empty object when metaComputed is not set", () => {
+    expect(eleventyComputed.metaComputed({})).toEqual({});
+  });
+
+  test("returns an empty object when no_index is set, dropping metaComputed", () => {
+    expect(
+      eleventyComputed.metaComputed({
+        no_index: true,
+        metaComputed: { customField: "leaky" },
+      }),
+    ).toEqual({});
+  });
+});
+
+describe("eleventyComputed.socialMeta", () => {
+  test("returns shared head metadata", () => {
+    expect(
+      eleventyComputed.socialMeta({
+        name: "News item",
+        meta_title: "SEO news title",
+        meta_description: "News description",
+        tags: ["news"],
+        site,
+        page: { url: "/news/item/" },
+      }),
+    ).toMatchObject({
+      title: "SEO news title",
+      description: "News description",
+      type: "article",
+    });
+  });
+});

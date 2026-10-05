@@ -1,0 +1,116 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// SLIDER (Horizontal Scrolling Cards)
+// =============================================================================
+
+.design-system {
+  .slider-container {
+    @include flex-col($space-md);
+
+    position: relative;
+
+    // Hide nav when content fits (no overflow)
+    &:not(:has(.slider.overflowing)) .slider-nav {
+      display: none;
+    }
+  }
+
+  .slider {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--color-text-muted) transparent;
+
+    // Hide scrollbar but keep functionality
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+
+    overflow: auto hidden;
+    display: flex;
+    gap: $space-lg;
+
+    padding-bottom: $space-sm; // Space for scrollbar
+
+    list-style: none;
+
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: $radius-full;
+      background: var(--color-text-muted);
+    }
+
+    @include reduced-motion-scroll;
+
+    > * {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+    }
+
+    // Default card width - can be overridden
+    > .feature,
+    > article,
+    > li {
+      width: $width-card;
+
+      @include breakpoint.up("md") {
+        width: $width-card-lg;
+      }
+    }
+  }
+
+  .slider-nav {
+    @include flex-row($space-md, center, center);
+  }
+
+  a.slider-prev,
+  a.slider-next {
+    @include button-base;
+    @include focus-ring;
+
+    cursor: pointer;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--body-background-alt);
+    border-radius: $radius-full;
+
+    font-size: $font-size-lg;
+    color: var(--color-text);
+    text-decoration: none;
+
+    @include card-bg;
+
+    transition: all $transition-fast;
+
+    &:hover:not([disabled]) {
+      border-color: var(--color-link);
+      color: $color-white;
+      background: var(--color-link);
+    }
+
+    &[disabled] {
+      @include disabled-state;
+    }
+  }
+
+  // Dark section variant - hover inherits from base rule above
+  .dark a.slider-prev,
+  .dark a.slider-next {
+    border-color: $color-dark-card-bg;
+    color: $color-dark-text;
+    background: var(--color-card-bg);
+  }
+}

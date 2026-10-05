@@ -1,0 +1,1174 @@
+{
+  "capturedAt": "2026-10-05T15:03:02.000Z",
+  "assets": [
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/cookie-notice/css/front.min.css?ver=3.1.12",
+      "file": "wordpress/wp-content/plugins/cookie-notice/css/front.min.css",
+      "bytes": 5830,
+      "contentType": "text/css",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "stylesheet"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-includes/css/dashicons.min.css?ver=7.1.2",
+      "file": "wordpress/wp-includes/css/dashicons.min.css",
+      "bytes": 59004,
+      "contentType": "text/css",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "stylesheet"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css?ver=1790041695",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css",
+      "bytes": 99014,
+      "contentType": "text/css",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "stylesheet"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/css/intlTelInput.css?ver=3.6.2",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/css/intlTelInput.css",
+      "bytes": 40520,
+      "contentType": "text/css",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "stylesheet"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/style.css?ver=7.1.2",
+      "file": "wordpress/wp-content/themes/radiate/style.css",
+      "bytes": 38970,
+      "contentType": "text/css",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "stylesheet"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/genericons/genericons.css?ver=3.3.1",
+      "file": "wordpress/wp-content/themes/radiate/genericons/genericons.css",
+      "bytes": 28529,
+      "contentType": "text/css",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "stylesheet"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/cookie-notice/js/front.min.js?ver=3.1.12",
+      "file": "wordpress/wp-content/plugins/cookie-notice/js/front.min.js",
+      "bytes": 9144,
+      "contentType": "application/javascript",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+      "file": "wordpress/wp-includes/js/jquery/jquery.min.js",
+      "bytes": 87553,
+      "contentType": "application/javascript",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+      "file": "wordpress/wp-includes/js/jquery/jquery-migrate.min.js",
+      "bytes": 13577,
+      "contentType": "application/javascript",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/js/navigation.js?ver=20120206",
+      "file": "wordpress/wp-content/themes/radiate/js/navigation.js",
+      "bytes": 4001,
+      "contentType": "application/javascript",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/js/skip-link-focus-fix.js?ver=20130115",
+      "file": "wordpress/wp-content/themes/radiate/js/skip-link-focus-fix.js",
+      "bytes": 761,
+      "contentType": "application/javascript",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/js/custom.js?ver=7.1.2",
+      "file": "wordpress/wp-content/themes/radiate/js/custom.js",
+      "bytes": 1385,
+      "contentType": "application/javascript",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/SPLAT_Classic.png",
+      "file": "wordpress/wp-content/uploads/SPLAT_Classic.png",
+      "bytes": 279794,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-52.html",
+        "page-76.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/SPLAT_Classic-300x150.png",
+      "file": "wordpress/wp-content/uploads/SPLAT_Classic-300x150.png",
+      "bytes": 52426,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-52.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/SPLAT_Classic-768x384.png",
+      "file": "wordpress/wp-content/uploads/SPLAT_Classic-768x384.png",
+      "bytes": 277055,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-52.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/StopTheClock.png",
+      "file": "wordpress/wp-content/uploads/StopTheClock.png",
+      "bytes": 732267,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-743.html",
+        "page-76.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/StopTheClock-300x221.png",
+      "file": "wordpress/wp-content/uploads/StopTheClock-300x221.png",
+      "bytes": 83869,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/StopTheClock-768x566.png",
+      "file": "wordpress/wp-content/uploads/StopTheClock-768x566.png",
+      "bytes": 523531,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/Frustration2_resizeimage.png",
+      "file": "wordpress/wp-content/uploads/Frustration2_resizeimage.png",
+      "bytes": 224914,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-386.html",
+        "page-76.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/Frustration2_resizeimage-300x268.png",
+      "file": "wordpress/wp-content/uploads/Frustration2_resizeimage-300x268.png",
+      "bytes": 45604,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-386.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/TitleBanner_Rev2.png",
+      "file": "wordpress/wp-content/uploads/TitleBanner_Rev2.png",
+      "bytes": 86075,
+      "contentType": "image/png",
+      "from": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ],
+      "note": "style-block"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/inputmask/jquery.inputmask.bundle.min.js?ver=4.0.0-beta.58",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/inputmask/jquery.inputmask.bundle.min.js",
+      "bytes": 77229,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/jquery-validate/jquery.validate.min.js?ver=1.21.0",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/jquery-validate/jquery.validate.min.js",
+      "bytes": 25047,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/intlTelInput/jquery.intlTelInput.min.js?ver=16.0.7",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/intlTelInput/jquery.intlTelInput.min.js",
+      "bytes": 29540,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/selectWoo/selectWoo.full.min.js?ver=1.0.8",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/selectWoo/selectWoo.full.min.js",
+      "bytes": 77238,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/frontend/everest-forms.min.js?ver=1790041695",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/frontend/everest-forms.min.js",
+      "bytes": 24314,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/mailcheck/mailcheck.min.js?ver=1.1.2",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/mailcheck/mailcheck.min.js",
+      "bytes": 3933,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/js/frontend/ajax-submission.min.js?ver=1790041695",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/js/frontend/ajax-submission.min.js",
+      "bytes": 12138,
+      "contentType": "application/javascript",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "script"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhatsApp.png",
+      "file": "wordpress/wp-content/uploads/WhatsApp.png",
+      "bytes": 459674,
+      "contentType": "image/png",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhatsApp-300x300.png",
+      "file": "wordpress/wp-content/uploads/WhatsApp-300x300.png",
+      "bytes": 38687,
+      "contentType": "image/png",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhatsApp-1021x1024.png",
+      "file": "wordpress/wp-content/uploads/WhatsApp-1021x1024.png",
+      "bytes": 233506,
+      "contentType": "image/png",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhatsApp-150x150.png",
+      "file": "wordpress/wp-content/uploads/WhatsApp-150x150.png",
+      "bytes": 15892,
+      "contentType": "image/png",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhatsApp-768x770.png",
+      "file": "wordpress/wp-content/uploads/WhatsApp-768x770.png",
+      "bytes": 162031,
+      "contentType": "image/png",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhatsApp-1532x1536.png",
+      "file": "wordpress/wp-content/uploads/WhatsApp-1532x1536.png",
+      "bytes": 537700,
+      "contentType": "image/png",
+      "from": [
+        "page-35.html",
+        "page-448.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/SPLAT_Mono.png",
+      "file": "wordpress/wp-content/uploads/SPLAT_Mono.png",
+      "bytes": 214503,
+      "contentType": "image/png",
+      "from": [
+        "page-365.html",
+        "page-76.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/SPLAT_Mono-300x150.png",
+      "file": "wordpress/wp-content/uploads/SPLAT_Mono-300x150.png",
+      "bytes": 43295,
+      "contentType": "image/png",
+      "from": [
+        "page-365.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/SPLAT_Mono-768x384.png",
+      "file": "wordpress/wp-content/uploads/SPLAT_Mono-768x384.png",
+      "bytes": 218769,
+      "contentType": "image/png",
+      "from": [
+        "page-365.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/ProductInfo_SPLAT.pdf",
+      "file": "docs/ProductInfo_SPLAT.pdf",
+      "bytes": 457966,
+      "contentType": "application/pdf",
+      "from": [
+        "page-365.html",
+        "page-52.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/Manual_SPLAT.pdf",
+      "file": "docs/Manual_SPLAT.pdf",
+      "bytes": 735661,
+      "contentType": "application/pdf",
+      "from": [
+        "page-365.html",
+        "page-52.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/RA_SPLAT.pdf",
+      "file": "docs/RA_SPLAT.pdf",
+      "bytes": 49373,
+      "contentType": "application/pdf",
+      "from": [
+        "page-365.html",
+        "page-52.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/ProductInfo_Frustration.pdf",
+      "file": "docs/ProductInfo_Frustration.pdf",
+      "bytes": 458215,
+      "contentType": "application/pdf",
+      "from": [
+        "page-386.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/CrackTheCode.png",
+      "file": "wordpress/wp-content/uploads/CrackTheCode.png",
+      "bytes": 310842,
+      "contentType": "image/png",
+      "from": [
+        "page-400.html",
+        "page-76.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/CrackTheCode-300x150.png",
+      "file": "wordpress/wp-content/uploads/CrackTheCode-300x150.png",
+      "bytes": 51847,
+      "contentType": "image/png",
+      "from": [
+        "page-400.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/CrackTheCode-768x384.png",
+      "file": "wordpress/wp-content/uploads/CrackTheCode-768x384.png",
+      "bytes": 296340,
+      "contentType": "image/png",
+      "from": [
+        "page-400.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "http://wibblejellygames.com/docs/ProductInfo_CrackTheCode.pdf",
+      "file": "docs/ProductInfo_CrackTheCode.pdf",
+      "bytes": 228502,
+      "contentType": "application/pdf",
+      "from": [
+        "page-400.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/RA_CrackTheCode.pdf",
+      "file": "docs/RA_CrackTheCode.pdf",
+      "bytes": 49533,
+      "contentType": "application/pdf",
+      "from": [
+        "page-400.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/HoleInOne-669x1024.png",
+      "file": "wordpress/wp-content/uploads/HoleInOne-669x1024.png",
+      "bytes": 601272,
+      "contentType": "image/png",
+      "from": [
+        "page-714.html",
+        "page-76.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/HoleInOne-196x300.png",
+      "file": "wordpress/wp-content/uploads/HoleInOne-196x300.png",
+      "bytes": 58047,
+      "contentType": "image/png",
+      "from": [
+        "page-714.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/HoleInOne-768x1175.png",
+      "file": "wordpress/wp-content/uploads/HoleInOne-768x1175.png",
+      "bytes": 776457,
+      "contentType": "image/png",
+      "from": [
+        "page-714.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/HoleInOne.png",
+      "file": "wordpress/wp-content/uploads/HoleInOne.png",
+      "bytes": 1138723,
+      "contentType": "image/png",
+      "from": [
+        "page-714.html",
+        "page-76.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/OOPs_UnderConstruction.pdf",
+      "file": "wordpress/wp-content/uploads/OOPs_UnderConstruction.pdf",
+      "bytes": 86884,
+      "contentType": "application/pdf",
+      "from": [
+        "page-714.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/KaboomSpace-1-799x1024.png",
+      "file": "wordpress/wp-content/uploads/KaboomSpace-1-799x1024.png",
+      "bytes": 251967,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-847.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/KaboomSpace-1-234x300.png",
+      "file": "wordpress/wp-content/uploads/KaboomSpace-1-234x300.png",
+      "bytes": 30857,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-847.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/KaboomSpace-1-768x985.png",
+      "file": "wordpress/wp-content/uploads/KaboomSpace-1-768x985.png",
+      "bytes": 234953,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-847.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/KaboomSpace-1.png",
+      "file": "wordpress/wp-content/uploads/KaboomSpace-1.png",
+      "bytes": 377328,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-847.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/2020/03/SpotOn-680x1024.png",
+      "file": "wordpress/wp-content/uploads/2020/03/SpotOn-680x1024.png",
+      "bytes": 450970,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-9.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/2020/03/SpotOn-199x300.png",
+      "file": "wordpress/wp-content/uploads/2020/03/SpotOn-199x300.png",
+      "bytes": 45505,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-9.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/2020/03/SpotOn-768x1156.png",
+      "file": "wordpress/wp-content/uploads/2020/03/SpotOn-768x1156.png",
+      "bytes": 536760,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-9.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/2020/03/SpotOn.png",
+      "file": "wordpress/wp-content/uploads/2020/03/SpotOn.png",
+      "bytes": 866988,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-9.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/m_SpotOnChallenge-1-614x1024.png",
+      "file": "wordpress/wp-content/uploads/m_SpotOnChallenge-1-614x1024.png",
+      "bytes": 844292,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-774.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/m_SpotOnChallenge-1-180x300.png",
+      "file": "wordpress/wp-content/uploads/m_SpotOnChallenge-1-180x300.png",
+      "bytes": 86144,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-774.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/m_SpotOnChallenge-1.png",
+      "file": "wordpress/wp-content/uploads/m_SpotOnChallenge-1.png",
+      "bytes": 1445397,
+      "contentType": "image/png",
+      "from": [
+        "page-76.html",
+        "page-774.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/RA_SpotOn.pdf",
+      "file": "docs/RA_SpotOn.pdf",
+      "bytes": 50697,
+      "contentType": "application/pdf",
+      "from": [
+        "page-774.html",
+        "page-9.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhackIt.png",
+      "file": "wordpress/wp-content/uploads/WhackIt.png",
+      "bytes": 473909,
+      "contentType": "image/png",
+      "from": [
+        "page-840.html"
+      ],
+      "note": "img"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/uploads/WhackIt-225x300.png",
+      "file": "wordpress/wp-content/uploads/WhackIt-225x300.png",
+      "bytes": 91102,
+      "contentType": "image/png",
+      "from": [
+        "page-840.html"
+      ],
+      "note": "img-srcset"
+    },
+    {
+      "url": "https://wibblejellygames.com/docs/ProductInfo_SpotOn.pdf",
+      "file": "docs/ProductInfo_SpotOn.pdf",
+      "bytes": 923462,
+      "contentType": "application/pdf",
+      "from": [
+        "page-9.html"
+      ],
+      "note": "download-link"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-includes/fonts/dashicons.eot?99ac726223c749443b642ce33df8b800",
+      "file": "wordpress/wp-includes/fonts/dashicons.eot",
+      "bytes": 56564,
+      "contentType": "application/vnd.ms-fontobject",
+      "from": [
+        "wordpress/wp-includes/css/dashicons.min.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-includes/fonts/dashicons.eot?99ac726223c749443b642ce33df8b800#iefix",
+      "file": "wordpress/wp-includes/fonts/dashicons.eot",
+      "bytes": 56564,
+      "contentType": "application/vnd.ms-fontobject",
+      "from": [
+        "wordpress/wp-includes/css/dashicons.min.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-includes/fonts/dashicons.ttf?99ac726223c749443b642ce33df8b800",
+      "file": "wordpress/wp-includes/fonts/dashicons.ttf",
+      "bytes": 56392,
+      "contentType": "application/font-sfnt",
+      "from": [
+        "wordpress/wp-includes/css/dashicons.min.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.eot?q9mcqj",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.eot",
+      "bytes": 22636,
+      "contentType": "application/vnd.ms-fontobject",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.eot?q9mcqj#iefix",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.eot",
+      "bytes": 22636,
+      "contentType": "application/vnd.ms-fontobject",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.ttf?q9mcqj",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.ttf",
+      "bytes": 22472,
+      "contentType": "application/font-sfnt",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.woff?q9mcqj",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.woff",
+      "bytes": 22548,
+      "contentType": "application/font-woff",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.svg?q9mcqj#EverestForms",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/fonts/EverestForms.svg",
+      "bytes": 88628,
+      "contentType": "image/svg+xml",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/images/icons/loader.svg",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/images/icons/loader.svg",
+      "bytes": 553,
+      "contentType": "image/svg+xml",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/images/icons/red-arrow.svg",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/images/icons/red-arrow.svg",
+      "bytes": 634,
+      "contentType": "image/svg+xml",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/everest-forms.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/images/intl-tel-input-flags.png",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/images/intl-tel-input-flags.png",
+      "bytes": 70857,
+      "contentType": "image/png",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/intlTelInput.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/plugins/everest-forms/assets/images/intl-tel-input-flags@2x.png",
+      "file": "wordpress/wp-content/plugins/everest-forms/assets/images/intl-tel-input-flags_2x.png",
+      "bytes": 174369,
+      "contentType": "image/png",
+      "from": [
+        "wordpress/wp-content/plugins/everest-forms/assets/css/intlTelInput.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/genericons/Genericons.eot",
+      "file": "wordpress/wp-content/themes/radiate/genericons/Genericons.eot",
+      "bytes": 22374,
+      "contentType": "application/vnd.ms-fontobject",
+      "from": [
+        "wordpress/wp-content/themes/radiate/genericons/genericons.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/genericons/Genericons.eot?",
+      "file": "wordpress/wp-content/themes/radiate/genericons/Genericons.eot",
+      "bytes": 22374,
+      "contentType": "application/vnd.ms-fontobject",
+      "from": [
+        "wordpress/wp-content/themes/radiate/genericons/genericons.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/genericons/Genericons.ttf",
+      "file": "wordpress/wp-content/themes/radiate/genericons/Genericons.ttf",
+      "bytes": 22188,
+      "contentType": "application/font-sfnt",
+      "from": [
+        "wordpress/wp-content/themes/radiate/genericons/genericons.css"
+      ],
+      "note": "css"
+    },
+    {
+      "url": "https://wibblejellygames.com/wordpress/wp-content/themes/radiate/genericons/Genericons.svg#Genericons",
+      "file": "wordpress/wp-content/themes/radiate/genericons/Genericons.svg",
+      "bytes": 77517,
+      "contentType": "image/svg+xml",
+      "from": [
+        "wordpress/wp-content/themes/radiate/genericons/genericons.css"
+      ],
+      "note": "css"
+    }
+  ],
+  "thirdParty": [
+    {
+      "url": "https://gmpg.org/xfn/11",
+      "referencedBy": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ]
+    },
+    {
+      "url": "https://fonts.googleapis.com/css?family=Roboto|Merriweather:400,300&display=swap&ver=7.1.2",
+      "referencedBy": [
+        "index.html",
+        "page-120.html",
+        "page-27.html",
+        "page-31.html",
+        "page-35.html",
+        "page-365.html",
+        "page-386.html",
+        "page-400.html",
+        "page-448.html",
+        "page-52.html",
+        "page-583.html",
+        "page-714.html",
+        "page-743.html",
+        "page-76.html",
+        "page-774.html",
+        "page-840.html",
+        "page-847.html",
+        "page-9.html",
+        "post-567.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/embed/lnbYtU7vJVo?feature=oembed",
+      "referencedBy": [
+        "page-365.html",
+        "page-52.html"
+      ]
+    },
+    {
+      "url": "https://www.youtube.com/embed/nEjpdMJ1kvI?feature=oembed",
+      "referencedBy": [
+        "page-743.html"
+      ]
+    }
+  ]
+}

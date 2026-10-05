@@ -1,0 +1,983 @@
+@use "sass:math";
+@use "variables" as *;
+@use "breakpoints" as breakpoint;
+
+// =============================================================================
+// RESET MIXINS
+// =============================================================================
+
+@mixin reset-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+// =============================================================================
+// LAYOUT MIXINS
+// =============================================================================
+
+// Flex container with common configurations
+@mixin flex-row($gap: $space-md, $align: center, $justify: flex-start) {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin flex-col($gap: $space-md, $align: stretch, $justify: flex-start) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+// Centered column stack, the shared intro-block layout (hero, CTA).
+@mixin centered-col($gap: $space-lg) {
+  @include flex-col($gap, center, center);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-wrap($gap: $space-md) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+}
+
+// Centered wrapping row, the common action-row layout (hero actions,
+// footer language links).
+@mixin flex-row-wrap($gap: $space-md) {
+  @include flex-row($gap, center, center);
+
+  flex-wrap: wrap;
+}
+
+// Grid layouts
+@mixin grid($columns: 1, $gap: $space-lg) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Two-column responsive split: single column on mobile, two columns on md+.
+// Shared by .split, .split-callout, and .contact-form-block layouts.
+@mixin two-column-split {
+  @include grid(1, $space-2xl);
+
+  @include breakpoint.up("md") {
+    @include grid(2, $space-3xl);
+  }
+}
+
+@mixin grid-auto($min-width: 280px, $gap: $space-lg) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// Responsive grid jump: switch column count at a breakpoint. Shared by the
+// grid layout classes so each breakpoint block is declared once.
+@mixin grid-at($breakpoint, $columns, $gap: $space-lg) {
+  @include breakpoint.up($breakpoint) {
+    @include grid($columns, $gap);
+  }
+}
+
+// =============================================================================
+// CONTAINER & SPACING MIXINS
+// =============================================================================
+
+// Content container with inline centering and responsive padding
+@mixin container($max-width: $width-default) {
+  width: 100%;
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-inline: $space-md;
+
+  @include breakpoint.up("md") {
+    padding-inline: $space-lg;
+  }
+}
+
+// Full-width section with inner container
+// Uses the --section-padding-y CSS custom property (defined in _base.scss)
+// so that sections, split-full panels, and themes all share one value.
+@mixin section {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+// Self-padding for elements that replace section padding (e.g. hero, split-full
+// panels) — vertical from --section-padding-y, horizontal responsive.
+@mixin section-self-padding {
+  padding: var(--section-padding-y) $space-md;
+
+  @include breakpoint.up("md") {
+    padding: var(--section-padding-y) $space-lg;
+  }
+}
+
+// Compact section padding override
+@mixin section-compact {
+  --section-padding-y: var(--section-padding-y-compact-sm);
+
+  @include breakpoint.up("md") {
+    --section-padding-y: var(--section-padding-y-compact-md);
+  }
+}
+
+// Set --section-padding-y from one of the predefined tokens. Every
+// context/breakpoint re-declaration shares this one form.
+@mixin section-padding-y($token) {
+  --section-padding-y: var(--section-padding-y-#{$token});
+}
+
+// Section vertical padding for a named context: a base token plus its
+// md+ override, e.g. @include section-padding-sm-md(main);
+@mixin section-padding-sm-md($base) {
+  @include section-padding-y(#{$base}-sm);
+
+  @include breakpoint.up("md") {
+    @include section-padding-y(#{$base}-md);
+  }
+}
+
+// Compact padded element (small controls, list rows).
+@mixin compact-padding {
+  padding: $space-sm $space-md;
+}
+
+// Plain interactive row: inherits color, no underline.
+@mixin plain-row-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Primary-colored block: contrast text on the page's link color.
+@mixin primary-panel {
+  color: var(--color-contrast-text);
+  background: var(--color-link);
+}
+
+// Kill smooth scrolling under prefers-reduced-motion.
+@mixin reduced-motion-scroll {
+  @include breakpoint.reduced-motion {
+    scroll-behavior: auto;
+  }
+}
+
+// A section under a full-bleed child (banner, split-full) carries no
+// vertical padding of its own.
+@mixin section-flush {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// Alternating-row background for zebra striping (alternate sections,
+// striped tables).
+@mixin alt-bg {
+  background: var(--body-background-alt);
+}
+
+// =============================================================================
+// CARD & BOX MIXINS
+// =============================================================================
+
+@mixin card($padding: $space-lg, $radius: $radius-lg) {
+  padding: $padding;
+  border: $border-light;
+  border-radius: $radius;
+  background: var(--color-card-bg);
+}
+
+// Light border with rounded corners, the standard box/card frame without
+// the card's padding or background.
+@mixin box-border($radius: $radius-md) {
+  border: $border-light;
+  border-radius: $radius;
+}
+
+// Card surface background, shared by every element that sits on a card.
+@mixin card-bg {
+  background: var(--color-card-bg);
+}
+
+// Fixed-size icon box: centered, non-shrinking square. Shared by the icon
+// badge and inline icon wrappers.
+@mixin icon-box($size) {
+  @include flex-center;
+
+  flex-shrink: 0;
+  width: $size;
+  height: $size;
+}
+
+// Zebra stripe: an element's even rows use the alternate background.
+@mixin zebra-stripe {
+  &:nth-child(even) {
+    @include alt-bg;
+  }
+}
+
+// Interactive row link: optional light border, always plain and
+// color-inheriting. Shared by the downloads and icon-links blocks.
+@mixin row-link($border: true) {
+  @if $border {
+    @include box-border;
+  }
+
+  @include plain-row-link;
+}
+
+@mixin card-hover {
+  transition:
+    transform $transition-normal,
+    border-color $transition-normal,
+    outline-color $transition-normal;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgb(0 0 0 / 20%);
+  }
+
+  // Focus styles for keyboard navigation
+  &:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+
+  &:focus-within {
+    border-color: var(--color-link);
+  }
+}
+
+@mixin glass($blur: 10px, $opacity: 0.8) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur);
+}
+
+// =============================================================================
+// TYPOGRAPHY MIXINS
+// =============================================================================
+
+@mixin heading-xl {
+  font-size: $font-size-3xl;
+  font-weight: 700;
+  line-height: $line-height-tight;
+  letter-spacing: -0.02em;
+
+  @include breakpoint.up("md") {
+    font-size: $font-size-4xl;
+  }
+
+  @include breakpoint.up("lg") {
+    font-size: $font-size-5xl;
+  }
+}
+
+@mixin heading-lg {
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  line-height: $line-height-tight;
+  letter-spacing: -0.01em;
+
+  @include breakpoint.up("md") {
+    font-size: $font-size-3xl;
+  }
+}
+
+@mixin heading-md {
+  font-size: $font-size-xl;
+  font-weight: 600;
+  line-height: $line-height-snug;
+
+  @include breakpoint.up("md") {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin heading-sm {
+  font-size: $font-size-lg;
+  font-weight: 600;
+  line-height: $line-height-snug;
+}
+
+@mixin body-lg {
+  font-size: $font-size-md;
+  line-height: $line-height-relaxed;
+
+  @include breakpoint.up("md") {
+    font-size: $font-size-lg;
+  }
+}
+
+@mixin body-base {
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+}
+
+@mixin body-sm {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+}
+
+// Muted secondary text color.
+@mixin muted-text {
+  color: var(--color-text-muted);
+}
+
+// Small muted text (secondary descriptions, card metadata).
+@mixin muted-body-sm {
+  @include body-sm;
+
+  color: var(--color-text-muted);
+}
+
+// Text balance for headings
+@mixin text-balance {
+  text-wrap: balance;
+}
+
+// Plain link: themed color, underline on hover (and focus)
+@mixin link-plain {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+// The themed link token trio: color plus the decoration variables. Shared
+// by link elements and interactive lookalikes (read-more labels).
+@mixin link-tokens {
+  color: var(--color-link);
+  text-decoration: var(--link-decoration);
+  text-decoration-style: var(--link-decoration-style);
+}
+
+// Hover state for buttons sitting on a contrast panel: link color on the
+// contrast background.
+@mixin contrast-button-hover {
+  &:hover {
+    color: var(--color-link);
+    background: var(--color-contrast-text);
+  }
+}
+
+// Card link: solid text, highlight on hover
+@mixin link-card {
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-link);
+  }
+}
+
+// Product card title + price typography. Used by the `.items` grid cards
+// (_items.scss) and the single-card `.buy-option-figure` in the
+// `split-buy-options` block (_buy-options.scss).
+@mixin product-card-typography($heading-selector: "h3") {
+  #{$heading-selector} {
+    @include heading-sm;
+
+    a {
+      @include link-card;
+    }
+  }
+
+  .price {
+    @include body-base;
+
+    font-weight: 600;
+    color: var(--color-link);
+  }
+}
+
+// FAQ definition list: question/answer pairs
+@mixin faqs-list {
+  @include flex-col($space-md);
+
+  dt {
+    @include heading-sm;
+  }
+
+  dd {
+    @include body-base;
+
+    line-height: $line-height-relaxed;
+    color: var(--color-text-muted);
+  }
+}
+
+// Contrast text custom properties for primary/dark panels
+@mixin contrast-text-vars {
+  --color-text: var(--color-contrast-text);
+  --color-text-muted: var(--color-contrast-text-muted);
+
+  color: var(--color-contrast-text);
+}
+
+// Dark section custom properties
+@mixin dark-section-vars {
+  --color-bg: var(--color-dark-bg);
+  --body-background-alt: #{$color-dark-card-bg};
+  --color-text: #{$color-dark-text};
+  --color-text-muted: #{$color-dark-text-muted};
+  --color-card-bg: #{$color-dark-card-bg};
+  --color-tint: #{$color-dark-card-bg};
+
+  color: #{$color-dark-text};
+  background: var(--color-dark-bg);
+}
+
+// =============================================================================
+// BUTTON MIXINS
+// =============================================================================
+
+@mixin button-base {
+  cursor: pointer;
+
+  display: inline-flex;
+  gap: $space-xs;
+  align-items: center;
+  justify-content: center;
+
+  padding: $space-sm $space-lg;
+  border: 2px solid transparent;
+  border-radius: $radius-md;
+
+  font-size: $font-size-base;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+
+  transition:
+    background $transition-fast,
+    color $transition-fast,
+    border-color $transition-fast,
+    transform $transition-fast;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+
+  color: var(--color-contrast-text);
+  background: var(--color-link);
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    color: var(--color-contrast-text);
+    background: var(--color-link-hover);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+
+  border-color: var(--color-link);
+  color: var(--color-link);
+  background: transparent;
+
+  &:hover:not(:disabled) {
+    color: var(--color-contrast-text);
+    background: var(--color-link);
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+
+  color: var(--color-text);
+  background: transparent;
+
+  &:hover:not(:disabled) {
+    background: var(--color-hover-bg);
+  }
+}
+
+// =============================================================================
+// ANIMATION MIXINS
+// =============================================================================
+
+// Scroll reveal animation (use with IntersectionObserver)
+@mixin scroll-reveal-base($from-transform, $to-transform) {
+  transform: $from-transform;
+  opacity: 0;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+
+  &.is-visible {
+    transform: $to-transform;
+    opacity: 1;
+  }
+}
+
+@mixin scroll-reveal {
+  @include scroll-reveal-base(translateY(30px), translateY(0));
+}
+
+@mixin scroll-reveal-left {
+  @include scroll-reveal-base(translateX(-30px), translateX(0));
+}
+
+@mixin scroll-reveal-right {
+  @include scroll-reveal-base(translateX(30px), translateX(0));
+}
+
+@mixin scroll-reveal-scale {
+  @include scroll-reveal-base(scale(0.95), scale(1));
+}
+
+// Staggered children animation
+@mixin stagger-children($delay: 0.1s, $max: 10) {
+  @for $i from 1 through $max {
+    &:nth-child(#{$i}) {
+      transition-delay: calc(#{$delay} * #{$i - 1});
+    }
+  }
+}
+
+// Hover float effect
+@mixin hover-float($distance: -4px) {
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: translateY($distance);
+  }
+}
+
+// =============================================================================
+// UTILITY MIXINS
+// =============================================================================
+
+// Screen reader only
+@mixin sr-only {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(50%);
+}
+
+// Aspect ratio container
+@mixin aspect-ratio($width: 16, $height: 9) {
+  aspect-ratio: #{$width} / #{$height};
+}
+
+// Responsive iframe embed (maps, videos, etc.)
+@mixin iframe-embed($ratio-w: 16, $ratio-h: 9) {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: #{$ratio-w} / #{$ratio-h};
+  width: 100%;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+// Shared video-facade + video-wrapper styles.
+// Used anywhere a click-to-play video is rendered (cards, split-video, etc.)
+// so the look is consistent across the site. Scoping is left to the caller.
+@mixin video-media($radius: 0) {
+  .video-wrapper {
+    @include iframe-embed;
+  }
+
+  .video-facade {
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    border: 0;
+
+    background: none;
+
+    .image-wrapper {
+      @include image-wrapper($border-radius: $radius);
+
+      aspect-ratio: 16 / 9;
+
+      img {
+        @include cover-img;
+      }
+    }
+
+    .video-play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      transition:
+        transform $transition-fast,
+        opacity $transition-fast;
+
+      svg {
+        display: block;
+      }
+
+      .video-play-bg {
+        fill: var(--color-video-play-bg);
+        fill-opacity: 0.8;
+      }
+
+      .video-play-icon {
+        fill: var(--color-contrast-text);
+      }
+    }
+
+    &:hover .video-play-button {
+      transform: translate(-50%, -50%) scale(1.1);
+
+      .video-play-bg {
+        fill: var(--color-video-play-hover);
+        fill-opacity: 1;
+      }
+    }
+
+    &.video-facade--no-thumbnail {
+      aspect-ratio: 16 / 9;
+      background: var(--body-background-alt);
+    }
+  }
+}
+
+// Edge-to-edge media wrapper: a block container framing an image to fill its
+// width. Shared by .image-link (items cards) and .menu-card-image (menu
+// cards) so the look can't drift between link and non-link media.
+@mixin edge-to-edge-media($border-radius: 0) {
+  overflow: hidden;
+  display: block;
+
+  .image-wrapper {
+    @include image-wrapper($border-radius: $border-radius);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+// Truncate text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+}
+
+// Focus visible ring
+@mixin focus-ring {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// MEDIA BACKGROUND CONTENT
+// =============================================================================
+// Shared styles for video-background and image-background content overlays.
+// No background tint is applied — tint the source image or video if needed.
+
+// Floating button styling shared by cart-icon, theme-switcher, etc.
+// Caller provides positioning, dimensions, and font sizing.
+@mixin floating-button-style($hover-scale: 1.05) {
+  color: var(--color-text);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover {
+    transform: scale($hover-scale);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// Disabled link/button styling (visual-only; reduces opacity and blocks pointer)
+@mixin disabled-state($opacity: 0.3) {
+  pointer-events: none;
+  cursor: default;
+  opacity: $opacity;
+}
+
+// Vertical list of items with no marker, used for downloads, icon-links, etc.
+@mixin vertical-stack-list($gap: $space-sm, $max-width: $width-narrow) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  max-width: $max-width;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+@mixin media-background-container($ratio-w, $ratio-h) {
+  position: relative;
+
+  // `clip` (unlike `hidden`) doesn't create a scroll container, so the
+  // absolutely-positioned media (and parallax overflow) is trimmed to the box.
+  overflow: clip;
+
+  // Single stacking cell: the overlay figure and the aspect-ratio spacer
+  // (::before) both occupy 1/1, so the row grows to whichever is taller.
+  display: grid;
+  grid-template-columns: 1fr;
+
+  width: 100%;
+
+  background: $color-dark-bg;
+
+  // Enforce the aspect ratio as a *minimum* height via a spacer rather than
+  // the `aspect-ratio` property on this box. WebKit/Safari treats
+  // `aspect-ratio` combined with a non-visible `overflow` (clip or hidden) as
+  // a hard height and clips overlay content taller than the ratio, where
+  // Chrome and Firefox grow the box. A padding spacer sharing the overlay's
+  // grid cell lets the box grow in every engine while still falling back to
+  // the ratio when content is short. (Verified against WebKit 26 / Safari 26.)
+  //
+  // Uses ::after, not ::before — the `.image-background.tinted` overlay owns
+  // ::before, and a shared pseudo-element would inherit its `position:
+  // absolute` and stop reserving grid height.
+  &::after {
+    content: "";
+    grid-area: 1 / 1;
+
+    // Width-only contribution; percentage padding resolves against the grid
+    // area's width, so this stays 0-wide but reserves height = width * h/w.
+    width: 0;
+    padding-top: math.percentage(math.div($ratio-h, $ratio-w));
+
+    @include breakpoint.down("md") {
+      padding-top: math.percentage(math.div(3, 4));
+    }
+  }
+}
+
+@mixin media-background-cover-image {
+  .image-wrapper {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@mixin media-background-content {
+  > figure {
+    // Remap the tint to the link color so tint-bg components (badges) pair
+    // it with the remapped contrast text instead of white-on-light.
+    --color-tint: var(--color-link);
+
+    @include contrast-text-vars;
+
+    position: relative;
+    z-index: 1;
+
+    // Share the single grid cell with the ::before spacer (1/1) so the row
+    // sizes to the taller of the two. In flow (not absolute) so tall content
+    // grows the container instead of being clipped by the minimum height.
+    grid-area: 1 / 1;
+
+    margin: 0;
+    padding: $space-lg;
+
+    @include flex-center;
+  }
+
+  figcaption {
+    @include container($width-default);
+    @include flex-col($space-lg, center, center);
+
+    max-width: 100%;
+    text-align: center;
+
+    .prose {
+      align-items: center;
+      max-width: $width-default;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--color-contrast-text);
+      text-shadow: var(--shadow-sm);
+    }
+
+    p {
+      color: var(--color-contrast-text-muted);
+      text-shadow: var(--shadow-sm);
+    }
+
+    // Buttons sit on arbitrary imagery, so pair --color-link with
+    // --color-contrast-text(-muted) — themes define these as a contrasting
+    // pair (same approach as .cta).
+    .btn, a.btn {
+      border-color: transparent;
+      color: var(--color-link);
+      background: var(--color-contrast-text-muted);
+
+      @include contrast-button-hover;
+    }
+
+    // a.btn--primary keeps specificity above the a.btn rule, which would
+    // otherwise win on element count and turn primary into the pale pill.
+    .btn--primary, a.btn--primary {
+      border-color: transparent;
+      color: var(--color-contrast-text);
+      background: var(--color-link);
+
+      &:hover {
+        color: var(--color-contrast-text);
+        background: var(--color-link-hover);
+      }
+    }
+  }
+}
+
+// Tinted accent background (used by badges, icons, etc.)
+@mixin tint-bg {
+  color: var(--color-text);
+  background: var(--color-tint);
+}
+
+// Brand gradient background
+@mixin brand-gradient {
+  background: linear-gradient(135deg, var(--color-link) 0%, var(--color-secondary) 100%);
+}
+
+// Cover image: fills parent container, cropping as needed
+@mixin cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// =============================================================================
+// FORM INPUT BASE
+// =============================================================================
+// Shared input styles for forms and search fields.
+
+@mixin input-base {
+  width: 100%;
+  padding: $space-sm;
+  border: $border-medium;
+  border-radius: $radius-md;
+
+  font-family: inherit;
+
+  @include body-base;
+
+  color: var(--color-text);
+
+  background: var(--color-card-bg);
+
+  transition: border-color $transition-fast;
+
+  &::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  &:focus {
+    border-color: var(--color-link);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-tint);
+  }
+}
+
+// =============================================================================
+// IMAGE WRAPPER (LQIP support)
+// =============================================================================
+// Wrapper for images with low-quality image placeholder backgrounds.
+// The background shows the LQIP while the full image loads.
+
+@mixin image-wrapper($border-radius: $radius-sm) {
+  position: relative;
+
+  overflow: hidden;
+  display: block;
+
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius;
+
+  background-repeat: no-repeat;
+  background-position: center;
+
+  // LQIP background settings
+  background-size: cover;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,957 @@
+media:
+  input: src/images
+  output: /images
+  path: src/images
+  categories:
+    - image
+  rename: true
+settings:
+  hide: true
+  content:
+    merge: true
+components:
+  meta_title:
+    type: string
+    label: Meta Title
+    options:
+      maxlength: 60
+  meta_description:
+    type: string
+    label: Meta Description
+    options:
+      maxlength: 160
+  block_callout:
+    label: Callout
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: variant
+        type: string
+        label: Variant (info | warning | success | danger)
+      - name: icon
+        type: string
+        label: Icon (Iconify ID, emoji, or path)
+      - { name: name, type: string, label: Name }
+      - { name: content, type: rich-text, label: Content, required: true }
+  block_code_block:
+    label: Code Block
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - { name: filename, type: string, label: Filename, required: true }
+      - { name: code, type: string, label: Code, required: true }
+      - { name: language, type: string, label: Language }
+  block_cta:
+    label: Cta
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: content, type: rich-text, label: Content, required: true }
+      - name: button
+        type: object
+        label: Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+  block_downloads:
+    label: Downloads
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - name: items
+        type: object
+        label: Downloads
+        required: true
+        list: true
+        fields:
+          - name: file
+            type: string
+            label: File Path (e.g. /files/guide.pdf)
+            required: true
+          - { name: label, type: string, label: Label, required: true }
+  block_faqs:
+    label: Faqs
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: items
+        type: object
+        label: FAQs
+        list: true
+        fields:
+          - { name: question, type: string, label: Question, required: true }
+          - { name: answer, type: rich-text, label: Answer (Markdown) }
+      - { name: collapsible, type: boolean, label: Collapsible }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+  block_features:
+    label: Features
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: items
+        type: object
+        label: Features
+        required: true
+        list: true
+        fields:
+          - name: icon
+            type: string
+            label: Icon (Iconify ID or HTML entity)
+          - { name: icon_label, type: string, label: Icon Accessible Label }
+          - { name: name, type: string, label: Name, required: true }
+          - { name: description, type: rich-text, label: Description }
+          - { name: style, type: string, label: Custom Style }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - { name: center, type: boolean, label: Centered }
+  block_gallery:
+    label: Gallery
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: items
+        type: object
+        label: Gallery Images
+        required: true
+        list: true
+        fields:
+          - { name: image, type: image, label: Image, required: true }
+          - { name: caption, type: string, label: Caption }
+      - { name: aspect_ratio, type: string, label: Aspect Ratio }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - { name: masonry, type: boolean, label: Masonry Grid }
+      - { name: horizontal, type: boolean, label: Horizontal Slider }
+  block_guide_categories:
+    label: Guide Categories
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+  block_hero:
+    label: Hero
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: badge, type: string, label: Badge Text }
+      - { name: content, type: rich-text, label: Content, required: true }
+      - name: buttons
+        type: object
+        label: Buttons
+        list: true
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - { name: class, type: string, label: CSS Class }
+  block_html:
+    label: Html
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: content, type: string, label: Raw HTML, required: true }
+  block_icon_links:
+    label: Icon Links
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - name: items
+        type: object
+        label: Links
+        required: true
+        list: true
+        fields:
+          - name: icon
+            type: string
+            label: Icon (Iconify ID or HTML entity)
+            required: true
+          - { name: text, type: string, label: Link Text, required: true }
+          - { name: url, type: string, label: URL }
+  block_iframe_embed:
+    label: Iframe Embed
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: src, type: string, label: Iframe URL, required: true }
+      - { name: name, type: string, label: Accessible Name, required: true }
+      - { name: width, type: number, label: Width (px) }
+      - { name: height, type: number, label: Height (px) }
+      - { name: aspect_ratio, type: string, label: Aspect Ratio (e.g. 16/9) }
+      - name: max_width
+        type: string
+        label: Max Width (CSS, e.g. 560px)
+      - { name: sandbox, type: string, label: Sandbox }
+      - { name: allow, type: string, label: Allow (permissions policy) }
+      - { name: scrolling, type: string, label: Scrolling }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+  block_image_background:
+    label: Image Background
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: image, type: image, label: Background Image, required: true }
+      - { name: image_alt, type: string, label: Image Alt Text }
+      - { name: class, type: string, label: CSS Class }
+      - { name: badge, type: string, label: Badge Text }
+      - { name: content, type: rich-text, label: Content }
+      - name: buttons
+        type: object
+        label: Buttons
+        list: true
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - { name: parallax, type: boolean, label: Parallax }
+      - { name: tint, type: boolean, label: Tint }
+  block_image_cards:
+    label: Image Cards
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: items
+        type: object
+        label: Cards
+        required: true
+        list: true
+        fields:
+          - { name: image, type: image, label: Image, required: true }
+          - { name: name, type: string, label: Name, required: true }
+          - { name: description, type: string, label: Description }
+          - { name: link, type: string, label: Link URL }
+      - { name: image_aspect_ratio, type: string, label: Image Aspect Ratio }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+  block_include:
+    label: Include
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: file, type: string, label: Template File Path, required: true }
+  block_items:
+    label: Items
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: collection
+        type: string
+        label: Collection Name
+        required: true
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - { name: horizontal, type: boolean, label: Horizontal Slider }
+      - { name: masonry, type: boolean, label: Masonry Grid }
+      - name: filter
+        type: object
+        label: Filter
+        fields:
+          - name: property
+            type: string
+            label: Property (e.g. url, data.name)
+          - { name: includes, type: string, label: Contains }
+          - { name: equals, type: string, label: Equals }
+      - { name: image_aspect_ratio, type: string, label: Image Aspect Ratio }
+  block_items_array:
+    label: Items Array
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: items, type: string, label: Items, list: true }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - { name: horizontal, type: boolean, label: Horizontal Slider }
+      - { name: masonry, type: boolean, label: Masonry Grid }
+      - name: filter
+        type: object
+        label: Filter
+        fields:
+          - name: property
+            type: string
+            label: Property (e.g. url, data.name)
+          - { name: includes, type: string, label: Contains }
+          - { name: equals, type: string, label: Equals }
+      - { name: image_aspect_ratio, type: string, label: Image Aspect Ratio }
+  block_items_text_list:
+    label: Items Text List
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: collection
+        type: string
+        label: Collection Name
+        required: true
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+  block_link_button:
+    label: Link Button
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: text, type: string, label: Button Text, required: true }
+      - { name: href, type: string, label: URL, required: true }
+      - { name: variant, type: string, label: Variant }
+      - { name: size, type: string, label: Size }
+      - { name: reveal, type: string, label: Reveal Animation }
+  block_link_columns:
+    label: Link Columns
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: collection
+        type: string
+        label: Collection Name
+        required: true
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+      - name: filter
+        type: object
+        label: Filter
+        fields:
+          - name: property
+            type: string
+            label: Property (e.g. url, data.name)
+          - { name: includes, type: string, label: Contains }
+          - { name: equals, type: string, label: Equals }
+      - { name: remove_text, type: string, label: Remove Text (Regex) }
+  block_markdown:
+    label: Markdown
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: content, type: rich-text, label: Markdown, required: true }
+  block_marquee_images:
+    label: Marquee Images
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: items
+        type: object
+        label: Images
+        required: true
+        list: true
+        fields:
+          - { name: image, type: string, label: Image Path, required: true }
+          - { name: alt, type: string, label: Alt Text }
+          - { name: link_url, type: string, label: Link URL }
+      - { name: speed, type: string, label: Scroll Speed (e.g. 30s) }
+      - { name: height, type: string, label: Image Height (e.g. 50px) }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+  block_section_header:
+    label: Section Header
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: intro
+        type: rich-text
+        label: Section Header Intro
+        required: true
+  block_snippet:
+    label: Snippet
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: reference
+        label: Snippet
+        type: reference
+        options:
+          collection: snippets
+          search: fields.name
+          value: "{path}"
+          label: "{fields.name}"
+        required: true
+  block_split_callout:
+    label: Split Callout
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: content, type: rich-text, label: Content }
+      - { name: reverse, type: boolean, label: Reverse Layout }
+      - { name: reveal_content, type: string, label: Reveal Content Animation }
+      - { name: reveal_figure, type: string, label: Reveal Figure Animation }
+      - name: button
+        type: object
+        label: Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - name: figure_icon
+        type: string
+        label: Icon (Iconify ID, emoji, or path)
+      - { name: figure_name, type: string, label: Callout Name, required: true }
+      - { name: figure_subtitle, type: string, label: Callout Subtitle }
+      - { name: figure_variant, type: string, label: Callout Color Variant }
+  block_split_code:
+    label: Split Code
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: content, type: rich-text, label: Content }
+      - { name: reverse, type: boolean, label: Reverse Layout }
+      - { name: reveal_content, type: string, label: Reveal Content Animation }
+      - { name: reveal_figure, type: string, label: Reveal Figure Animation }
+      - name: button
+        type: object
+        label: Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - { name: figure_filename, type: string, label: Code Filename }
+      - { name: figure_code, type: string, label: Code Content, required: true }
+      - { name: figure_language, type: string, label: Code Language }
+  block_split_full:
+    label: Split Full
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: variant, type: string, label: Variant }
+      - { name: left_content, type: rich-text, label: Left Content }
+      - name: left_button
+        type: object
+        label: Left Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - { name: right_content, type: rich-text, label: Right Content }
+      - name: right_button
+        type: object
+        label: Right Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - { name: reveal_left, type: string, label: Reveal Left Animation }
+      - { name: reveal_right, type: string, label: Reveal Right Animation }
+  block_split_html:
+    label: Split Html
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: content, type: rich-text, label: Content }
+      - { name: reverse, type: boolean, label: Reverse Layout }
+      - { name: reveal_content, type: string, label: Reveal Content Animation }
+      - { name: reveal_figure, type: string, label: Reveal Figure Animation }
+      - name: button
+        type: object
+        label: Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - name: figure_html
+        type: rich-text
+        label: Figure HTML Content
+        required: true
+  block_split_icon_links:
+    label: Split Icon Links
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: content, type: rich-text, label: Content }
+      - { name: reverse, type: boolean, label: Reverse Layout }
+      - { name: reveal_content, type: string, label: Reveal Content Animation }
+      - { name: reveal_figure, type: string, label: Reveal Figure Animation }
+      - name: button
+        type: object
+        label: Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - name: figure_items
+        type: object
+        label: Links
+        required: true
+        list: true
+        fields:
+          - name: icon
+            type: string
+            label: Icon (Iconify ID or HTML entity)
+            required: true
+          - { name: text, type: string, label: Link Text, required: true }
+          - { name: url, type: string, label: URL }
+  block_split_image:
+    label: Split Image
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: content, type: rich-text, label: Content }
+      - { name: reverse, type: boolean, label: Reverse Layout }
+      - { name: reveal_content, type: string, label: Reveal Content Animation }
+      - { name: reveal_figure, type: string, label: Reveal Figure Animation }
+      - name: button
+        type: object
+        label: Button
+        fields:
+          - { name: text, type: string, label: Button Text, required: true }
+          - { name: href, type: string, label: URL, required: true }
+          - { name: variant, type: string, label: Variant }
+          - { name: size, type: string, label: Size }
+      - { name: figure_src, type: image, label: Figure Image, required: true }
+      - { name: figure_alt, type: string, label: Figure Alt Text }
+      - { name: figure_caption, type: string, label: Figure Caption }
+  block_stats:
+    label: Stats
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - name: items
+        type: object
+        label: Statistics
+        required: true
+        list: true
+        fields:
+          - { name: value, type: string, label: Value, required: true }
+          - { name: label, type: string, label: Label, required: true }
+      - name: intro_content
+        type: rich-text
+        label: Intro Content (Markdown)
+  block_table_of_contents:
+    label: Table Of Contents
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+      - { name: title, type: string, label: Title }
+      - { name: levels, type: string, label: Heading Levels }
+  faqs:
+    label: FAQs
+    type: object
+    list: true
+    fields:
+      - { name: question, type: string, label: Question, required: true }
+      - { name: answer, type: string, label: Answer, required: true }
+  gallery:
+    type: image
+    label: Gallery
+    options:
+      multiple: true
+  block_news_meta:
+    label: News Meta
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+  block_guide_header:
+    label: Guide Header
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+  block_guide_pages_list:
+    label: Guide Pages List
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+  block_guide_navigation:
+    label: Guide Navigation
+    type: object
+    fields:
+      - { name: dark, type: boolean, label: Dark }
+      - { name: compact, type: boolean, label: Compact }
+content:
+  - name: pages
+    label: Pages
+    path: src/pages
+    type: collection
+    subfolders: true
+    filename: "{name}.md"
+    view:
+      fields:
+        - permalink
+        - meta_title
+      primary: meta_title
+      sort:
+        - meta_title
+    fields:
+      - { name: name, type: string, label: Name, required: true }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: meta_title, component: meta_title }
+      - { name: meta_description, component: meta_description }
+      - name: eleventyNavigation
+        label: Navigation
+        type: object
+        fields:
+          - { name: key, type: string }
+          - { name: order, type: number }
+          - { name: url, type: string }
+      - { name: layout, type: string }
+      - { name: no_index, type: boolean, label: Hide from listings }
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - { name: callout, component: block_callout }
+          - { name: code-block, component: block_code_block }
+          - { name: cta, component: block_cta }
+          - { name: downloads, component: block_downloads }
+          - { name: faqs, component: block_faqs }
+          - { name: features, component: block_features }
+          - { name: gallery, component: block_gallery }
+          - { name: guide-categories, component: block_guide_categories }
+          - { name: hero, component: block_hero }
+          - { name: html, component: block_html }
+          - { name: icon-links, component: block_icon_links }
+          - { name: iframe-embed, component: block_iframe_embed }
+          - { name: image-background, component: block_image_background }
+          - { name: image-cards, component: block_image_cards }
+          - { name: include, component: block_include }
+          - { name: items, component: block_items }
+          - { name: items-array, component: block_items_array }
+          - { name: items-text-list, component: block_items_text_list }
+          - { name: link-button, component: block_link_button }
+          - { name: link-columns, component: block_link_columns }
+          - { name: markdown, component: block_markdown }
+          - { name: marquee-images, component: block_marquee_images }
+          - { name: section-header, component: block_section_header }
+          - { name: snippet, component: block_snippet }
+          - { name: split-callout, component: block_split_callout }
+          - { name: split-code, component: block_split_code }
+          - { name: split-full, component: block_split_full }
+          - { name: split-html, component: block_split_html }
+          - { name: split-icon-links, component: block_split_icon_links }
+          - { name: split-image, component: block_split_image }
+          - { name: stats, component: block_stats }
+          - { name: table-of-contents, component: block_table_of_contents }
+      - { name: permalink, type: string, label: Permalink }
+      - { name: redirect_from, type: string, label: Redirect From, list: true }
+      - { name: faqs, component: faqs }
+      - { name: gallery, component: gallery }
+  - name: news
+    label: News
+    path: src/news
+    type: collection
+    subfolders: true
+    filename: "{year}-{month}-{day}-{name}.md"
+    view:
+      fields:
+        - name
+        - date
+      primary: name
+      sort:
+        - date
+    fields:
+      - { name: name, type: string, label: Name, required: true }
+      - { name: date, label: Date, type: date }
+      - { name: author, type: string, label: Author }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: meta_title, component: meta_title }
+      - { name: meta_description, component: meta_description }
+      - { name: no_index, type: boolean, label: Hide from listings }
+      - { name: permalink, type: string, label: Permalink }
+      - { name: redirect_from, type: string, label: Redirect From, list: true }
+      - { name: faqs, component: faqs }
+      - { name: gallery, component: gallery }
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - { name: callout, component: block_callout }
+          - { name: code-block, component: block_code_block }
+          - { name: cta, component: block_cta }
+          - { name: downloads, component: block_downloads }
+          - { name: faqs, component: block_faqs }
+          - { name: features, component: block_features }
+          - { name: gallery, component: block_gallery }
+          - { name: guide-categories, component: block_guide_categories }
+          - { name: hero, component: block_hero }
+          - { name: html, component: block_html }
+          - { name: icon-links, component: block_icon_links }
+          - { name: iframe-embed, component: block_iframe_embed }
+          - { name: image-background, component: block_image_background }
+          - { name: image-cards, component: block_image_cards }
+          - { name: include, component: block_include }
+          - { name: items, component: block_items }
+          - { name: items-array, component: block_items_array }
+          - { name: items-text-list, component: block_items_text_list }
+          - { name: link-button, component: block_link_button }
+          - { name: link-columns, component: block_link_columns }
+          - { name: markdown, component: block_markdown }
+          - { name: marquee-images, component: block_marquee_images }
+          - { name: news-meta, component: block_news_meta }
+          - { name: section-header, component: block_section_header }
+          - { name: snippet, component: block_snippet }
+          - { name: split-callout, component: block_split_callout }
+          - { name: split-code, component: block_split_code }
+          - { name: split-full, component: block_split_full }
+          - { name: split-html, component: block_split_html }
+          - { name: split-icon-links, component: block_split_icon_links }
+          - { name: split-image, component: block_split_image }
+          - { name: stats, component: block_stats }
+          - { name: table-of-contents, component: block_table_of_contents }
+  - name: guide-categories
+    label: Guide Categories
+    path: src/guide-categories
+    type: collection
+    subfolders: true
+    filename: "{name}.md"
+    fields:
+      - { name: name, type: string, label: Name, required: true }
+      - { name: subtitle, type: string, label: Subtitle }
+      - { name: order, type: number, label: Order }
+      - { name: icon, type: image, label: Icon }
+      - { name: permalink, type: string, label: Permalink }
+      - { name: redirect_from, type: string, label: Redirect From, list: true }
+      - { name: faqs, component: faqs }
+      - { name: gallery, component: gallery }
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - { name: callout, component: block_callout }
+          - { name: code-block, component: block_code_block }
+          - { name: cta, component: block_cta }
+          - { name: downloads, component: block_downloads }
+          - { name: faqs, component: block_faqs }
+          - { name: features, component: block_features }
+          - { name: gallery, component: block_gallery }
+          - { name: guide-categories, component: block_guide_categories }
+          - { name: guide-header, component: block_guide_header }
+          - { name: guide-pages-list, component: block_guide_pages_list }
+          - { name: hero, component: block_hero }
+          - { name: html, component: block_html }
+          - { name: icon-links, component: block_icon_links }
+          - { name: iframe-embed, component: block_iframe_embed }
+          - { name: image-background, component: block_image_background }
+          - { name: image-cards, component: block_image_cards }
+          - { name: include, component: block_include }
+          - { name: items, component: block_items }
+          - { name: items-array, component: block_items_array }
+          - { name: items-text-list, component: block_items_text_list }
+          - { name: link-button, component: block_link_button }
+          - { name: link-columns, component: block_link_columns }
+          - { name: markdown, component: block_markdown }
+          - { name: marquee-images, component: block_marquee_images }
+          - { name: section-header, component: block_section_header }
+          - { name: snippet, component: block_snippet }
+          - { name: split-callout, component: block_split_callout }
+          - { name: split-code, component: block_split_code }
+          - { name: split-full, component: block_split_full }
+          - { name: split-html, component: block_split_html }
+          - { name: split-icon-links, component: block_split_icon_links }
+          - { name: split-image, component: block_split_image }
+          - { name: stats, component: block_stats }
+          - { name: table-of-contents, component: block_table_of_contents }
+  - name: guide-pages
+    label: Guide Pages
+    path: src/guide-pages
+    type: collection
+    subfolders: true
+    filename: "{name}.md"
+    fields:
+      - { name: name, type: string, label: Name, required: true }
+      - { name: subtitle, type: string, label: Subtitle }
+      - name: guide-category
+        label: Guide Category
+        type: reference
+        options:
+          collection: guide-categories
+          search: fields.name
+          value: "{path}"
+          label: "{fields.name}"
+      - { name: order, type: number, label: Order }
+      - { name: permalink, type: string, label: Permalink }
+      - { name: redirect_from, type: string, label: Redirect From, list: true }
+      - { name: faqs, component: faqs }
+      - { name: gallery, component: gallery }
+      - name: blocks
+        label: Content Blocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - { name: callout, component: block_callout }
+          - { name: code-block, component: block_code_block }
+          - { name: cta, component: block_cta }
+          - { name: downloads, component: block_downloads }
+          - { name: faqs, component: block_faqs }
+          - { name: features, component: block_features }
+          - { name: gallery, component: block_gallery }
+          - { name: guide-categories, component: block_guide_categories }
+          - { name: guide-header, component: block_guide_header }
+          - { name: guide-navigation, component: block_guide_navigation }
+          - { name: hero, component: block_hero }
+          - { name: html, component: block_html }
+          - { name: icon-links, component: block_icon_links }
+          - { name: iframe-embed, component: block_iframe_embed }
+          - { name: image-background, component: block_image_background }
+          - { name: image-cards, component: block_image_cards }
+          - { name: include, component: block_include }
+          - { name: items, component: block_items }
+          - { name: items-array, component: block_items_array }
+          - { name: items-text-list, component: block_items_text_list }
+          - { name: link-button, component: block_link_button }
+          - { name: link-columns, component: block_link_columns }
+          - { name: markdown, component: block_markdown }
+          - { name: marquee-images, component: block_marquee_images }
+          - { name: section-header, component: block_section_header }
+          - { name: snippet, component: block_snippet }
+          - { name: split-callout, component: block_split_callout }
+          - { name: split-code, component: block_split_code }
+          - { name: split-full, component: block_split_full }
+          - { name: split-html, component: block_split_html }
+          - { name: split-icon-links, component: block_split_icon_links }
+          - { name: split-image, component: block_split_image }
+          - { name: stats, component: block_stats }
+          - { name: table-of-contents, component: block_table_of_contents }
+  - name: snippets
+    label: Snippets
+    path: src/snippets
+    type: collection
+    subfolders: true
+    filename: "{name}.md"
+    exclude:
+      - README.md
+    fields:
+      - { name: name, type: string, label: Name, required: true }
+      - { name: body, type: rich-text, label: Body }
+  - name: site
+    label: Site Configuration
+    type: file
+    path: src/_data/site.json
+    fields:
+      - { name: name, type: string, label: Site Name, required: true }
+      - { name: url, type: string, label: Site URL, required: true }
+      - name: description
+        type: string
+        label: Site Description
+        required: true
+      - { name: logo, type: image, label: Logo }
+      - name: socials
+        type: object
+        label: Social Media Links
+        fields:
+          - { name: Github, type: string, label: Github }
+          - { name: Facebook, type: string, label: Facebook }
+          - { name: Instagram, type: string, label: Instagram }
+          - { name: TikTok, type: string, label: TikTok }
+          - { name: Google, type: string, label: Google }
+          - { name: WhatsApp, type: string, label: WhatsApp }
+          - { name: RSS, type: string, label: RSS }
+  - name: meta
+    label: Meta Configuration
+    type: file
+    path: src/_data/meta.json
+    fields:
+      - { name: language, type: string, label: Language Code, default: en-GB }
+      - name: organization
+        label: Organization
+        type: object
+        fields:
+          - { name: description, type: string, label: Organization Description }
+          - { name: legalName, type: string, label: Legal Name }
+          - { name: foundingDate, type: string, label: Founding Date }
+          - name: founders
+            label: Founders
+            type: object
+            list: true
+            fields:
+              - { name: name, type: string, label: Name }
+          - name: address
+            label: Address
+            type: object
+            fields:
+              - { name: streetAddress, type: string, label: Street Address }
+              - { name: addressLocality, type: string, label: City }
+              - { name: addressRegion, type: string, label: Region/State }
+              - { name: postalCode, type: string, label: Postal Code }
+              - { name: addressCountry, type: string, label: Country Code }
+          - name: contactPoint
+            label: Contact Points
+            type: object
+            list: true
+            fields:
+              - { name: telephone, type: string, label: Telephone }
+              - { name: contactType, type: string, label: Contact Type }
+              - { name: areaServed, type: string, label: Area Served }
+              - name: availableLanguage
+                type: string
+                label: Available Languages
+                list: true
+  - name: alt-tags
+    label: Image Alt Tags
+    type: file
+    path: src/_data/alt-tags.json
+    fields:
+      - name: images
+        type: object
+        list: true
+        fields:
+          - { name: path, type: image, label: Image }
+          - { name: alt, type: string, label: Alt Text }

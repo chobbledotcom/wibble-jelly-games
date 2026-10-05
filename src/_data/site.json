@@ -1,0 +1,25 @@
+{
+	"name": "WibbleJelly Games",
+	"url": "https://wibblejellygames.com",
+	"description": "Hands on games and activities for all ages",
+	"socials": {},
+	"cms_config": {
+		"collections": [
+			"pages",
+			"news",
+			"guide-categories",
+			"guide-pages",
+			"snippets"
+		],
+		"features": {
+			"permalinks": true,
+			"redirects": true,
+			"faqs": true,
+			"galleries": true,
+			"external_navigation_urls": true,
+			"no_index": true
+		},
+		"hasSrcFolder": true,
+		"customBlocksCollections": []
+	}
+}

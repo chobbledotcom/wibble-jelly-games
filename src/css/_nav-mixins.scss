@@ -1,0 +1,434 @@
+@use "sass:math";
+@use "variables" as *;
+@use "mixins" as *;
+@use "breakpoints" as breakpoint;
+
+// =============================================================================
+// SHARED NAVIGATION MIXINS
+// =============================================================================
+// Reusable navigation patterns shared by both nav.scss (legacy theme) and
+// design-system/_navigation.scss. Each consumer applies these mixins within
+// its own scoping context.
+
+// -----------------------------------------------------------------------------
+// BASE NAV
+// -----------------------------------------------------------------------------
+
+@mixin nav-base {
+  box-shadow: var(--box-shadow);
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    color: var(--color-link);
+
+    &.active {
+      color: var(--color-text);
+    }
+  }
+
+  li:has(> ul a.active) > a {
+    color: var(--color-text);
+  }
+}
+
+// Chevron pseudo-element shared by all caret variants
+@mixin nav-caret-chevron {
+  content: "";
+
+  transform: rotate(45deg);
+
+  display: inline-block;
+
+  padding: 3px;
+  border: solid var(--color-link);
+  border-width: 0 2px 2px 0;
+
+  transition: transform 0.2s ease;
+}
+
+@mixin nav-caret-rotated {
+  transform: rotate(-45deg);
+}
+
+// Caret on <a> links (hover-mode horizontal dropdowns)
+@mixin nav-caret {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+
+  &::after {
+    @include nav-caret-chevron;
+  }
+}
+
+// Unstyled button used as click target for expanding submenus
+@mixin nav-caret-button {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.25rem;
+  border: none;
+
+  appearance: none;
+  background: none;
+
+  &::after {
+    @include nav-caret-chevron;
+  }
+}
+
+@mixin nav-thumbnails($gap) {
+  a {
+    display: flex;
+    gap: $gap;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .image-wrapper {
+    overflow: hidden;
+    flex-shrink: 0;
+
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--border-radius);
+
+    picture,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @include breakpoint.down("sm") {
+    .image-wrapper {
+      display: none;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// MOBILE STICKY NAV
+// -----------------------------------------------------------------------------
+
+@mixin nav-sticky-bar($z-index, $padding) {
+  position: fixed;
+  z-index: $z-index;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3rem;
+  padding: $padding;
+  border-radius: 0;
+
+  background: var(--color-bg);
+}
+
+// Collapsed menu (site-menu.js sets data-menu on the nav): a toggle button
+// opens a panel dropping from the bar. Closed, the panel is hidden from view,
+// pointer and keyboard alike, not just moved off-screen.
+@mixin nav-collapsed($gap, $transition) {
+  display: flex;
+  gap: $gap;
+  align-items: center;
+  justify-content: space-between;
+
+  .menu-toggle {
+    cursor: pointer;
+
+    display: inline-flex;
+    gap: $space-xs;
+    align-items: center;
+
+    min-height: 44px;
+    margin-inline-start: auto;
+    padding: 0 $space-xs;
+    border: none;
+
+    font: inherit;
+    color: var(--color-text);
+
+    background: none;
+  }
+
+  .menu-toggle-icon,
+  .menu-toggle-icon::before,
+  .menu-toggle-icon::after {
+    display: block;
+
+    width: 1.5rem;
+    height: 2px;
+
+    background: currentcolor;
+
+    transition: transform $transition, background $transition;
+  }
+
+  .menu-toggle-icon {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      top: -7px;
+    }
+
+    &::after {
+      top: 7px;
+    }
+  }
+
+  .menu-toggle[aria-expanded="true"] .menu-toggle-icon {
+    background: transparent;
+
+    &::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+
+  .site-menu {
+    position: absolute;
+    z-index: $z-dropdown;
+    top: 100%;
+    right: 0;
+    transform: translateY(-0.5rem);
+
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+
+    box-sizing: border-box;
+    width: min(300px, 100%);
+    max-height: calc(100dvh - 3rem);
+    padding: $gap;
+    border-radius: var(--border-radius);
+
+    visibility: hidden;
+    opacity: 0;
+    background: var(--color-bg);
+    box-shadow: var(--box-shadow);
+
+    transition:
+      opacity $transition,
+      transform $transition,
+      visibility 0s linear $transition;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+    }
+
+    li ul {
+      padding-inline-start: $gap;
+    }
+  }
+
+  &[data-menu="open"] .site-menu {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+
+  @include breakpoint.reduced-motion {
+    .site-menu,
+    .menu-toggle-icon,
+    .menu-toggle-icon::before,
+    .menu-toggle-icon::after {
+      transition: none;
+    }
+  }
+}
+
+// The menu of a nav whose collapse_menu setting is $mode, once site-menu.js
+// has set it up (it marks the nav with data-menu)
+@mixin nav-collapsed-when($mode, $gap, $transition) {
+  nav.site-nav[data-menu][data-collapse="#{$mode}"] {
+    @include nav-collapsed($gap, $transition);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// COLLAPSIBLE MOBILE SUBMENUS
+// -----------------------------------------------------------------------------
+
+@mixin nav-submenu-toggle {
+  // Items with children: row layout for link + caret button side by side
+  .site-menu > ul > li:has(> ul) {
+    flex-flow: row wrap;
+
+    > a {
+      flex: 1;
+
+      // Hide the CSS caret from hover mode; the button replaces it
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  // JS-injected caret toggle button
+  .nav-caret {
+    @include nav-caret-button;
+  }
+
+  .site-menu > ul > li.expanded > .nav-caret::after {
+    @include nav-caret-rotated;
+  }
+
+  // Hide submenus by default, show when expanded
+  .site-menu > ul > li:has(> ul) > ul {
+    display: none;
+    flex-basis: 100%;
+  }
+
+  .site-menu > ul > li.expanded > ul {
+    display: flex;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// DESKTOP NAV LAYOUTS
+// -----------------------------------------------------------------------------
+
+@mixin nav-left($gap) {
+  align-items: start;
+  margin-bottom: $gap;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+  }
+
+  ul,
+  ul li {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li ul {
+    padding-left: $gap;
+    font-size: 1rem;
+  }
+}
+
+@mixin nav-horizontal-layout($gap, $sub-gap) {
+  display: flex;
+  gap: $gap;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: calc(#{$gap} / 2);
+
+  // First-level items with children: add caret to link
+  .site-menu > ul > li:has(> ul) > a {
+    @include nav-caret;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 $gap;
+    justify-content: center;
+
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+      align-self: baseline;
+      text-align: left;
+
+      // First-level dropdown
+      > ul {
+        position: absolute;
+        z-index: 1;
+        top: 1.7rem;
+        left: -2px;
+
+        display: none;
+        flex-direction: column;
+        gap: $sub-gap;
+
+        width: auto;
+        height: auto;
+        padding: $sub-gap;
+        border: var(--border);
+        border-radius: var(--border-radius);
+
+        white-space: nowrap;
+
+        background: var(--color-bg);
+
+        &::before {
+          content: "";
+
+          position: absolute;
+          top: calc(-1 * #{$sub-gap});
+          right: 0;
+          left: 0;
+
+          height: $sub-gap;
+        }
+
+        // Second-level dropdown
+        li {
+          position: relative;
+
+          > ul {
+            top: calc(-1 * #{$sub-gap});
+            left: 100%;
+
+            flex-direction: column;
+            gap: $sub-gap;
+
+            margin-left: $sub-gap;
+
+            &::before {
+              inset: 0 auto 0 calc(-1 * #{$sub-gap});
+              width: $sub-gap;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hover-only interaction rules for horizontal dropdowns.
+// Apply under .nav-can-hover so touch devices use click-toggle instead.
+@mixin nav-hover-dropdowns {
+  .site-menu > ul > li:hover > a::after {
+    @include nav-caret-rotated;
+  }
+
+  ul li:hover > ul {
+    display: flex;
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "captureDate": "2026-10-05T14:58:09.951Z",
+  "source": "https://wibblejellygames.com/",
+  "canonicalBase": "https://wibblejellygames.com/wordpress/",
+  "pages": [
+    {
+      "requested": "https://wibblejellygames.com/wordpress/",
+      "finalUrl": "https://wibblejellygames.com/wordpress/",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "index.html",
+      "bytes": 38969,
+      "fetchedAt": "2026-10-05T14:58:02.928Z",
+      "title": "WibbleJelly Games – Hands on games and activities for all ages",
+      "metaDescription": null,
+      "h1": "WibbleJelly Games",
+      "linksSeen": 29
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=76",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=76",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=76",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-76.html",
+      "bytes": 46382,
+      "fetchedAt": "2026-10-05T14:58:03.387Z",
+      "title": "Games Sales – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Games Sales",
+      "linksSeen": 37
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=365",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=365",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=365",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-365.html",
+      "bytes": 53610,
+      "fetchedAt": "2026-10-05T14:58:03.792Z",
+      "title": "SPLAT! – Mono – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "SPLAT! – Mono",
+      "linksSeen": 27
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=52",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=52",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=52",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-52.html",
+      "bytes": 53851,
+      "fetchedAt": "2026-10-05T14:58:04.204Z",
+      "title": "SPLAT! – Classic – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "SPLAT! – Classic",
+      "linksSeen": 27
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=9",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=9",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=9",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-9.html",
+      "bytes": 52678,
+      "fetchedAt": "2026-10-05T14:58:04.603Z",
+      "title": "Spot On! – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Spot On!",
+      "linksSeen": 25
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=743",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=743",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=743",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-743.html",
+      "bytes": 57852,
+      "fetchedAt": "2026-10-05T14:58:04.996Z",
+      "title": "Stop The Clock – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Stop The Clock",
+      "linksSeen": 23
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=386",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=386",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=386",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-386.html",
+      "bytes": 51996,
+      "fetchedAt": "2026-10-05T14:58:05.383Z",
+      "title": "Frustration – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Frustration",
+      "linksSeen": 24
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=840",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=840",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=840",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-840.html",
+      "bytes": 45239,
+      "fetchedAt": "2026-10-05T14:58:05.771Z",
+      "title": "Whack It! – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Whack It!",
+      "linksSeen": 22
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=714",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=714",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=714",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-714.html",
+      "bytes": 53216,
+      "fetchedAt": "2026-10-05T14:58:06.165Z",
+      "title": "Hole In One – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Hole In One",
+      "linksSeen": 25
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=400",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=400",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=400",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-400.html",
+      "bytes": 53164,
+      "fetchedAt": "2026-10-05T14:58:06.544Z",
+      "title": "Crack The Code – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Crack The Code",
+      "linksSeen": 25
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=27",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=27",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=27",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-27.html",
+      "bytes": 41442,
+      "fetchedAt": "2026-10-05T14:58:06.930Z",
+      "title": "Terms & Conditions – Games Sales – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Terms & Conditions – Games Sales",
+      "linksSeen": 24
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=583",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=583",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=583",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-583.html",
+      "bytes": 40211,
+      "fetchedAt": "2026-10-05T14:58:07.336Z",
+      "title": "Frequently Asked Questions – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Frequently Asked Questions",
+      "linksSeen": 26
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=120",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=120",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=120",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-120.html",
+      "bytes": 38416,
+      "fetchedAt": "2026-10-05T14:58:07.721Z",
+      "title": "Privacy Policy & Cookies – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Privacy Policy & Cookies",
+      "linksSeen": 24
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=31",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=31",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=31",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-31.html",
+      "bytes": 37552,
+      "fetchedAt": "2026-10-05T14:58:08.124Z",
+      "title": "About Us – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "About Us",
+      "linksSeen": 23
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=35",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=35",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=35",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-35.html",
+      "bytes": 44584,
+      "fetchedAt": "2026-10-05T14:58:08.506Z",
+      "title": "Contact – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Contact",
+      "linksSeen": 23
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=847",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=847",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=847",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-847.html",
+      "bytes": 51932,
+      "fetchedAt": "2026-10-05T14:58:08.887Z",
+      "title": "Kaboom – Space! – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Kaboom – Space!",
+      "linksSeen": 23
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=774",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=774",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=774",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-774.html",
+      "bytes": 52177,
+      "fetchedAt": "2026-10-05T14:58:09.267Z",
+      "title": "Spot On! – Challenge – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Spot On! – Challenge",
+      "linksSeen": 24
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?page_id=448",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?page_id=448",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?page_id=448",
+          "status": 200,
+          "location": null
+        }
+      ],
+      "file": "page-448.html",
+      "bytes": 47686,
+      "fetchedAt": "2026-10-05T14:58:09.673Z",
+      "title": "Contact Form – Games Sales – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Contact Form – Games Sales",
+      "linksSeen": 23
+    },
+    {
+      "requested": "https://wibblejellygames.com/wordpress/?p=567",
+      "finalUrl": "https://wibblejellygames.com/wordpress/?p=567",
+      "status": 200,
+      "redirects": [
+        {
+          "url": "https://wibblejellygames.com/wordpress/?p=567",
+          "status": 200
+        }
+      ],
+      "file": "post-567.html",
+      "bytes": 44639,
+      "fetchedAt": "2026-10-05T14:58:23.301Z",
+      "title": "Everyone Hates Queuing When They Are Having Fun – WibbleJelly Games",
+      "metaDescription": null,
+      "h1": "Everyone Hates Queuing When They Are Having Fun",
+      "linksSeen": 26,
+      "via": "feed-rss2"
+    }
+  ],
+  "feeds": {
+    "feed-rss2": {
+      "url": "https://wibblejellygames.com/wordpress/?feed=rss2",
+      "file": "feed-rss2.xml",
+      "items": [
+        {
+          "title": "Everyone Hates Queuing When They Are Having Fun",
+          "link": "https://wibblejellygames.com/wordpress/?p=567"
+        }
+      ]
+    },
+    "feed-comments-rss2": {
+      "url": "https://wibblejellygames.com/wordpress/?feed=comments-rss2",
+      "file": "feed-comments-rss2.xml",
+      "items": []
+    }
+  },
+  "redirects": [
+    {
+      "from": "https://wibblejellygames.com/",
+      "chain": "301 /wordpress/index.php -> 301 /wordpress/ -> 200"
+    },
+    {
+      "from": "https://wibblejellygames.com/wordpress/index.php",
+      "chain": "301 /wordpress/ -> 200"
+    },
+    {
+      "from": "http://wibblejellygames.com/",
+      "chain": "301 https://.../ -> 301 /wordpress/index.php -> 301 /wordpress/ -> 200"
+    },
+    {
+      "from": "https://www.wibblejellygames.com/",
+      "chain": "connection failed (www does not resolve)"
+    }
+  ]
+}

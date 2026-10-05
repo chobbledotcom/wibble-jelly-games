@@ -1,0 +1,44 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// LINK COLUMNS (for link-columns block)
+// =============================================================================
+// Plain-text unordered list of links flowed into CSS multi-columns so a long
+// list of related pages renders compactly and reads naturally.
+// =============================================================================
+
+.design-system {
+  ul.link-columns {
+    columns: 1;
+    column-gap: $space-lg;
+
+    @include reset-spacing;
+
+    list-style: none;
+
+    @include breakpoint.up("sm") {
+      columns: 2;
+    }
+
+    @include breakpoint.up("md") {
+      columns: 3;
+    }
+
+    @include breakpoint.up("lg") {
+      columns: 4;
+    }
+
+    > li {
+      break-inside: avoid;
+      padding: $space-xs 0;
+    }
+
+    a {
+      @include link-plain;
+    }
+  }
+}

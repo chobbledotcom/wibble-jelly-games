@@ -1,0 +1,6 @@
+<h2>
+  <a href="/{{ strings.news_permalink_dir }}/">{{ strings.news_name }}</a>
+  {%- if subtitle and subtitle != "" %}
+    › {{ subtitle | escape }}
+  {%- endif -%}
+</h2>

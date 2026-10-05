@@ -1,0 +1,26 @@
+{%- comment -%}
+Guide-pages-list block - lists the guide pages that belong to the current
+guide category (filtered via `guidesByCategory`). Pages tagged with a property
+are only listed when the category belongs to that same property, so a general
+category never picks up one property's guides. Renders nothing when there are
+no pages left to show.
+
+Guide-category-only block. No block-level parameters.
+{%- endcomment -%}
+
+{%- assign category_pages = collections.guide-pages | guidesByCategory: page.fileSlug -%}
+{%- assign guide_pages = category_pages | guidesForProperty: property -%}
+{%- if guide_pages.size > 0 -%}
+<div class="container">
+  <ul class="guide-list">
+    {%- for guide_page in guide_pages -%}
+      <li>
+        <a href="{{ guide_page.url }}">{{ guide_page.data.name }}</a>
+        {%- if guide_page.data.subtitle -%}
+          <p>{{ guide_page.data.subtitle }}</p>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- endif -%}

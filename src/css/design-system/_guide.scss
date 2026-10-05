@@ -1,0 +1,95 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+// jscpd:ignore-end
+
+// =============================================================================
+// GUIDE PAGES
+// =============================================================================
+// Guide system: index → category → page, built from reorderable sections.
+// Section order controlled via guidePageOrder / guideCategoryOrder config.
+// =============================================================================
+
+.design-system {
+  // Shared link + subtitle styling for guide card items
+  @mixin guide-card-text {
+    a {
+      @include heading-sm;
+      @include link-card;
+    }
+
+    p {
+      @include muted-body-sm;
+    }
+  }
+
+  // Shared vertical stack of cards used by both guide lists
+  @mixin guide-card-list($gap) {
+    @include flex-col($gap);
+
+    list-style: none;
+
+    > li {
+      @include card;
+      @include card-hover;
+    }
+  }
+
+  // ===========================================================================
+  // HEADER
+  // ===========================================================================
+
+  .guide-header {
+    @include flex-col($space-sm);
+  }
+
+  // ===========================================================================
+  // NAVIGATION (breadcrumb back-link)
+  // ===========================================================================
+
+  .guide-navigation {
+    a {
+      @include body-sm;
+      @include link-plain;
+    }
+  }
+
+  // ===========================================================================
+  // GUIDE CATEGORIES LIST (index page)
+  // ===========================================================================
+
+  .guide-categories-list {
+    @include guide-card-list($space-md);
+
+    > li {
+      @include flex-row($space-md, flex-start);
+
+      .guide-category-icon {
+        flex-shrink: 0;
+
+        svg {
+          width: 3rem;
+          height: 3rem;
+          color: var(--color-link);
+        }
+      }
+
+      .guide-category-info {
+        @include flex-col($space-xs);
+        @include guide-card-text;
+      }
+    }
+  }
+
+  // ===========================================================================
+  // GUIDE PAGES LIST (category page)
+  // ===========================================================================
+
+  .guide-list {
+    @include guide-card-list($space-sm);
+
+    > li {
+      @include guide-card-text;
+    }
+  }
+}

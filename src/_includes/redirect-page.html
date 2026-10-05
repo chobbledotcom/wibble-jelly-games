@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="{{ pageLanguage.code }}">
+  <meta charset="utf-8" />
+  <title>{{ pageLanguage.redirect_label }}</title>
+  <link rel="canonical" href="{{ redirect_url | canonicalUrl }}" />
+  <script>location = "{{ redirect_url | url }}";</script>
+  <meta http-equiv="refresh" content="0; url={{ redirect_url }}" />
+  <h1>{{ pageLanguage.redirect_label }}</h1>
+  <a href="{{ redirect_url }}">{{ pageLanguage.redirect_link_label }}</a>
+</html>

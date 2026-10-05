@@ -1,0 +1,43 @@
+// WibbleJelly Games theme — token overrides mapped from the captured source
+// (capture/palette-typography.md and the Radiate theme stylesheet):
+// links/buttons/accents #632E9B, body text #444444, meta text #999999,
+// borders #EAEAEA, white background, 1218px container, Roboto everywhere.
+:root {
+  --width-content: 1218px;
+
+  --color-bg: #fff;
+  --body-background: #fff;
+  --body-background-alt: #f5f5f5;
+  --color-card-bg: #fff;
+  --color-text: #444444;
+  --color-text-muted: #999999;
+  --color-link: #632e9b;
+  --color-link-hover: #632e9b; // the source keeps link color unchanged on hover
+  --color-tint: #f3ecf9;
+  --color-secondary: #632e9b;
+  --color-accent: #632e9b;
+  --color-hover-bg: rgb(0 0 0 / 5%);
+
+  --border: 1px solid #eaeaea;
+  --border-radius: 4px;
+
+  --font-family-body: Roboto, system-ui, -apple-system, "Segoe UI", arial, sans-serif;
+  --font-family-heading: Roboto, system-ui, -apple-system, "Segoe UI", arial, sans-serif;
+  --link-decoration: none;
+  --link-decoration-hover: none;
+}
+
+// Text site title rendered by the navigation-start.html override
+// (the source shows the site name as plain text; its tagline is display:none).
+.site-title {
+  color: #444444;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    color: #632e9b;
+  }
+}

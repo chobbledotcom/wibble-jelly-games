@@ -1,0 +1,69 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// IMAGE BACKGROUND
+// =============================================================================
+// Full-width image background with overlaid text content.
+// Uses the {% image %} shortcode for responsive srcsets, cropped to 8/3.
+
+.design-system {
+  // Remove section padding when containing an image-background
+  section:has(> .image-background),
+  section:has(> .container-wide > .image-background),
+  section:has(> .container-narrow > .image-background) {
+    padding: 0;
+  }
+
+  .image-background {
+    @include media-background-container(8, 3);
+
+    // The image covers the entire container
+    > div {
+      position: absolute;
+      inset: 0;
+
+      @include media-background-cover-image;
+    }
+
+    @include media-background-content;
+
+    // Keep the overlay content above the optional tint gradient (z-index 2).
+    // The shared mixin sets this figure to z-index 1, which would otherwise
+    // sit *under* a tint, so raise it here at the base level.
+    > figure {
+      z-index: 3;
+    }
+
+    &.tinted {
+      isolation: isolate;
+      position: relative;
+      color: #fff;
+
+      &::before {
+        pointer-events: none;
+        content: "";
+
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+
+        background: linear-gradient(
+          180deg,
+          rgb(10 8 6 / 35%) 0%,
+          rgb(10 8 6 / 55%) 100%
+        );
+      }
+    }
+
+    // Parallax: JS-driven scroll effect moves the image opposite to scroll
+    &.parallax > div {
+      will-change: transform;
+      // Extend the image beyond the container so it has room to translate
+      inset: -10%;
+    }
+  }
+}

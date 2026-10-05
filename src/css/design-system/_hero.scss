@@ -1,0 +1,51 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// HERO
+// =============================================================================
+
+.design-system {
+  .hero {
+    @include centered-col;
+    @include section-self-padding;
+
+    text-align: center;
+
+    .prose {
+      align-items: center;
+
+      // 900px measure plus a 24px gutter each side: with the hero's own
+      // 24px self-padding, text sits at least 48px from the hero's edges.
+      max-width: calc(#{$width-default} + 2 * #{$space-md});
+      padding-inline: $space-md;
+
+      p {
+        @include body-lg;
+        @include muted-text;
+      }
+    }
+  }
+
+  .badge {
+    @include body-sm;
+
+    display: inline-flex;
+    gap: $space-xs;
+    align-items: center;
+
+    padding: $space-xs $space-sm;
+    border-radius: $radius-full;
+
+    font-weight: 600;
+
+    @include tint-bg;
+  }
+
+  .actions {
+    @include flex-row-wrap;
+  }
+}

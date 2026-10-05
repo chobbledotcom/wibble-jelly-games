@@ -1,0 +1,60 @@
+// =============================================================================
+// DESIGN SYSTEM
+// =============================================================================
+// A modular, flat design system built on the 8px spacing grid.
+// Import this file to get all design system components.
+//
+// Usage in HTML:
+//   <body class="design-system">
+//     ...your content using design system classes...
+//   </body>
+//
+// Or wrap any element:
+//   <div class="design-system">
+//     ...your content using design system classes...
+//   </div>
+//
+// =============================================================================
+
+// Core
+@forward "base";
+@forward "skip-link";
+@forward "navigation";
+
+// Content
+@forward "prose";
+@forward "table-of-contents";
+
+// Components
+@forward "icon";
+@forward "breadcrumbs";
+@forward "buttons";
+@forward "hero";
+@forward "feature";
+@forward "stats";
+@forward "cta";
+@forward "callout";
+@forward "split";
+@forward "split-callout";
+@forward "grid";
+@forward "block-columns";
+@forward "page-columns";
+@forward "slider";
+@forward "items";
+@forward "code-block";
+@forward "footer";
+@forward "image-background";
+@forward "search";
+@forward "guide";
+@forward "theme-switcher";
+@forward "iframe-embed";
+@forward "link-button";
+@forward "link-columns";
+@forward "icon-links";
+@forward "downloads";
+@forward "marquee-images";
+@forward "faqs";
+@forward "table-of-contents";
+
+// Utilities (last to allow overrides)
+@forward "utilities";

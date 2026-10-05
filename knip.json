@@ -1,0 +1,37 @@
+{
+	"$schema": "https://unpkg.com/knip@5/schema.json",
+	"entry": [
+		".eleventy.js",
+		"src/_data/**/*.{js,mjs}",
+		"src/**/*.11tydata.js",
+		"src/_lib/public/bundle.js",
+		"src/_lib/public/design-system.js",
+		"src/_lib/public/masonry.js",
+		"bin/profile-report.js",
+		"test/**/*.test.js",
+		"test/test-site-data-register.js",
+		"test/test-site-data-hooks.js"
+	],
+	"project": [
+		"**/*.{js,mjs}"
+	],
+	"ignore": [],
+	"ignoreDependencies": [
+		"@biomejs/biome",
+		"jscpd",
+		"pagefind",
+		"postcss-scss",
+		"zod"
+	],
+	"ignoreBinaries": [],
+	"ignoreExportsUsedInFile": true,
+	// withSchemaBreadcrumbs / withSchemaLanguage are registered as Eleventy
+	// filters via registerFilters (src/_lib/eleventy/register.js); knip
+	// cannot trace the map-form registration the way it traced
+	// addFilter("name", fn), so its exports are reported as unused here.
+	"ignoreIssues": {
+		"src/_lib/eleventy/breadcrumbs.js": ["exports"]
+	},
+	"rules": {},
+	"eleventy": false
+}

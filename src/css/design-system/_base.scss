@@ -1,0 +1,417 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// DESIGN SYSTEM ROOT
+// =============================================================================
+// All styles are scoped to .design-system to avoid affecting other page content
+
+// =============================================================================
+// CSS CUSTOM PROPERTIES (at :root for theme overridability)
+// =============================================================================
+// All design system CSS variables are declared at :root so that theme.scss
+// (loaded last in bundle.scss) can override them at the same specificity level
+// via cascade order. If these were scoped inside .design-system (0-1-0), they
+// would beat :root overrides (0-0-1), making theme changes impossible.
+
+:root {
+  --color-bg: #{$color-bg};
+  --body-background-alt: #{$body-background-alt};
+  --color-card-bg: #{$color-card-bg};
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-link: #{$color-primary};
+  --color-link-hover: #{$color-primary-dark};
+  // Underlined, so links in running text never rely on colour alone
+  // (WCAG 1.4.1); a theme may drop it where its link colour has 3:1 against
+  // the text around it.
+  --link-decoration: underline;
+  --link-decoration-hover: underline;
+  --link-decoration-style: solid;
+  --breadcrumb-separator: "/";
+  --color-tint: #{$color-tint};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+  --color-hover-bg: #{$color-hover-bg};
+  --color-contrast-text: #{$color-contrast-text};
+  --color-contrast-text-muted: #{$color-contrast-text-muted};
+  --color-gradient-start: #{rgba(106, 90, 205, 0.2)};
+  --color-gradient-end: #{rgba(236, 72, 153, 0.2)};
+  --color-error: #c00;
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --color-video-play-bg: #{$color-video-play-bg};
+  --color-video-play-hover: #{$color-video-play-hover};
+  --body-background: #{$color-bg};
+  --color-dark-bg: #{$color-dark-bg};
+  --color-dark-bg-alt: #{$color-dark-bg-alt};
+  --font-family-body: #{$font-sans};
+  --font-family-heading: #{$font-sans};
+  --font-family-mono: #{$font-mono};
+  --font-size-xs: #{$font-size-xs-raw};
+  --font-size-sm: #{$font-size-sm-raw};
+  --font-size-base: #{$font-size-base-raw};
+  --font-size-md: #{$font-size-md-raw};
+  --font-size-lg: #{$font-size-lg-raw};
+  --font-size-xl: #{$font-size-xl-raw};
+  --font-size-2xl: #{$font-size-2xl-raw};
+  --font-size-3xl: #{$font-size-3xl-raw};
+  --font-size-4xl: #{$font-size-4xl-raw};
+  --font-size-5xl: #{$font-size-5xl-raw};
+  --space-unit: #{$space-unit-raw};
+  --space-xs: var(--space-unit);
+  --space-sm: calc(var(--space-unit) * 2);
+  --space-md: calc(var(--space-unit) * 3);
+  --space-lg: calc(var(--space-unit) * 4);
+  --space-xl: calc(var(--space-unit) * 6);
+  --space-2xl: calc(var(--space-unit) * 8);
+  --space-3xl: calc(var(--space-unit) * 12);
+  --space-4xl: calc(var(--space-unit) * 16);
+  --right-column-width: 16rem;
+  --section-padding-y-sm: calc(var(--space-3xl) * 0.6);
+  --section-padding-y-md: var(--space-3xl);
+  --section-padding-y-main-sm: calc(var(--space-3xl) * 0.3);
+  --section-padding-y-main-md: calc(var(--space-3xl) * 0.5);
+  --section-padding-y-compact-sm: calc(var(--space-2xl) * 0.6);
+  --section-padding-y-compact-md: var(--space-2xl);
+  --border: 2px solid var(--color-text);
+  --border-radius: #{$radius-md};
+  --box-shadow: #{$shadow-md};
+  --list-marker-content: "• ";
+  --list-marker-color: var(--color-link);
+}
+
+.design-system {
+  @include section-padding-y(sm);
+
+  scroll-behavior: smooth;
+
+  // ===========================================================================
+  // ROOT STYLES
+  // ===========================================================================
+
+  font-family: var(--font-family-body);
+
+  @include body-base;
+
+  color: var(--color-text);
+
+  -webkit-font-smoothing: antialiased;
+
+  main & {
+    @include section-padding-sm-md(main);
+  }
+
+  // ===========================================================================
+  // Zero out all margins and paddings. Spacing is controlled exclusively
+  // through flexbox/grid gap at the container level.
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  // ===========================================================================
+  // TYPOGRAPHY
+  // ===========================================================================
+  // No margins on text elements - spacing comes from parent flex/grid gap.
+  // Use .stack or similar containers for vertical rhythm.
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-heading, var(--font-family-body));
+    font-weight: 700;
+    line-height: $line-height-tight;
+    text-wrap: balance;
+  }
+
+  h1 {
+    @include heading-xl;
+  }
+
+  h2 {
+    @include heading-lg;
+  }
+
+  h3 {
+    @include heading-md;
+  }
+
+  h4 {
+    @include heading-sm;
+  }
+
+  p {
+    line-height: $line-height-relaxed;
+  }
+
+  // Links - exclude buttons
+  a:not(.btn) {
+    @include link-tokens;
+
+    transition: color $transition-fast;
+
+    &:hover {
+      text-decoration: var(--link-decoration-hover);
+    }
+  }
+
+  code {
+    padding: 0.2em 0.4em;
+    border-radius: $radius-sm;
+
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+
+    background: var(--body-background-alt);
+  }
+
+  pre {
+    overflow-x: auto;
+
+    padding: $space-md;
+    border-radius: $radius-md;
+
+    color: #{$color-dark-text};
+
+    background: #{$color-dark-bg};
+
+    code {
+      padding: 0;
+      color: inherit;
+      background: none;
+    }
+  }
+
+  // Details/summary: hide content by default, show when open.
+  // Uses the ::details-content pseudo-element for progressive enhancement
+  // (browsers without support fall back to native details behavior).
+  details::details-content {
+    display: none;
+  }
+
+  details[open]::details-content {
+    display: block;
+  }
+
+  img,
+  .image-wrapper {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .image-wrapper {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  // Prose lists: flex column with gap, padding-left for bullet indentation
+  ul:not([class]),
+  ol:not([class]) {
+    @include flex-col($space-xs);
+
+    padding-left: $space-lg;
+  }
+
+  // ===========================================================================
+  // SCROLL ANIMATIONS
+  // ===========================================================================
+
+  [data-reveal] {
+    @include scroll-reveal;
+  }
+
+  [data-reveal="left"] {
+    @include scroll-reveal-left;
+  }
+
+  [data-reveal="right"] {
+    @include scroll-reveal-right;
+  }
+
+  [data-reveal="scale"] {
+    @include scroll-reveal-scale;
+  }
+
+  // ===========================================================================
+  // CONTAINER
+  // ===========================================================================
+
+  .container,
+  .container-wide,
+  .container-narrow {
+    @include flex-col($space-lg);
+  }
+
+  .container {
+    @include container($width-default);
+  }
+
+  .container-wide {
+    @include container($width-wide);
+  }
+
+  .container-narrow {
+    @include container($width-narrow);
+  }
+
+  // ===========================================================================
+  // SECTION
+  // ===========================================================================
+
+  section {
+    @include section;
+
+    &.compact {
+      @include section-compact;
+    }
+
+    &.dark {
+      @include dark-section-vars;
+    }
+
+    &.gradient {
+      background: linear-gradient(
+        135deg,
+        var(--color-gradient-start) 0%,
+        var(--color-gradient-end) 100%
+      );
+    }
+
+    // Sections containing split-full have no padding; panels provide their own
+    &:has(.split-full) {
+      @include section-flush;
+    }
+
+    // Sections containing a hero have no padding; the hero fills the section
+    &:has(> .hero) {
+      @include section-flush;
+    }
+  }
+
+  // ===========================================================================
+  // SECTION HEADERS
+  // ===========================================================================
+  // Section headers use <hgroup class="section-header"> for semantic markup
+  // Use .gradient class to enable gradient text (default: solid for readability)
+
+  > .section-header {
+    @include card($space-xl, $radius-lg);
+    @include flex-col($space-sm);
+
+    text-align: center;
+
+    // Gradient text style (opt-in via .gradient class)
+    // Default is solid for better readability and contrast
+    &.gradient {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @include brand-gradient;
+
+        background-clip: text;
+
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+  // ===========================================================================
+  // POST META (doc-subtitle)
+  // ===========================================================================
+  // Element-level styles for news post metadata (author, date, thumbnail)
+
+  [role="doc-subtitle"] {
+    address {
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    time {
+      @include muted-text;
+    }
+
+    figure {
+      max-width: $width-author-thumbnail;
+
+      a {
+        overflow: hidden;
+        display: block;
+        border-radius: 50%;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // ===========================================================================
+  // BLOCK LAYOUT
+  // ===========================================================================
+  // When .design-system is used as a content wrapper (not on body/section),
+  // it becomes a flex column.
+
+  &:not(body, section) {
+    @include flex-col(0);
+  }
+
+  // ===========================================================================
+  // ALTERNATING SECTION BACKGROUNDS
+  // ===========================================================================
+  // Even sections get alternate background; odd sections inherit from body
+
+  > section,
+  main > section {
+    @include zebra-stripe;
+  }
+
+  // Even dark sections get alternate dark background
+  > section.dark:nth-child(even),
+  main > section.dark:nth-child(even) {
+    background: var(--color-dark-bg-alt);
+  }
+
+  @include breakpoint.up("md") {
+    @include section-padding-y(md);
+  }
+
+  @include reduced-motion-scroll;
+
+  @include breakpoint.reduced-motion {
+    [data-reveal] {
+      transform: none;
+      opacity: 1;
+      transition: none;
+    }
+  }
+}
+
+// =============================================================================
+// BODY RESET
+// =============================================================================
+// Reset body spacing when design-system is applied directly to the body element
+
+body.design-system {
+  @include reset-spacing;
+
+  background: var(--body-background);
+}

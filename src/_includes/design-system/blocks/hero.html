@@ -1,0 +1,12 @@
+{%- comment -%}
+Hero section with optional badge, markdown content, and action buttons.
+Renders via the shared hero-content partial; see hero-content.html for the
+badge/content/buttons parameters. Hero-specific:
+
+  - block.class: Additional CSS classes (e.g., "gradient")
+  - block.reveal: If set, adds data-reveal animation
+{%- endcomment -%}
+
+<header class="hero{% if block.class %} {{ block.class }}{% endif %}"{% if block.reveal %} data-reveal="{{ block.reveal }}"{% endif %}>
+  {%- include "design-system/hero-content.html", block: block -%}
+</header>

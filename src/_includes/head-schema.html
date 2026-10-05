@@ -1,0 +1,13 @@
+{%- assign schemaType = "page" -%}
+{%- if tags and tags contains "news" -%}
+  {%- assign schemaType = "post" -%}
+{%- elsif schema_type == "organization" -%}
+  {%- assign schemaType = "organization" -%}
+{%- else -%}
+  {%- assign schemaType = "website" -%}
+{%- endif -%}
+
+{%- unless no_index -%}
+  {%- assign schemaMeta = meta | withSchemaLanguage: pageLanguage | withSchemaBreadcrumbs: config.show_breadcrumbs, page, name, navigationParent, pageLanguage, translations -%}
+  {% jsonLdScript schemaMeta, schemaType, tags %}
+{%- endunless -%}

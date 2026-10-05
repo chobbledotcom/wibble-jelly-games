@@ -1,0 +1,51 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// STATS
+// =============================================================================
+// Semantic markup: <dl class="stats"> with <div class="stat"> containing
+// <dt> (label) and <dd> with <strong> (value), visually reordered via flex
+
+.design-system {
+  dl.stats,
+  div.stats {
+    @include flex-wrap($space-xl);
+
+    justify-content: center;
+  }
+
+  .stat {
+    @include flex-col($space-xs, center);
+
+    min-width: 150px;
+    padding: $space-xs $space-sm;
+    text-align: center;
+
+    dt {
+      @include body-base;
+
+      order: 1;
+
+      @include muted-text;
+    }
+
+    dd {
+      order: 0;
+
+      strong {
+        font-size: $font-size-4xl;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--color-link);
+
+        @include breakpoint.up("md") {
+          font-size: $font-size-5xl;
+        }
+      }
+    }
+  }
+}

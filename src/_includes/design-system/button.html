@@ -1,0 +1,26 @@
+{%- comment -%}
+Button - the canonical `<a class="btn">` used across the design system.
+Button-rendering blocks delegate here, so overriding this single file in a
+client template restyles (or re-markups) every design-system button at once.
+
+Parameters (pass as direct include arguments):
+  - text: Button label (required)
+  - href: Link URL or anchor (required)
+  - variant: "primary", "secondary", or "ghost" (required; block schemas
+    default each button's variant)
+  - btn_size: "sm", "lg", or omit for default
+  - download: If truthy, adds the `download` attribute
+
+Callers pass every field as an explicit argument so the include's own scope
+shadows any same-named variable leaking from the page/parent context.
+
+The size parameter is `btn_size`, not `size`: a bare Liquid variable named
+`size` collides with the magic `.size` (collection length) property and
+resolves to a number. Only the known size values ("sm"/"lg") emit a class, so
+an object's `.size` key-count fallback can never produce a bogus size class.
+{%- endcomment -%}
+
+{%- if text and href -%}
+  {%- capture _class -%}btn btn--{{ variant }}{%- if btn_size == "sm" or btn_size == "lg" %} btn--{{ btn_size }}{%- endif -%}{%- endcapture -%}
+  <a href="{{ href }}" class="{{ _class }}"{% if download %} download{% endif %}>{{ text }}</a>
+{%- endif -%}

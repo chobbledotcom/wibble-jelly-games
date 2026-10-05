@@ -1,0 +1,168 @@
+// jscpd:ignore-start -- shared @use import block
+@use "sass:list";
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../breakpoints" as breakpoint;
+// jscpd:ignore-end
+
+// =============================================================================
+// SPLIT SECTIONS (contained width)
+// =============================================================================
+
+.design-system {
+  // Colored panel button tokens: the base color doubles as the hover
+  // background for both the dark and primary panel variants.
+  @mixin split-btn-colors($base, $hover-color) {
+    --split-btn-color: #{$base};
+    --split-btn-hover-bg: #{$base};
+    --split-btn-hover-color: #{$hover-color};
+  }
+
+  .split,
+  .split-callout {
+    @include two-column-split;
+  }
+
+  .split--reverse,
+  .split-callout--reverse {
+    @include breakpoint.up("md") {
+      > :first-child {
+        order: 2;
+      }
+
+      > :last-child {
+        order: 1;
+      }
+    }
+  }
+
+  .split {
+    align-items: start;
+
+    > figure {
+      overflow: hidden;
+      border: $border-light;
+      border-radius: $radius-xl;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      figcaption {
+        padding: $space-xs $space-sm;
+
+        @include body-sm;
+
+        font-style: italic;
+
+        @include card-bg;
+      }
+
+      @include video-media;
+    }
+  }
+
+  // ===========================================================================
+  // SPLIT FULL-WIDTH (two-tone sections)
+  // ===========================================================================
+
+  .split-full {
+
+    // Side-anchored inner padding for a split-full panel at md+.
+    @mixin split-panel-inset($side) {
+      > * {
+        @include breakpoint.up("md") {
+          padding-#{$side}: $space-2xl;
+        }
+      }
+    }
+
+    // The two panels of a colored split-full variant, built here once so the
+    // dark and primary selectors share this one source. Pass $cross: true
+    // for the transparent opposite panels.
+    @mixin split-variant-panels($variant, $cross: false) {
+      $pair: map.get((false: (left, right), true: (right, left)), $cross);
+      $left-panel: list.nth($pair, 1);
+      $right-panel: list.nth($pair, 2);
+
+      &.#{$variant}-left .#{$left-panel},
+      &.#{$variant}-right .#{$right-panel} {
+        @content;
+      }
+    }
+
+    display: flex;
+    flex-direction: column;
+
+    // Child panels
+    .left,
+    .right {
+      @include section-self-padding;
+
+      display: flex;
+      flex: 1;
+
+      > * {
+        justify-content: center;
+        width: 100%;
+        max-width: calc(#{$width-wide} / 2);
+      }
+    }
+
+    .left {
+      justify-content: flex-end;
+      background: var(--body-background-alt);
+
+      @include split-panel-inset(right);
+    }
+
+    .right {
+      justify-content: flex-start;
+
+      @include card-bg;
+      @include split-panel-inset(left);
+    }
+
+    // Color variants — opposite panel transparent to show section background
+    @include split-variant-panels(dark, true) {
+      background: transparent;
+    }
+
+    // Dark colored panels
+    @include split-variant-panels(dark) {
+      @include dark-section-vars;
+      @include split-btn-colors($color-dark-text, $color-dark-bg);
+    }
+
+    // Primary colored panels
+    @include split-variant-panels(primary) {
+      @include split-btn-colors(var(--color-contrast-text), $color-text);
+
+      background: var(--color-link);
+
+      @include contrast-text-vars;
+    }
+
+    // Button overrides for colored panels
+    &.dark-left .left,
+    &.dark-right .right,
+    &.primary-left .left,
+    &.primary-right .right {
+      .btn {
+        border-color: var(--split-btn-color);
+        color: var(--split-btn-color);
+
+        &:hover:not(:disabled) {
+          color: var(--split-btn-hover-color);
+          background: var(--split-btn-hover-bg);
+        }
+      }
+    }
+
+    @include breakpoint.up("md") {
+      flex-direction: row;
+    }
+  }
+}

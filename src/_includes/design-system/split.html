@@ -1,0 +1,46 @@
+{%- comment -%}
+Split layout with text content and a figure. Used by the figure split-* block
+types: split-image, split-code, split-icon-links, split-html. The block schema
+fills defaults before rendering.
+
+The figure type is derived from the block type (e.g., "split-image" → "image").
+
+Parameters (via block object):
+  Shared:
+    - block.subtitle: Optional subtitle text (with text-muted styling)
+    - block.content: Main content with markdown headings (rendered as markdown)
+    - block.reverse: If true, reverses the layout (content on right)
+    - block.reveal_content: Animation for the content side
+    - block.reveal_figure: Animation for the figure side
+    - block.button: Optional button object { text, href, variant, size }
+
+  Figure fields per block type:
+    split-image:        figure_src, figure_alt, figure_caption
+    split-code:         figure_filename, figure_code, figure_language
+    split-icon-links:   figure_items (array of {icon, text, url})
+    split-html:         figure_html
+  The code and icon-links figures embed those blocks with `block: false`:
+  they render from figure_* fields, not a block instance of their own, so
+  that block's intro_content and reveal do not apply.
+{%- endcomment -%}
+
+<div class="split{% if block.reverse %} split--reverse{% endif %}">
+  {%- include "design-system/split-article.html" -%}
+  <figure data-reveal="{{ block.reveal_figure }}">
+    {%- case block.type -%}
+      {%- when "split-image" -%}
+        {%- assign image = block.figure_src -%}
+        {%- capture _alt -%}{%- include "get-alt-text.html", fallback: block.figure_alt -%}{%- endcapture -%}
+        {% image block.figure_src, _alt %}
+        {%- if block.figure_caption -%}
+          <figcaption>{{ block.figure_caption }}</figcaption>
+        {%- endif -%}
+      {%- when "split-code" -%}
+        {%- include "design-system/blocks/code-block.html", block: false, filename: block.figure_filename, code: block.figure_code, language: block.figure_language -%}
+      {%- when "split-icon-links" -%}
+        {%- include "design-system/blocks/icon-links.html", block: false, items: block.figure_items -%}
+      {%- when "split-html" -%}
+        {{ block.figure_html }}
+    {%- endcase -%}
+  </figure>
+</div>

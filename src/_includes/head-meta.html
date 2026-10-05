@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+  {{- socialMeta.title | escape -}}
+</title>
+
+{%- if socialMeta.description -%}
+  <meta
+    name="description"
+    content="{{ socialMeta.description | escape }}"
+  >
+{%- endif -%}
+
+<meta
+  name="generator"
+  content="{{ eleventy.generator }}"
+>
+
+{%- if no_index -%}
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
+{%- else -%}
+  <link
+    rel="canonical"
+    href="{{ socialMeta.url | escape }}"
+  >
+  {%- include "head-hreflang.html" -%}
+{%- endif -%}
+
+<meta property="og:locale" content="{{ pageLanguage.og_locale }}">
+{%- for alternate in languages -%}
+  {%- unless alternate.code == pageLanguage.code -%}
+    {%- if pageTranslation[alternate.code] -%}
+      <meta property="og:locale:alternate" content="{{ alternate.og_locale }}">
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
+<meta property="og:type" content="{{ socialMeta.type | escape }}">
+<meta property="og:title" content="{{ socialMeta.title | escape }}">
+{%- if socialMeta.description -%}
+  <meta property="og:description" content="{{ socialMeta.description | escape }}">
+{%- endif -%}
+<meta property="og:url" content="{{ socialMeta.url | escape }}">
+{%- if socialMeta.image -%}
+  <meta property="og:image" content="{{ socialMeta.image | escape }}">
+{%- endif -%}
+
+<meta
+  name="twitter:card"
+  content="{% if socialMeta.image %}summary_large_image{% else %}summary{% endif %}"
+>
+<meta name="twitter:title" content="{{ socialMeta.title | escape }}">
+{%- if socialMeta.description -%}
+  <meta name="twitter:description" content="{{ socialMeta.description | escape }}">
+{%- endif -%}
+{%- if socialMeta.image -%}
+  <meta name="twitter:image" content="{{ socialMeta.image | escape }}">
+{%- endif -%}

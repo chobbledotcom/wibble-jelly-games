@@ -1,0 +1,12 @@
+{%- comment -%}
+Call-to-action block with gradient background.
+
+Parameters (via block object):
+  - block.content: Markdown content with optional heading (required, rendered as markdown)
+  - block.button: Optional button object { text, href, variant, size }
+  - block.reveal: If set, adds data-reveal animation
+{%- endcomment -%}
+
+<aside class="cta"{% if block.reveal %} data-reveal="{{ block.reveal }}"{% endif %}>
+  {%- include "design-system/block-content-button.html" -%}
+</aside>

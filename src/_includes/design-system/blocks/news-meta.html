@@ -1,0 +1,10 @@
+{%- if author -%}
+<div class="stack--sm" role="doc-subtitle">
+  {%- include "post-meta-author.html" -%}
+  {%- include "post-meta-date.html" -%}
+</div>
+{%- else -%}
+<div role="doc-subtitle">
+  {%- include "post-meta-date.html" -%}
+</div>
+{%- endif -%}

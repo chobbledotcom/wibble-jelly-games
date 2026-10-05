@@ -1,0 +1,52 @@
+// jscpd:ignore-start -- shared @use import block
+@use "../variables" as *;
+@use "../mixins" as *;
+// jscpd:ignore-end
+
+// =============================================================================
+// BREADCRUMBS
+// =============================================================================
+// Navigation breadcrumbs using design system tokens.
+
+.design-system {
+  ol.breadcrumbs {
+    @include container($width-wide);
+
+    display: flex;
+    flex-flow: row wrap;
+    gap: $space-xs;
+    align-items: center;
+
+    padding-block: $space-sm;
+
+    @include body-sm;
+
+    list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      gap: $space-xs;
+      align-items: center;
+    }
+
+    a {
+      @include link-plain;
+    }
+
+    // The separator is drawn by the theme: set --breadcrumb-separator
+    // (a CSS string, such as ">") to change it.
+    .separator {
+      @include muted-text;
+
+      &::before {
+        content: var(--breadcrumb-separator);
+      }
+    }
+
+    span[aria-current] {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{%- comment -%}
+Guide-categories block - lists the guide categories that apply to the whole
+site. Categories tied to a single property are left out: they belong in that
+property's own guide, listed by the `property-guides` block on the property
+page. Renders nothing when every category belongs to a property.
+
+No block-level parameters.
+{%- endcomment -%}
+
+{%- assign general_categories = collections.guide-categories | generalGuides -%}
+{%- if general_categories.size > 0 -%}
+<ul class="guide-categories-list">
+  {%- for category in general_categories -%}
+    <li>
+      {%- if category.data.icon -%}
+        <div class="guide-category-icon">{{ category.data.icon | renderIcon }}</div>
+      {%- endif -%}
+      <div class="guide-category-info">
+        <a href="{{ category.url }}">{{ category.data.name }}</a>
+        {%- if category.data.subtitle -%}
+          <p>{{ category.data.subtitle }}</p>
+        {%- endif -%}
+      </div>
+    </li>
+  {%- endfor -%}
+</ul>
+{%- endif -%}

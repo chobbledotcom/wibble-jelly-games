@@ -1,0 +1,220 @@
+[
+  {
+    "file": "index.html",
+    "parsedAnchors": 29,
+    "rawATags": 29,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 25,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-120.html",
+    "parsedAnchors": 24,
+    "rawATags": 24,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "external": 3
+    }
+  },
+  {
+    "file": "page-27.html",
+    "parsedAnchors": 24,
+    "rawATags": 24,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 20,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-31.html",
+    "parsedAnchors": 23,
+    "rawATags": 23,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 18,
+      "external": 3
+    }
+  },
+  {
+    "file": "page-35.html",
+    "parsedAnchors": 23,
+    "rawATags": 23,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 18,
+      "mailto": 1,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-365.html",
+    "parsedAnchors": 27,
+    "rawATags": 27,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 20,
+      "internal-asset": 3,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-386.html",
+    "parsedAnchors": 24,
+    "rawATags": 24,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "internal-asset": 1,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-400.html",
+    "parsedAnchors": 25,
+    "rawATags": 25,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "internal-asset": 2,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-448.html",
+    "parsedAnchors": 23,
+    "rawATags": 23,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 18,
+      "mailto": 1,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-52.html",
+    "parsedAnchors": 27,
+    "rawATags": 27,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 20,
+      "internal-asset": 3,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-583.html",
+    "parsedAnchors": 26,
+    "rawATags": 26,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 22,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-714.html",
+    "parsedAnchors": 25,
+    "rawATags": 25,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "internal-asset": 2,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-743.html",
+    "parsedAnchors": 23,
+    "rawATags": 23,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-76.html",
+    "parsedAnchors": 37,
+    "rawATags": 37,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 33,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-774.html",
+    "parsedAnchors": 24,
+    "rawATags": 24,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "internal-asset": 1,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-840.html",
+    "parsedAnchors": 22,
+    "rawATags": 22,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 18,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-847.html",
+    "parsedAnchors": 23,
+    "rawATags": 23,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "external": 2
+    }
+  },
+  {
+    "file": "page-9.html",
+    "parsedAnchors": 25,
+    "rawATags": 25,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 19,
+      "internal-asset": 2,
+      "external": 2
+    }
+  },
+  {
+    "file": "post-567.html",
+    "parsedAnchors": 26,
+    "rawATags": 26,
+    "ok": true,
+    "counts": {
+      "fragment": 2,
+      "internal-page": 22,
+      "external": 2
+    }
+  }
+]
