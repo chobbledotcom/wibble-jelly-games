@@ -18,7 +18,7 @@ permissions:
 jobs:
   test:
     name: Run Tests
-    runs-on: ubuntu-latest
+    runs-on: ubicloud-standard-4
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,7 +57,7 @@ jobs:
   # content fails here rather than in the first fork that deletes it.
   fork-simulation:
     name: Fork Simulation
-    runs-on: ubuntu-latest
+    runs-on: ubicloud-standard-4
     steps:
       - name: Checkout
         uses: actions/checkout@v4
