@@ -166,22 +166,14 @@ per-language menus and snippets, and the checks to run.
 
 ## Deployment
 
-The default deployment publishes to SharedServices, CfA's Okta-protected
-internal hosting: `sharedservices-deploy.yaml` builds `_site/` and hands the
-artifact to the platform's shared static deployment workflow, which holds the
-AWS credentials, S3 sync, and cache invalidation. Deployment is manual and
-requires one-time platform registration; see the
-[README deployment guidance](../../../README.md#deployment) for setup.
+The bundled GitHub Pages workflow publishes a public deployment on every push
+to `main`. The user must enable **Settings > Pages > Source: GitHub Actions**
+once. Inspect the selected workflow rather than assuming other deployment
+targets use the same runner or credentials.
 
-The bundled GitHub Pages workflow also publishes a public deployment on every
-push to `main`. The user must enable **Settings > Pages > Source: GitHub
-Actions** once. Inspect the selected workflow rather than assuming all
-deployment targets use the same runner or credentials.
-
-Both workflow shapes provide `SITE_URL` for canonical URLs, sitemap entries,
-feeds, and schema metadata; Pages project subpaths additionally set
-`PATH_PREFIX` for URL rewriting. SharedServices serves each app at the root
-of its own subdomain, so no `PATH_PREFIX` applies there.
+The workflow provides `SITE_URL` for canonical URLs, sitemap entries, feeds,
+and schema metadata; Pages project subpaths additionally set `PATH_PREFIX`
+for URL rewriting.
 
 For another static host, publish the generated `_site/` directory. There is no
 application server. Building public site content does not require a backend

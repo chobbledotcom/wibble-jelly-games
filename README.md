@@ -102,15 +102,13 @@ Known-fail: none. The template's demo-content expectations are exercised by
 
 ## Deployment
 
-Not configured. The build produces a static `_site/` directory — there is no
-application server. The repo ships both the SharedServices workflow
-(`sharedservices-deploy.yaml`, manual, requires one-time platform
-registration) and a GitHub Pages workflow (publishes on push to `main`;
-requires enabling Settings > Pages > Source: GitHub Actions). `SITE_URL` is
-provided by `site.json` (`https://wibblejellygames.com`) and can be
-overridden per environment; a Pages project subpath would additionally need
-`PATH_PREFIX`. Whichever target is chosen needs setting up before first
-deploy.
+The site publishes to GitHub Pages on every push to `main` via
+`.github/workflows/pages.yml`; Pages must be enabled with Source: GitHub
+Actions under Settings → Pages (a one-time repository setting). The build
+produces a static `_site/` directory — there is no application server.
+`SITE_URL` is provided by `site.json` (`https://wibblejellygames.com`) and can
+be overridden per environment; a Pages project subpath would additionally need
+`PATH_PREFIX`.
 
 ## License
 

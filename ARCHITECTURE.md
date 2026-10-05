@@ -56,7 +56,7 @@ These recur throughout the system and explain most of its shape:
 | Verify a change before handoff | [verification](skills/cfa-static-site-builder/references/verification.md) |
 | Change the template's own code | [engineering guide](CLAUDE.md); [library map](src/_lib/README.md); [test quality criteria](test/TEST-QUALITY-CRITERIA.md) |
 | Drive an AI assistant against a site | [Agent Skill](skills/cfa-static-site-builder/SKILL.md) |
-| Deploy | [README deployment](README.md#deployment); [DevOps walkthrough](https://github.com/codeforamerica/cfa-static/blob/main/src/pages/deploying-sharedservices.md) for the internal pipeline |
+| Deploy | [README deployment](README.md#deployment) |
 
 The [Site Builder Reference](docs/developer-reference.md) is generated from
 `package.json` and the CMS definitions; [BLOCKS_LAYOUT.md](BLOCKS_LAYOUT.md)
@@ -285,14 +285,11 @@ The deliverable is the `_site/` directory: self-contained, no application
 server, no build-time secrets. `SITE_URL` stamps the public origin into
 canonical URLs, the sitemap, feeds, and social metadata; `PATH_PREFIX`
 rewrites internal URLs for hosts that serve the site from a subpath. The
-repository ships workflow shapes for both of its supported targets — a public
-GitHub Pages deploy on every push to `main`, and a manual internal deploy that
-hands the artifact to a platform workflow owning the cloud credentials — plus
+repository ships a public GitHub Pages deploy on every push to `main`, plus
 CI for builds, tests, dependency scanning, and review tooling. Repository
 `docs/` publish alongside the site at `/docs/` on each deployment. To host
 anywhere else, run `npm run build` and point any static host or pipeline at
-`_site/`. The [DevOps walkthrough](https://github.com/codeforamerica/cfa-static/blob/main/src/pages/deploying-sharedservices.md)
-covers the internal pipeline's one-time registration in step-by-step detail.
+`_site/`.
 
 ## Extending The System
 
