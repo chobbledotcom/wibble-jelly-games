@@ -21,7 +21,7 @@ blocks:
       | What | Where | Where it shows up |
       | --- | --- | --- |
       | Permanent pages | `src/pages/anything.md` | In the menu (if listed), search, sitemap |
-      | News posts | `src/news/2026-09-24-slug.md` | [News](/news/), the [feed](/feed.xml), sitemap |
+      | News posts | `src/news/2026-09-24-slug.md` | `/news/`, the [feed](/feed.xml), sitemap |
       | Reusable blocks | `src/snippets/name.md` | Wherever a `snippet` block references them |
       | Images | `src/images/photo.jpg` | As `/images/photo.jpg` in any block |
       | PDFs and files | `src/files/doc.pdf` | As `/files/doc.pdf` in a `downloads` block |
@@ -63,18 +63,20 @@ blocks:
       | A closing button | `cta` or `link-button` |
       | A file list (info sheets, risk assessments) | `downloads` |
 
-      Every block, with its YAML and a live preview, is on the
-      [block gallery](/blocks/) page. Copy an example, paste it into the
-      `blocks:` list, change the words. An unknown block name or a missing
-      required field fails the build loudly, so typos cannot ship silently.
+      Every block, with all of its fields and the exact YAML it accepts, is
+      listed in the generated block reference in the repository
+      (`skills/cfa-static-site-builder/references/blocks.md`). Copy an
+      example from there, paste it into the `blocks:` list, change the words.
+      An unknown block name or a missing required field fails the build
+      loudly, so typos cannot ship silently.
   - type: markdown
     content: |
       ## News posts
 
       Add a file to `src/news/` named `YYYY-MM-DD-slug.md` and it appears on
-      the [news page](/news/), in the [feed](/feed.xml), and in the sitemap;
-      the filename date is the published date. The three posts marked
-      "Example" there are working templates to copy.
+      the news page at `/news/`, in the [feed](/feed.xml), and in the
+      sitemap; the filename date is the published date. The three posts
+      marked "Example" there are working templates to copy.
 
       A steady one post a month beats five in a week. Each post is a fresh
       page for search engines to rank and a reason for the feed to be read.

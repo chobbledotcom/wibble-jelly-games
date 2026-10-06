@@ -1,6 +1,0 @@
-WibbleJelly Games - placeholder download
-
-This file exists so the downloads block on the /blocks/ page has
-something real to offer. Replace it with one of your own documents, or
-point the block at the product info sheets and risk assessments already
-in src/files/ (for example /files/ProductInfo_SPLAT.pdf).
