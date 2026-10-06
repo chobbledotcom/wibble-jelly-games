@@ -30,7 +30,7 @@ blocks:
       blocks. Save a file and the site rebuilds; push and CI builds and
       deploys it.
   - type: code-block
-    filename: a minimal page (src/pages/example.md)
+    filename: a minimal page (in src/pages)
     language: yaml
     code: |-
       ---
