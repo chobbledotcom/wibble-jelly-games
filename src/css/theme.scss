@@ -154,11 +154,18 @@ body.design-system {
   }
 }
 
-.design-system nav.site-nav .site-menu {
+// One mono label voice for navigation, table plates, and badges; each
+// context sets its own tracking below.
+.design-system nav.site-nav .site-menu,
+.design-system .prose th,
+.design-system .badge {
   font-family: var(--font-family-mono);
   font-size: 0.72rem;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.design-system nav.site-nav .site-menu {
   letter-spacing: 0.08em;
 
   a {
@@ -233,10 +240,23 @@ body.design-system {
 
 // The desktop bar is full-bleed with editorial gutters instead of the
 // design system's floating inset card. The :not() mirrors the design system
-// selector so this later rule wins the specificity tie.
-@media (width >= 769px) {
-  .design-system.horizontal-nav
-    nav.site-nav:not([data-menu][data-collapse="always"]) {
+// selector so these later rules win the specificity tie.
+.design-system.horizontal-nav
+  nav.site-nav:not([data-menu][data-collapse="always"]) {
+  .site-menu > ul {
+    @media (width >= 769px) and (width <= 1279px) {
+      flex-wrap: wrap;
+      gap: 0 0.65rem;
+      justify-content: center;
+    }
+
+    @media (width >= 1280px) {
+      flex-wrap: nowrap;
+      gap: 0 1rem;
+    }
+  }
+
+  @media (width >= 769px) {
     top: 0;
 
     gap: var(--space-lg);
@@ -245,35 +265,27 @@ body.design-system {
     padding-inline: clamp(1.25rem, 4vw, 3.5rem);
     border-radius: 0;
   }
-}
 
-// Keep the wordmark on one line; from 1280px the menu is a single row too.
-@media (width >= 769px) and (width <= 1279px) {
-  .design-system.horizontal-nav
-    nav.site-nav:not([data-menu][data-collapse="always"]) {
+  // Two centred rows on tablet; one row from the desktop breakpoint.
+  @media (width >= 769px) and (width <= 1279px) {
     flex-direction: column;
     gap: var(--space-xs);
     align-items: center;
     padding-block: var(--space-sm);
   }
+}
 
+@media (width >= 769px) {
   .design-system nav.site-nav .site-title {
     flex-shrink: 0;
     white-space: nowrap;
   }
+}
 
+@media (width >= 769px) and (width <= 1279px) {
   .design-system nav.site-nav .site-menu {
     width: 100%;
     font-size: 0.68rem;
-  }
-
-  .design-system.horizontal-nav
-    nav.site-nav:not([data-menu][data-collapse="always"])
-    .site-menu
-    > ul {
-    flex-wrap: wrap;
-    gap: 0 0.65rem;
-    justify-content: center;
   }
 
   .design-system nav.site-nav .search-box input[type="search"] {
@@ -282,19 +294,6 @@ body.design-system {
 }
 
 @media (width >= 1280px) {
-  .design-system nav.site-nav .site-title {
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .design-system.horizontal-nav
-    nav.site-nav:not([data-menu][data-collapse="always"])
-    .site-menu
-    > ul {
-    flex-wrap: nowrap;
-    gap: 0 1rem;
-  }
-
   .design-system nav.site-nav .search-box input[type="search"] {
     width: 7rem;
   }
@@ -490,13 +489,15 @@ body.design-system {
 // CARDS
 // =============================================================================
 
-.design-system ul.items > li {
+.design-system ul.items > li,
+.design-system .split > figure {
   border: 1px solid #ded5c7;
   border-radius: 2px;
-
   background: var(--color-card-bg);
-  box-shadow: none;
+}
 
+.design-system ul.items > li {
+  box-shadow: none;
   transition:
     transform 250ms cubic-bezier(0.2, 0.7, 0.3, 1),
     border-color 250ms ease;
@@ -557,18 +558,11 @@ body.design-system {
 }
 
 .design-system .split > figure {
-  border: 1px solid #ded5c7;
-  border-radius: 2px;
-  background: var(--color-card-bg);
   box-shadow: 8px 8px 0 var(--color-tint);
 }
 
 .design-system .badge {
   border-radius: 2px;
-
-  font-family: var(--font-family-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
@@ -601,11 +595,6 @@ body.design-system {
 
   th {
     border-bottom: 1px solid var(--color-text);
-
-    font-family: var(--font-family-mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.06em;
   }
 
