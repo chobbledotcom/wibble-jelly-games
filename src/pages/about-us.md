@@ -6,11 +6,15 @@ eleventyNavigation:
   key: About Us
   order: 4
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-knobs.jpg
+    image_alt: Knurled knobs and toggle switches on the WibbleJelly workshop bench
+    tint: true
+    badge: Family-run · Est. 2015
     content: |
       # About Us
 
-      WibbleJelly Games are a family run business based in Yorkshire, we design and manufacture innovative games for the Activities Hire Industry. Our original games are compact, easy to set up and economical to run, bringing additional revenue opportunities to your business. Our products suit any party occasion guaranteeing fun for any age group.
+      A family-run Yorkshire workshop designing and building games that survive real events, real queues and thousands of players.
   - type: markdown
     content: |
       We have our own workshop equipped with a Laser Cutter, CNC Router, 3D Printer, Lathe and a Pick & Place Machine for making PCBs. We have a background in Electronics and Software Engineering. We pride ourselves on designing and building all of the games we sell, we will always support any game we sell. We do not import completed games from the Far East and pass them off as our own!

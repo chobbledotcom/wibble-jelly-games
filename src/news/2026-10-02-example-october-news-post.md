@@ -30,6 +30,5 @@ blocks:
     content: |
       *How this works: this post is
       `src/news/2026-10-02-example-october-news-post.md`. The header is the
-      `image-background` block, the button is a `link-button`. See the
-      [Site Guide](/site-guide/).*
+      `image-background` block, the button is a `link-button`.*
 ---

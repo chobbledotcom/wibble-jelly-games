@@ -3,7 +3,7 @@ name: Terms & Conditions – Games Sales
 meta_title: Terms & Conditions – Games Sales – WibbleJelly Games
 permalink: /terms-conditions/
 eleventyNavigation:
-  key: Terms & Conditions
+  key: T&Cs
   order: 3
 blocks:
   - type: hero

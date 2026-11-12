@@ -15,4 +15,5 @@ blocks:
   - type: markdown
     content: |
       ![](/images/WhackIt.png)
----
+  - type: snippet
+    reference: contact-form

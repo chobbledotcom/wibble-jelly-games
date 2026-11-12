@@ -23,7 +23,7 @@ blocks:
       The legs are detachable and pack away into the flightcase lid along with the Big Red Button and its base. Everything is contained and won’t get lost.
     button:
       text: Contact Us About Spot On!
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: markdown
     content: |
@@ -63,8 +63,10 @@ blocks:
       *For more information or to purchase a Spot On! game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
     button:
       text: Contact Us About Spot On!
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: markdown
     content: |
       Credits: Music and Sound effects obtained from https://www.zapsplat.com
+  - type: snippet
+    reference: contact-form

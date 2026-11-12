@@ -25,7 +25,7 @@ blocks:
       This game is great at any fun day, corporate event, wedding, youth club, birthday party or any other event you may be having.
     button:
       text: Contact Us About Frustration
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: markdown
     content: |
@@ -62,5 +62,7 @@ blocks:
       *For more information or to purchase a Frustration game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
     button:
       text: Contact Us About Frustration
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
+  - type: snippet
+    reference: contact-form

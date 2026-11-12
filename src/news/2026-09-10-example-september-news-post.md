@@ -35,6 +35,5 @@ blocks:
       *How this works: this post is
       `src/news/2026-09-10-example-september-news-post.md`. Copy it, rename it
       with a new date, edit the blocks; it then appears on
-      [the news page](/news/) and in the [feed](/feed.xml). More detail in the
-      [Site Guide](/site-guide/).*
+      [the news page](/news/) and in the [feed](/feed.xml).*
 ---

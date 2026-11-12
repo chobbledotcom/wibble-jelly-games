@@ -19,7 +19,7 @@ blocks:
       The legs are detachable and pack away into the flightcase lid along with the buttons and leads. Everything is contained and won’t get lost.
     button:
       text: Contact Us About Spot On! – Challenge
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: markdown
     content: |
@@ -55,8 +55,10 @@ blocks:
       *For more information or to purchase a Spot On! – Challenge game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
     button:
       text: Contact Us About Spot On! – Challenge
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: markdown
     content: |
       Credits: Music and Sound effects obtained from https://www.zapsplat.com and “Wagon Wheel – Electronic” Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
+  - type: snippet
+    reference: contact-form

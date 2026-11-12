@@ -7,13 +7,24 @@ eleventyNavigation:
   key: Home
   order: 1
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-hero.jpg
+    image_alt: Close-up of magenta arcade buttons and machined aluminium knobs on a games machine
+    tint: true
+    badge: Hands-on games · Built in Yorkshire
     content: |
       # WibbleJelly Games
 
-      WibbleJelly Games design and manufacture innovative games for the Activities Hire Industry. Our original games are compact, easy to set up and economical to run, bringing additional revenue opportunities to your business. Our products suit any party occasion guaranteeing fun for any age group….
+      Arcade-grade games for hire companies, party planners and events that need something people actually remember. Compact, easy to set up, and built to be played hard.
 
-      Got an idea for a game – WibbleJelly Games also offer a custom games design and building service. Contact us to see what we can do.
+      Got an idea for a game? We design and build custom machines in our Yorkshire workshop.
+    buttons:
+      - text: See the games
+        href: /games-sales/
+        variant: primary
+      - text: Start a project
+        href: /contact/
+        variant: secondary
   - type: image-cards
     items:
       - image: SPLAT_Classic.png
@@ -28,4 +39,3 @@ blocks:
         name: Frustration
         description: Simple in concept but frustratingly difficult to master!
         link: /frustration/
----

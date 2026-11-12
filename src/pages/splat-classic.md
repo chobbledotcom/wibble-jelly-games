@@ -23,7 +23,7 @@ blocks:
       This game is great at any fun day, corporate event, wedding, youth club, birthday party or any other event you may be having. SPLAT! is build into a sturdy flight case with a removable lid and is mains powered.
     button:
       text: Contact Us About SPLAT! Classic
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: markdown
     content: |
@@ -75,5 +75,7 @@ blocks:
       *For more information or to purchase a SPLAT! Classis game please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
     button:
       text: Contact Us About SPLAT! Classic
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
+  - type: snippet
+    reference: contact-form

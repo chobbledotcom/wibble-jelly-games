@@ -21,6 +21,5 @@ blocks:
     name: How this page works
     content: |
       Every file in `src/news/` named `YYYY-MM-DD-slug.md` is listed here
-      automatically, newest first. The filename date is the published date. See
-      the [Site Guide](/site-guide/) for the full recipe.
+      automatically, newest first. The filename date is the published date.
 ---

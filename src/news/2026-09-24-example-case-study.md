@@ -61,6 +61,5 @@ blocks:
     content: |
       *How this works: same file format as any news post
       (`src/news/2026-09-24-example-case-study.md`); the `stats`, `gallery`,
-      `image-cards` and `callout` blocks do the layout. See the
-      [Site Guide](/site-guide/).*
+      `image-cards` and `callout` blocks do the layout.*
 ---

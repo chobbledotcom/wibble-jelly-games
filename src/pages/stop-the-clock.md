@@ -21,7 +21,7 @@ blocks:
       Looks so simple yet very difficult to win so ensuring that players want to keep playing as they must manage it next time! And before you ask it is possible to stop it on exactly 10.00 seconds, I did manage it once but only once!
     button:
       text: Contact Us About Stop The Clock
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
   - type: iframe-embed
     src: https://www.youtube.com/embed/nEjpdMJ1kvI?feature=oembed
@@ -59,5 +59,7 @@ blocks:
       *For more information or to purchase Stop The Clock please contact us on +44 (0) 7775 781530, email us at info@wibblejellygames.com* or press the button.
     button:
       text: Contact Us About Stop The Clock
-      href: /contact-form-games-sales/
+      href: "#enquiry"
       variant: primary
+  - type: snippet
+    reference: contact-form

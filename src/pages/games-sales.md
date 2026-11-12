@@ -6,11 +6,21 @@ eleventyNavigation:
   key: Games Sales
   order: 2
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-buttons.jpg
+    image_alt: Close-up of amber and green illuminated arcade buttons on a games machine
+    tint: true
+    badge: Machines built for a hard day's play
     content: |
       # Games Sales
 
-      WibbleJelly Games design and manufacture innovative games for the Activities Hire Industry. Our original games are compact, easy to set up and economical to run, bringing additional revenue opportunities to your business. Our products suit any party occasion guaranteeing fun for any age group.
+      Compact, easy-to-set-up arcade games for the activities hire industry. Built in our Yorkshire workshop from our own designs, with support for every machine we sell.
+
+      Every game is made to survive being played hard, then packed away and taken to the next event.
+    buttons:
+      - text: Talk to the workshop
+        href: /contact/
+        variant: primary
   - type: image-cards
     items:
       - image: SPLAT_Mono.png

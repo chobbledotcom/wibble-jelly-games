@@ -4,7 +4,7 @@ meta_title: Frequently Asked Questions – WibbleJelly Games
 permalink: /frequently-asked-questions/
 eleventyNavigation:
   key: Frequently Asked Questions
-  parent: Terms & Conditions
+  parent: T&Cs
   order: 1
 blocks:
   - type: hero

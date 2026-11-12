@@ -4,7 +4,7 @@ meta_title: Privacy Policy & Cookies – WibbleJelly Games
 permalink: /privacy-policy/
 eleventyNavigation:
   key: Privacy Policy & Cookies
-  parent: Terms & Conditions
+  parent: T&Cs
   order: 2
 blocks:
   - type: hero
