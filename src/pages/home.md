@@ -11,7 +11,7 @@ blocks:
     image: hardware-hero.jpg
     image_alt: Close-up of magenta arcade buttons and machined aluminium knobs on a games machine
     tint: true
-    badge: Family-run · Built in Yorkshire
+    badge: Hands-on games · Built in Yorkshire
     content: |
       # WibbleJelly Games
 
