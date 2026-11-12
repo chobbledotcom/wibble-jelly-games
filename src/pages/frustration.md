@@ -7,7 +7,11 @@ eleventyNavigation:
   parent: Games Sales
   order: 5
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-panel.jpg
+    image_alt: Macro detail of the metal control panel on a games machine
+    tint: true
+    badge: Games Sales · Built in Yorkshire
     content: |
       # Frustration
   - type: split-image

@@ -217,6 +217,26 @@ body.design-system {
   }
 }
 
+.design-system nav.site-nav .site-menu > ul > li:has(> ul a.active) > a {
+  color: var(--color-header-accent);
+}
+
+// The collapsed mobile menu is an overlay on the dark bar, not a cream card.
+@media (width <= 768px) {
+  .design-system nav.site-nav[data-menu][data-collapse="mobile"] {
+    .site-menu {
+      border: 1px solid #3a322b;
+      background: var(--color-header-bg);
+      box-shadow: 0 22px 42px rgb(0 0 0 / 45%);
+    }
+
+    .menu-toggle,
+    .menu-close {
+      color: var(--color-header-text);
+    }
+  }
+}
+
 @media (width <= 768px) {
   .design-system.sticky-mobile-nav nav.site-nav {
     padding-inline: var(--space-md);
@@ -234,17 +254,6 @@ body.design-system {
       height: 4px;
 
       background: var(--color-link);
-    }
-
-    .site-menu {
-      border: 1px solid #3a322b;
-      background: var(--color-header-bg);
-      box-shadow: 0 22px 42px rgb(0 0 0 / 45%);
-    }
-
-    .menu-toggle,
-    .menu-close {
-      color: var(--color-header-text);
     }
   }
 
@@ -265,7 +274,7 @@ body.design-system {
   .site-menu > ul {
     @media (width >= 769px) and (width <= 1279px) {
       flex-wrap: wrap;
-      gap: 0 0.65rem;
+      gap: 0 1.5rem;
       justify-content: center;
     }
 
@@ -280,6 +289,7 @@ body.design-system {
 
     gap: var(--space-lg);
 
+    margin-block: 0;
     margin-inline: 0;
     padding-inline: clamp(1.25rem, 4vw, 3.5rem);
     border-bottom: 1px solid #2e2722;
@@ -307,7 +317,7 @@ body.design-system {
 @media (width >= 769px) and (width <= 1279px) {
   .design-system nav.site-nav .site-menu {
     width: 100%;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
   }
 
   .design-system nav.site-nav .search-box input[type="search"] {
@@ -591,6 +601,27 @@ body.design-system {
 // CARDS
 // =============================================================================
 
+// Product cards get a consistent 4:3 plate with contained artwork. Masonry
+// news cards keep their own ratio and bleed to the card edges.
+.design-system ul.items:not(.masonry) > li .image-link .image-wrapper {
+  display: block;
+  aspect-ratio: 4 / 3 !important;
+  padding: 0;
+  background: #fff !important;
+
+  // Absolutely position so percentage sizing resolves against the plate,
+  // not the image's intrinsic height (which would crop portrait shots).
+  img {
+    position: absolute;
+    inset: var(--space-md);
+
+    width: calc(100% - 2 * var(--space-md));
+    height: calc(100% - 2 * var(--space-md));
+
+    object-fit: contain;
+  }
+}
+
 .design-system ul.items > li,
 .design-system .split > figure {
   border: 1px solid #ded5c7;
@@ -611,28 +642,6 @@ body.design-system {
 
   .image-link img {
     transition: transform 450ms cubic-bezier(0.2, 0.7, 0.3, 1);
-  }
-
-  .image-link .image-wrapper {
-    // Product shots have mixed intrinsic ratios. A consistent 4:3 plate with
-    // contained artwork keeps the catalogue rows even; the per-image
-    // aspect-ratio from the image shortcode is inline, so it needs !important.
-    display: block;
-    aspect-ratio: 4 / 3 !important;
-    padding: 0;
-    background: #fff !important;
-
-    // Absolutely position so percentage sizing resolves against the plate,
-    // not the image's intrinsic height (which would crop portrait shots).
-    img {
-      position: absolute;
-      inset: var(--space-md);
-
-      width: calc(100% - 2 * var(--space-md));
-      height: calc(100% - 2 * var(--space-md));
-
-      object-fit: contain;
-    }
   }
 
   &:hover .image-link img {
@@ -787,11 +796,11 @@ body.design-system {
   scroll-margin-top: 6rem;
 
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+  grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
   gap: var(--space-2xl);
   align-items: start;
 
-  padding-inline: max(var(--space-lg), calc((100vw - 1218px) / 2));
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
 }
 
 .design-system .enquiry__intro {

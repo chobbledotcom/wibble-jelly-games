@@ -4,7 +4,11 @@ import { varPreLine } from "uwrap";
 import { onReady } from "#public/utils/on-ready.js";
 import { memoize } from "#utils/fp/memoize.js";
 
-const GAP = 32;
+const COLUMN_GAP = 32;
+// The card stack uses `--item-gap: 16px`; keeping row placement on the same
+// value means predicted heights match the rendered card and rows do not
+// accumulate a phantom gap.
+const ROW_GAP = 16;
 const MOBILE_BREAKPOINT = 768;
 const CARD_BORDER = 2;
 const ITEM_PADDING_INLINE = 24;
@@ -105,9 +109,13 @@ const placeCards = (container) => {
   const colCount =
     container.offsetWidth < MOBILE_BREAKPOINT
       ? 1
-      : Math.max(2, Math.floor((container.offsetWidth + GAP) / (280 + GAP)));
-  const colWidth = (container.offsetWidth - GAP * (colCount - 1)) / colCount;
-  const metrics = createMetrics(colWidth - CARD_BORDER, GAP);
+      : Math.max(
+          2,
+          Math.floor((container.offsetWidth + COLUMN_GAP) / (280 + COLUMN_GAP)),
+        );
+  const colWidth =
+    (container.offsetWidth - COLUMN_GAP * (colCount - 1)) / colCount;
+  const metrics = createMetrics(colWidth - CARD_BORDER, ROW_GAP);
   const colHeights = new Float64Array(colCount);
 
   for (const card of cards) {
@@ -116,18 +124,18 @@ const placeCards = (container) => {
     card.dataset.height = cardHeight.toFixed(1);
     card.dataset.metrics = JSON.stringify(metrics);
     card.style.width = `${colWidth}px`;
-    card.style.transform = `translate(${col * (colWidth + GAP)}px, ${colHeights[col]}px)`;
-    colHeights[col] += cardHeight + GAP;
+    card.style.transform = `translate(${col * (colWidth + COLUMN_GAP)}px, ${colHeights[col]}px)`;
+    colHeights[col] += cardHeight + ROW_GAP;
   }
 
   const maxH = Math.max(...colHeights);
   ensureValidHeight(maxH, cards.length, container);
-  container.style.height = `${maxH - GAP}px`;
+  container.style.height = `${maxH - ROW_GAP}px`;
   container.classList.add("masonry-ready");
 };
 
 const ensureValidHeight = (maxH, cardCount, container) => {
-  if (!maxH || maxH <= GAP) {
+  if (!maxH || maxH <= ROW_GAP) {
     throw new Error(
       `Masonry container has ${cardCount} cards but computed height is ${maxH}. ` +
         "This usually means getComputedStyle returned NaN values (e.g. unresolved CSS custom properties or missing font metrics). " +

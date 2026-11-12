@@ -4,8 +4,8 @@ meta_title: Games Enquiry – WibbleJelly Games
 permalink: /contact-form-games-sales/
 blocks:
   - type: image-background
-    image: hardware-knobs.jpg
-    image_alt: Knurled knobs and toggle switches on a workshop bench
+    image: hardware-clean.jpg
+    image_alt: Minimal close-up of a machined aluminium knob and toggle switches
     tint: true
     badge: Sales · Custom builds · Support
     content: |

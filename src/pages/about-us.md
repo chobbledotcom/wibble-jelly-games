@@ -7,8 +7,8 @@ eleventyNavigation:
   order: 4
 blocks:
   - type: image-background
-    image: hardware-knobs.jpg
-    image_alt: Knurled knobs and toggle switches on the WibbleJelly workshop bench
+    image: hardware-clean.jpg
+    image_alt: Minimal close-up of a machined aluminium knob and toggle switches
     tint: true
     badge: Family-run · Est. 2015
     content: |

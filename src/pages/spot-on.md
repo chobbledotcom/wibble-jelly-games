@@ -7,7 +7,11 @@ eleventyNavigation:
   parent: Games Sales
   order: 3
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-hero.jpg
+    image_alt: Macro detail of magenta arcade buttons and machined knobs
+    tint: true
+    badge: Games Sales · Built in Yorkshire
     content: |
       # Spot On!
   - type: split-image

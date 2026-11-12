@@ -6,7 +6,11 @@ eleventyNavigation:
   key: T&Cs
   order: 3
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-clean.jpg
+    image_alt: Minimal close-up of a machined aluminium knob and toggle switches
+    tint: true
+    badge: Legal · WibbleJelly Ltd
     content: |
       # Terms & Conditions – Games Sales
   - type: markdown

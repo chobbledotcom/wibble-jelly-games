@@ -4,8 +4,12 @@ meta_title: Search – WibbleJelly Games
 permalink: /search/
 no_index: true
 blocks:
-  - type: section-header
-    intro: |-
+  - type: image-background
+    image: hardware-clean.jpg
+    image_alt: Minimal close-up of a machined aluminium knob and toggle switches
+    tint: true
+    badge: Search the workshop
+    content: |
       # Search
   - type: include
     file: search-box.html

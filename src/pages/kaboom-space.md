@@ -3,7 +3,11 @@ name: Kaboom – Space!
 meta_title: Kaboom – Space! – WibbleJelly Games
 permalink: /kaboom-space/
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-panel.jpg
+    image_alt: Macro detail of the metal control panel on a games machine
+    tint: true
+    badge: Games Sales · Built in Yorkshire
     content: |
       # Kaboom – Space!
   - type: split-image

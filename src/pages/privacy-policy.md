@@ -7,7 +7,11 @@ eleventyNavigation:
   parent: T&Cs
   order: 2
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-clean.jpg
+    image_alt: Minimal close-up of a machined aluminium knob and toggle switches
+    tint: true
+    badge: Legal · Privacy
     content: |
       # Privacy Policy & Cookies
 

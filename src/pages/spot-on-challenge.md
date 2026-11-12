@@ -3,7 +3,11 @@ name: Spot On! – Challenge
 meta_title: Spot On! – Challenge – WibbleJelly Games
 permalink: /spot-on-challenge/
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-panel.jpg
+    image_alt: Macro detail of the metal control panel on a games machine
+    tint: true
+    badge: Games Sales · Built in Yorkshire
     content: |
       # Spot On! – Challenge
   - type: split-image

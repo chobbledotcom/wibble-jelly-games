@@ -207,7 +207,7 @@ describe("masonry layout", () => {
     expect(cards[0].style.width).toBe("280px");
     expect(cards[0].style.transform).toBe("translate(0px, 0px)");
     expect(JSON.parse(cards[0].dataset.metrics)).toEqual({
-      gap: 32,
+      gap: 16,
       padX: 48,
       padY: 48,
       contentWidth: 230,
@@ -248,7 +248,7 @@ describe("masonry layout", () => {
     expect(grid.style.height).not.toBe(heightBefore);
   });
 
-  test.sequential("stacks single-column cards with exact heights and GAP spacing", () => {
+  test.sequential("stacks single-column cards with exact heights and row spacing", () => {
     const card = "<li><p>One</p><p>Two</p></li>";
     // width 500 < MOBILE_BREAKPOINT → one column, so both cards stack.
     const grid = mountGrid("items masonry", card + card, 500);
@@ -258,15 +258,15 @@ describe("masonry layout", () => {
     const cards = [...grid.children];
     const [a, b] = JSON.parse(cards[0].dataset.heights);
     // measureItemCard with no image: extraPadding = padY (48); sumWithGaps
-    // adds CARD_BORDER (2) + both child heights + GAP once (two children).
-    const cardH = 2 + a + b + 32 + 48;
+    // adds CARD_BORDER (2) + both child heights + ROW_GAP once (two children).
+    const cardH = 2 + a + b + 16 + 48;
     expect(cards[0].dataset.height).toBe(cardH.toFixed(1));
     expect(cards[0].style.width).toBe("500px");
     expect(cards[0].style.transform).toBe("translate(0px, 0px)");
-    // Second card sits exactly one card-height + GAP below the first.
-    expect(cards[1].style.transform).toBe(`translate(0px, ${cardH + 32}px)`);
-    // Container height is both cards plus the single GAP between them.
-    expect(grid.style.height).toBe(`${cardH + cardH + 32}px`);
+    // Second card sits exactly one card-height + ROW_GAP below the first.
+    expect(cards[1].style.transform).toBe(`translate(0px, ${cardH + 16}px)`);
+    // Container height is both cards plus the single ROW_GAP between them.
+    expect(grid.style.height).toBe(`${cardH + cardH + 16}px`);
   });
 
   test.sequential("measures item cards with images, content, and buttons", () => {
@@ -289,22 +289,22 @@ describe("masonry layout", () => {
 
     const cards = [...grid.children];
     // Card 0 — image + one content paragraph. Height is
-    //   (imgHeight - CARD_BORDER) + [CARD_BORDER + p + (padY/2 + gap)]
-    //   = imgHeight + p + 56.
+    //   (imgHeight - CARD_BORDER) + [CARD_BORDER + p + (padY/2 + ROW_GAP)]
+    //   = imgHeight + p + 40.
     const img0 = Number.parseFloat(
       cards[0].querySelector(".image-wrapper").dataset.height,
     );
     const [p0] = JSON.parse(cards[0].dataset.heights);
-    expect(cards[0].dataset.height).toBe((img0 + p0 + 56).toFixed(1));
+    expect(cards[0].dataset.height).toBe((img0 + p0 + 40).toFixed(1));
 
     // Card 1 — image + button, no content children. The button still counts
-    // as content, so the image extra-padding (padY/2 + gap) applies:
-    //   (imgHeight - 2) + [2 + buttonHeight(44) + 56] = imgHeight + 100.
+    // as content, so the image extra-padding (padY/2 + ROW_GAP) applies:
+    //   (imgHeight - 2) + [2 + buttonHeight(44) + 40] = imgHeight + 84.
     const img1 = Number.parseFloat(
       cards[1].querySelector(".image-wrapper").dataset.height,
     );
     expect(JSON.parse(cards[1].dataset.heights)).toEqual([]);
-    expect(cards[1].dataset.height).toBe((img1 + 44 + 56).toFixed(1));
+    expect(cards[1].dataset.height).toBe((img1 + 44 + 40).toFixed(1));
   });
 
   test.sequential("measures wrapped text as more than one line", () => {

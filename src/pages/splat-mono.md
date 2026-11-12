@@ -7,7 +7,11 @@ eleventyNavigation:
   parent: Games Sales
   order: 1
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-buttons.jpg
+    image_alt: Macro detail of illuminated arcade buttons on a games machine
+    tint: true
+    badge: Games Sales · Built in Yorkshire
     content: |
       # SPLAT! – Mono
   - type: split-image

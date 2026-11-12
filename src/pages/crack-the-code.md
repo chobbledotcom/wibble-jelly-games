@@ -7,7 +7,11 @@ eleventyNavigation:
   parent: Games Sales
   order: 8
 blocks:
-  - type: hero
+  - type: image-background
+    image: hardware-clean.jpg
+    image_alt: Macro detail of a machined aluminium knob and toggle switches
+    tint: true
+    badge: Games Sales · Built in Yorkshire
     content: |
       # Crack The Code
   - type: split-image
