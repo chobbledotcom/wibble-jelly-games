@@ -10,7 +10,7 @@ blocks:
     image: hardware-buttons.jpg
     image_alt: Macro detail of illuminated arcade buttons on a games machine
     tint: true
-    badge: Workshop journal
+    badge: Workshop notes
     content: |
       # News
 

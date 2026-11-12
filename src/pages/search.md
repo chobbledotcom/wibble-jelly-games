@@ -8,7 +8,7 @@ blocks:
     image: hardware-clean.jpg
     image_alt: Minimal close-up of a machined aluminium knob and toggle switches
     tint: true
-    badge: Search the workshop
+    badge: Search the site
     content: |
       # Search
   - type: include

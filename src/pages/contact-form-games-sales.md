@@ -7,10 +7,10 @@ blocks:
     image: hardware-clean.jpg
     image_alt: Minimal close-up of a machined aluminium knob and toggle switches
     tint: true
-    badge: Sales · Custom builds · Support
+    badge: Games sales
     content: |
       # Games enquiry
 
-      Tell us which game you are interested in, what kind of event you run, or what you would like us to build. We will reply with prices, lead times and honest advice.
+      Tell us which game you are interested in, what kind of event you run, or what you want built. We will reply with prices, lead times and what we can do.
   - type: snippet
     reference: contact-form

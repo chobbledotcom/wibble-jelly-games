@@ -11,7 +11,7 @@ blocks:
     image: hardware-clean.jpg
     image_alt: Minimal close-up of a machined aluminium knob and toggle switches
     tint: true
-    badge: Support · Before you ask
+    badge: Support
     content: |
       # Frequently Asked Questions
   - type: faqs

@@ -13,6 +13,7 @@ This is the canonical handwritten engineering policy and workflow. Consult:
 - [Library map](src/_lib/README.md) for architecture and extension points.
 - [Test quality criteria](test/TEST-QUALITY-CRITERIA.md) for the mandatory test standards. Apply every criterion; do not duplicate that checklist elsewhere.
 - [Block reference](skills/cfa-static-site-builder/references/blocks.md) for the generated content model and block authoring API; [layouts](skills/cfa-static-site-builder/references/layouts.md) for authored rendering guidance.
+- [Voice guide](docs/voice-guide.md) for marketing and editorial copy. Keep legal, technical, pricing, and contact text literal.
 
 ## Change Workflow
 

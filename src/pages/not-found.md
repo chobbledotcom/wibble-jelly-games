@@ -8,13 +8,13 @@ blocks:
     image: hardware-clean.jpg
     image_alt: Minimal close-up of a machined aluminium knob and toggle switches
     tint: true
-    badge: Lost in the workshop
+    badge: Page not found
     content: |
       # Page Not Found
 
-      This page could not be found. Head back to the homepage to find what you need.
+      This page could not be found. Go back to the homepage.
     buttons:
-      - text: Back to the homepage
+      - text: Go to the homepage
         href: /
         variant: primary
 ---

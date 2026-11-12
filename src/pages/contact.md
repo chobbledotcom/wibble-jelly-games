@@ -11,13 +11,11 @@ blocks:
     image: hardware-panel.jpg
     image_alt: Close-up of the metal control panel on a WibbleJelly games machine
     tint: true
-    badge: Yorkshire-built · Since 2015
+    badge: Family-run · Yorkshire
     content: |
       # Contact
 
-      Questions about a game, a custom build or an order? Talk to the people who actually make the machines.
-
-      Email [info@wibblejellygames.com](mailto:info@wibblejellygames.com) or call [+44 (0) 7775 781530](tel:+447775781530).
+      Questions about a game, a custom build or an order? Email [info@wibblejellygames.com](mailto:info@wibblejellygames.com) or call [+44 (0) 7775 781530](tel:+447775781530).
   - type: snippet
     reference: contact-form
   - type: features

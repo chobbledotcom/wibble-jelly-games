@@ -14,7 +14,7 @@ blocks:
     content: |
       # About Us
 
-      A family-run Yorkshire workshop designing and building games that survive real events, real queues and thousands of players.
+      WibbleJelly Games is a family-run business in Yorkshire. We design, build and support our own games, and we test new ones at Scout camps and jamborees before they go on sale.
   - type: markdown
     content: |
       We have our own workshop equipped with a Laser Cutter, CNC Router, 3D Printer, Lathe and a Pick & Place Machine for making PCBs. We have a background in Electronics and Software Engineering. We pride ourselves on designing and building all of the games we sell, we will always support any game we sell. We do not import completed games from the Far East and pass them off as our own!

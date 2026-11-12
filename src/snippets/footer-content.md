@@ -4,8 +4,8 @@ name: Footer Content
 <div class="footer-grid">
   <div class="footer-brand">
     <p class="footer-wordmark">WibbleJelly Games<span>.</span></p>
-    <p class="footer-blurb">Arcade-grade games and activities, designed and hand-built in our Yorkshire workshop. No imports, no shortcuts: every machine is made to survive a week of being played hard.</p>
-    <p class="footer-tag">Built in Yorkshire · Played everywhere</p>
+    <p class="footer-blurb">WibbleJelly Games is a family-run Yorkshire business. We design and build every game we sell, and we support it after it leaves the workshop.</p>
+    <p class="footer-tag">Built in Yorkshire</p>
   </div>
   <nav class="footer-col" aria-label="Games">
     <h2 class="footer-heading">Games</h2>

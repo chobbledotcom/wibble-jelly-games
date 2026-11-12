@@ -10,15 +10,15 @@ blocks:
     image: hardware-buttons.jpg
     image_alt: Close-up of amber and green illuminated arcade buttons on a games machine
     tint: true
-    badge: Machines built for a hard day's play
+    badge: For the activities hire trade
     content: |
       # Games Sales
 
-      Compact, easy-to-set-up arcade games for the activities hire industry. Built in our Yorkshire workshop from our own designs, with support for every machine we sell.
+      We design and manufacture games for the activities hire industry. Every machine is built in our Yorkshire workshop, packs down for transport, and is supported by us after the sale.
 
-      Every game is made to survive being played hard, then packed away and taken to the next event.
+      The range below is our own work. If you need something different, we also take on custom builds.
     buttons:
-      - text: Talk to the workshop
+      - text: Contact us
         href: /contact/
         variant: primary
   - type: image-cards
