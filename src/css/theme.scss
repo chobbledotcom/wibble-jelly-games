@@ -1,44 +1,705 @@
-// WibbleJelly Games theme — token overrides mapped from the captured source
-// (capture/palette-typography.md and the Radiate theme stylesheet):
-// links/buttons/accents #632E9B, body text #444444, meta text #999999,
-// borders #EAEAEA, white background, 1218px container, Roboto everywhere.
-// On top of the capture mapping, a few deliberate pro-polish departures:
-// slightly larger radii, a brand-tinted hover background, a darker link
-// hover (the source kept link colour unchanged on hover), and a soft shadow.
+// WibbleJelly Games theme — "workshop catalogue"
+//
+// The brand is a Yorkshire workshop that hand-builds arcade-grade games, so
+// the page reads like a well-printed product catalogue: warm paper, dark ink,
+// hairline rules, one hot magenta from the logotype, and the flag's navy for
+// solid panels. Type does the talking: Fraunces (letterpress warmth) for
+// display, Karla for reading, IBM Plex Mono for plate/spec labels.
+//
+// Deliberate rejections, so later edits do not drift back to them:
+//   - no purple accents (the captured WordPress theme's #632e9b was a theme
+//     default, not brand);
+//   - no gradient panels, glass/blur, or floating lavender shadows;
+//   - no pill cards or oversized corner radii (2px here, like a printed
+//     ticket edge);
+//   - buttons keep a hard offset shadow instead of a soft lift, so they read
+//     as physical machine keys.
 :root {
   --width-content: 1218px;
-  --color-bg: #fff;
-  --body-background: #fff;
-  --body-background-alt: #f5f5f5;
-  --color-card-bg: #fff;
-  --color-text: #444;
-  --color-text-muted: #999;
-  --color-link: #632e9b;
-  --color-link-hover: #52277e;
-  --color-tint: #f3ecf9;
-  --color-secondary: #632e9b;
-  --color-accent: #632e9b;
-  --color-hover-bg: rgb(99 46 155 / 6%);
-  --border: 1px solid #eaeaea;
-  --border-radius: 6px;
-  --box-shadow: 0 1px 2px rgb(0 0 0 / 6%), 0 4px 12px rgb(99 46 155 / 8%);
-  --font-family-body: roboto, system-ui, -apple-system, "Segoe UI", arial, sans-serif;
-  --font-family-heading: roboto, system-ui, -apple-system, "Segoe UI", arial, sans-serif;
+  --color-bg: #faf6ef;
+  --body-background: #faf6ef;
+  --body-background-alt: #f1ebe1;
+  --color-card-bg: #fdfbf6;
+  --color-text: #1c1713;
+  --color-text-muted: #6a6157;
+  --color-link: #b80070;
+  --color-link-hover: #8a1c56;
+  --color-tint: #f2e3ea;
+  --color-secondary: #101b52;
+  --color-accent: #b80070;
+  --color-hover-bg: rgb(184 0 112 / 7%);
+  --color-contrast-text: #faf6ef;
+  --color-contrast-text-muted: rgb(250 246 239 / 72%);
+  --color-dark-bg: #101b52;
+  --color-dark-bg-alt: #17245f;
+  --color-gradient-start: rgb(184 0 112 / 12%);
+  --color-gradient-end: rgb(16 27 82 / 12%);
+  --color-video-play-bg: #101b52;
+  --color-video-play-hover: #b80070;
+  --border: 1px solid #ded5c7;
+  --border-radius: 2px;
+  --box-shadow: 0 12px 30px rgb(28 23 19 / 12%);
+  --font-family-body: "Karla", system-ui, -apple-system, "Segoe UI", arial,
+    sans-serif;
+  --font-family-heading: "Fraunces", "Iowan Old Style", georgia, serif;
+  --font-family-mono: "IBM Plex Mono", ui-monospace, menlo, consolas,
+    monospace;
   --link-decoration: none;
-  --link-decoration-hover: none;
+  --link-decoration-hover: underline;
+  --link-decoration-style: solid;
+  --list-marker-content: "– ";
+  --list-marker-color: #b80070;
 }
 
-// Text site title rendered by the navigation-start.html override
-// (the source shows the site name as plain text; its tagline is display:none).
-.site-title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #444;
-  text-decoration: none;
-  white-space: nowrap;
+// A 4px magenta rule across the top of the page is the masthead in one line.
+body.design-system {
+  border-top: 4px solid var(--color-link);
+}
+
+.design-system {
+  ::selection {
+    color: var(--color-contrast-text);
+    background: var(--color-link);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    letter-spacing: -0.025em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  // In running text a magenta link is only 2.8:1 from the ink around it, so
+  // the underline is required here (WCAG 1.4.1), not decoration.
+  .prose a:not(.btn),
+  p a:not(.btn),
+  dd a,
+  figcaption a {
+    text-decoration: underline;
+    text-decoration-color: rgb(184 0 112 / 45%);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+
+    transition:
+      color 150ms ease,
+      text-decoration-color 150ms ease;
+
+    &:hover {
+      color: var(--color-link-hover);
+      text-decoration-color: currentcolor;
+    }
+  }
+}
+
+// =============================================================================
+// MASTHEAD
+// =============================================================================
+
+.design-system nav.site-nav {
+  border-bottom: 1px solid #ded5c7;
+  background: var(--color-bg);
+  box-shadow: none;
+}
+
+.design-system nav.site-nav .site-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+
+  // The logotype's pink "Jelly": a small magenta dot after the wordmark.
+  &::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 0.28em;
+    height: 0.28em;
+    margin-left: 0.12em;
+    border-radius: 50%;
+
+    vertical-align: baseline;
+
+    background: var(--color-link);
+
+    transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1.4);
+  }
 
   &:hover,
   &:focus {
-    color: #632e9b;
+    color: var(--color-text);
+
+    &::after {
+      transform: scale(1.35);
+    }
+  }
+}
+
+.design-system nav.site-nav .site-menu {
+  font-family: var(--font-family-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  a {
+    color: var(--color-text);
+
+    &:hover,
+    &.active {
+      color: var(--color-link);
+    }
+  }
+
+  // Top-level items get a rule that draws in on hover/current; the caret on
+  // parent items owns ::after, so this uses ::before.
+  > ul > li > a {
+    position: relative;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      right: 0;
+      bottom: -0.45rem;
+      left: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+
+      height: 2px;
+
+      background: var(--color-link);
+
+      transition: transform 220ms cubic-bezier(0.2, 0.7, 0.3, 1);
+    }
+
+    &:hover::before,
+    &.active::before {
+      transform: scaleX(1);
+    }
+  }
+
+  > ul > li:has(> ul a.active) > a::before {
+    transform: scaleX(1);
+  }
+}
+
+@media (width <= 768px) {
+  .design-system.sticky-mobile-nav nav.site-nav {
+    padding-inline: var(--space-md);
+
+    // The fixed bar covers the body's masthead rule; draw it back inside.
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      height: 4px;
+
+      background: var(--color-link);
+    }
+  }
+
+  .design-system nav.site-nav .site-title {
+    font-size: 1.4rem;
+  }
+
+  .design-system nav.site-nav .site-menu {
+    font-size: 0.8rem;
+  }
+}
+
+// The desktop bar is full-bleed with editorial gutters instead of the
+// design system's floating inset card. The :not() mirrors the design system
+// selector so this later rule wins the specificity tie.
+@media (width >= 769px) {
+  .design-system.horizontal-nav
+    nav.site-nav:not([data-menu][data-collapse="always"]) {
+    top: 0;
+
+    gap: var(--space-lg);
+
+    margin-inline: 0;
+    padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+    border-radius: 0;
+  }
+}
+
+// Keep the wordmark on one line; from 1280px the menu is a single row too.
+@media (width >= 769px) and (width <= 1279px) {
+  .design-system.horizontal-nav
+    nav.site-nav:not([data-menu][data-collapse="always"]) {
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: center;
+    padding-block: var(--space-sm);
+  }
+
+  .design-system nav.site-nav .site-title {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .design-system nav.site-nav .site-menu {
+    width: 100%;
+    font-size: 0.68rem;
+  }
+
+  .design-system.horizontal-nav
+    nav.site-nav:not([data-menu][data-collapse="always"])
+    .site-menu
+    > ul {
+    flex-wrap: wrap;
+    gap: 0 0.65rem;
+    justify-content: center;
+  }
+
+  .design-system nav.site-nav .search-box input[type="search"] {
+    width: 5.5rem;
+  }
+}
+
+@media (width >= 1280px) {
+  .design-system nav.site-nav .site-title {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .design-system.horizontal-nav
+    nav.site-nav:not([data-menu][data-collapse="always"])
+    .site-menu
+    > ul {
+    flex-wrap: nowrap;
+    gap: 0 1rem;
+  }
+
+  .design-system nav.site-nav .search-box input[type="search"] {
+    width: 7rem;
+  }
+}
+
+.design-system .search-box {
+  border: 1px solid #ded5c7;
+  border-radius: 0;
+  background: var(--color-card-bg);
+
+  &:focus-within {
+    border-color: var(--color-text);
+    box-shadow: none;
+  }
+
+  input[type="search"] {
+    padding-inline: 0.75rem;
+    font-family: var(--font-family-body);
+    background: transparent;
+  }
+
+  button {
+    padding-inline: var(--space-sm);
+    border-radius: 0;
+    color: var(--color-contrast-text);
+    background: var(--color-text);
+
+    &:hover {
+      background: var(--color-link);
+    }
+  }
+}
+
+// =============================================================================
+// HERO
+// =============================================================================
+
+.design-system .hero {
+  border-bottom: 1px solid #ded5c7;
+
+  .prose {
+    max-width: 52rem;
+  }
+
+  h1::before {
+    content: "";
+
+    display: block;
+
+    width: 2.5rem;
+    height: 3px;
+    margin: 0 auto 1.1rem;
+
+    background: var(--color-link);
+  }
+
+  p {
+    max-width: 58ch;
+    margin-inline: auto;
+  }
+}
+
+// =============================================================================
+// SECTIONS & PANELS
+// =============================================================================
+
+.design-system main > section:not(.hero) {
+  border-top: 1px solid #e6ded1;
+}
+
+// Long-form blocks get a reading measure; without it the 1218px canvas runs
+// to ~140 characters per line. Tables still scroll inside their wrapper.
+.design-system
+  main
+  > section:not(.hero)
+  :is(.container, .container-wide, .container-narrow)
+  > .prose,
+.design-system main > section:not(.hero) > .prose {
+  width: 100%;
+  max-width: 68ch;
+  margin-inline: auto;
+  font-size: 1.0625rem;
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+// Section labels in the product sheets (authored as bold italic h4) read as
+// plate headings, not body copy.
+.design-system .prose h4 {
+  padding-left: var(--space-sm);
+  border-left: 3px solid var(--color-link);
+  font-size: 1.125rem;
+  letter-spacing: 0;
+}
+
+.design-system section.dark {
+  --color-bg: #101b52;
+  --color-text: #faf6ef;
+  --color-text-muted: #c9c1b4;
+  --color-card-bg: #17245f;
+  --body-background-alt: #17245f;
+  --color-tint: #17245f;
+  --color-link: #ff9ecb;
+  --color-link-hover: #ffd0e6;
+
+  background: #101b52;
+}
+
+.design-system section.dark .feature,
+.design-system section.dark .feature-card,
+.design-system section.dark .add-on-card {
+  --color-card-bg: #17245f;
+}
+
+.design-system section.dark .btn--primary,
+.design-system footer .btn--primary {
+  border-color: #ff9ecb;
+  color: #1c1713;
+  background: #ff9ecb;
+}
+
+// =============================================================================
+// BUTTONS — hard offset shadow, so a press physically seats the key.
+// =============================================================================
+
+.design-system .btn {
+  padding: 0.85rem 1.4rem;
+  border-width: 2px;
+  border-radius: 2px;
+
+  font-family: var(--font-family-body);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+
+  box-shadow: 3px 3px 0 rgb(28 23 19 / 16%);
+
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease;
+
+  &:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 rgb(28 23 19 / 16%);
+  }
+
+  &:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+  }
+}
+
+.design-system .btn--primary {
+  border-color: var(--color-link);
+  color: #fff;
+  background: var(--color-link);
+  box-shadow: 3px 3px 0 #1c1713;
+
+  &:hover {
+    border-color: var(--color-link-hover);
+    color: #fff;
+    background: var(--color-link-hover);
+  }
+}
+
+.design-system .btn--secondary {
+  border-color: var(--color-text);
+  color: var(--color-text);
+  background: transparent;
+  box-shadow: 3px 3px 0 var(--color-tint);
+
+  &:hover {
+    border-color: var(--color-text);
+    color: var(--color-contrast-text);
+    background: var(--color-text);
+  }
+}
+
+.design-system .btn--ghost {
+  box-shadow: none;
+
+  &:hover {
+    color: var(--color-link);
+    background: var(--color-hover-bg);
+  }
+}
+
+// =============================================================================
+// CARDS
+// =============================================================================
+
+.design-system ul.items > li {
+  border: 1px solid #ded5c7;
+  border-radius: 2px;
+
+  background: var(--color-card-bg);
+  box-shadow: none;
+
+  transition:
+    transform 250ms cubic-bezier(0.2, 0.7, 0.3, 1),
+    border-color 250ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-text);
+  }
+
+  .image-link img {
+    transition: transform 450ms cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .image-link .image-wrapper {
+    // Product shots have mixed intrinsic ratios. A consistent 4:3 plate with
+    // contained artwork keeps the catalogue rows even; the per-image
+    // aspect-ratio from the image shortcode is inline, so it needs !important.
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 4 / 3 !important;
+    padding: var(--space-md);
+
+    background: #fff !important;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &:hover .image-link img {
+    transform: scale(1.03);
+  }
+
+  h3 {
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.15em;
+      }
+    }
+  }
+
+  > p:not(.price) {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+}
+
+.design-system .split > figure {
+  border: 1px solid #ded5c7;
+  border-radius: 2px;
+  background: var(--color-card-bg);
+  box-shadow: 8px 8px 0 var(--color-tint);
+}
+
+.design-system .badge {
+  border-radius: 2px;
+
+  font-family: var(--font-family-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.design-system .callout {
+  border-left-width: 3px;
+  border-radius: 2px;
+}
+
+// =============================================================================
+// CONTENTS — printed tables and plate labels
+// =============================================================================
+
+.design-system .prose {
+  blockquote {
+    border-left: 3px solid var(--color-link);
+    font-family: var(--font-family-heading);
+    font-size: 1.25rem;
+    font-style: italic;
+  }
+
+  table {
+    border: 1px solid #ded5c7;
+    border-radius: 0;
+  }
+
+  thead {
+    color: var(--color-text);
+    background: transparent;
+  }
+
+  th {
+    border-bottom: 1px solid var(--color-text);
+
+    font-family: var(--font-family-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  td {
+    border-top: 1px solid #e6ded1;
+  }
+}
+
+.design-system a.downloads__link {
+  border: 1px solid #ded5c7;
+  border-radius: 2px;
+}
+
+.design-system .downloads__affordance {
+  font-family: var(--font-family-mono);
+  letter-spacing: 0.08em;
+}
+
+.design-system .stat dd strong {
+  font-family: var(--font-family-heading);
+  letter-spacing: -0.03em;
+}
+
+.design-system pre {
+  border-radius: 2px;
+  background: var(--color-secondary);
+}
+
+// =============================================================================
+// CTA — a navy plate with a print grid, squared corners, one magenta edge.
+// =============================================================================
+
+.design-system .cta {
+  border: 1px solid var(--color-secondary);
+  border-top: 4px solid var(--color-link);
+  border-radius: 2px;
+
+  background-color: var(--color-secondary);
+  background-image:
+    linear-gradient(rgb(250 246 239 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(250 246 239 / 5%) 1px, transparent 1px);
+  background-size: 24px 24px;
+  box-shadow: 8px 8px 0 var(--color-tint);
+
+  .btn--secondary {
+    border-color: rgb(250 246 239 / 55%);
+    color: var(--color-contrast-text);
+    box-shadow: none;
+
+    &:hover {
+      border-color: var(--color-link);
+      color: #fff;
+      background: var(--color-link);
+    }
+  }
+
+  .btn--primary {
+    box-shadow: 0 0 0 1px rgb(250 246 239 / 35%);
+  }
+}
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+.design-system footer {
+  border-top: 3px solid var(--color-link);
+
+  font-family: var(--font-family-mono);
+  font-size: 0.78rem;
+  color: #cfc6b8;
+  letter-spacing: 0.02em;
+
+  background: var(--color-secondary);
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: var(--color-contrast-text);
+
+    &:hover {
+      color: #ff9ecb;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .design-system .btn,
+  .design-system ul.items > li,
+  .design-system ul.items > li .image-link img,
+  .design-system nav.site-nav .site-title::after,
+  .design-system nav.site-nav .site-menu > ul > li > a::before {
+    transition: none;
   }
 }
