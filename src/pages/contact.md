@@ -5,7 +5,7 @@ permalink: /contact/
 schema_type: organization
 eleventyNavigation:
   key: Contact
-  order: 5
+  order: 6
 blocks:
   - type: image-background
     image: hardware-panel.jpg

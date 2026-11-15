@@ -23,6 +23,8 @@ name: Footer Content
     <ul class="footer-links">
       <li><a href="/about-us/">About Us</a></li>
       <li><a href="/news/">News</a></li>
+      <li><a href="/fete-game-ideas/">Fete game ideas</a></li>
+      <li><a href="/how-to-run-a-fete/">How to run a fete</a></li>
       <li><a href="/contact/">Contact</a></li>
       <li><a href="/frequently-asked-questions/">FAQs</a></li>
       <li><a href="/terms-conditions/">Terms &amp; Conditions</a></li>
@@ -45,6 +47,5 @@ name: Footer Content
   <ul class="footer-legal-links">
     <li><a href="https://find-and-update.company-information.service.gov.uk/company/06951967">Companies House</a></li>
     <li><a href="https://www.facebook.com/WibbleJellyGames/">Facebook</a></li>
-    <li><a href="https://www.fetefun.co.uk/">Fetefun</a></li>
   </ul>
 </div>
