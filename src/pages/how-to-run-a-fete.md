@@ -5,8 +5,8 @@ meta_description: A practical timeline for running a school or village fete, fro
 permalink: /how-to-run-a-fete/
 eleventyNavigation:
   key: How To Run A Fete
-  parent: Fete Game Ideas
-  order: 1
+  parent: Fetes
+  order: 2
 blocks:
   - type: image-background
     image: hardware-clean.jpg

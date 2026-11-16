@@ -99,7 +99,10 @@
   &.horizontal-nav {
     @include breakpoint.up("md") {
       #{$expanded-nav} {
-        @include nav.nav-horizontal-layout($space-lg, $space-xs);
+        @include nav.nav-horizontal-layout(
+          calc(#{$space-lg} + #{$space-xs}),
+          $space-xs
+        );
 
         position: sticky;
         z-index: $z-sticky;

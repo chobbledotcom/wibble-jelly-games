@@ -5,7 +5,8 @@ meta_description: Sixty fete game ideas, stall instructions and a profitability 
 permalink: /fete-game-ideas/
 eleventyNavigation:
   key: Fete Game Ideas
-  order: 4
+  parent: Fetes
+  order: 1
 blocks:
   - type: image-background
     image: hardware-buttons.jpg
