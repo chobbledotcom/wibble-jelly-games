@@ -30,4 +30,4 @@ blocks:
         description: Monday to Friday, 9:00–18:00 (GMT/BST/UTC).
       - icon: hugeicons:building-02
         name: Company records
-        description: WibbleJelly Games is the trading name of WibbleJelly Ltd, registered in England No. 6951967. [View on Companies House](https://find-and-update.company-information.service.gov.uk/company/06951967).
+        description: WibbleJelly Games is the trading name of WibbleJelly Ltd, registered in England No. 6951967.

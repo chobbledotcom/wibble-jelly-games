@@ -45,7 +45,6 @@ name: Footer Content
   <p>© 2026 WibbleJelly Games. All rights reserved.</p>
   <p>WibbleJelly Games is a trading name of WibbleJelly Ltd. Registered in England No. 6951967.</p>
   <ul class="footer-legal-links">
-    <li><a href="https://find-and-update.company-information.service.gov.uk/company/06951967">Companies House</a></li>
     <li><a href="https://www.facebook.com/WibbleJellyGames/">Facebook</a></li>
   </ul>
 </div>
